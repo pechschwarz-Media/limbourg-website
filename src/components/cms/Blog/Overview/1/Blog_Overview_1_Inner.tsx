@@ -14,7 +14,6 @@ import { useInView as useIntersectionObserverInView } from 'react-intersection-o
 import useSWR from 'swr';
 import Blog_Card_1 from '../../Card/1/Blog_Card_1';
 import Blog_Card_Large_1 from '../../Card/Large/1/Blog_Card_Large_1';
-import { BlogOverview1Props } from './Blog_Overview_1_Preview';
 
 const textVariants = cva('max-w-lg', {
     variants: {
@@ -39,7 +38,7 @@ export default function Blog_Overview_1_Inner({
     category,
     total,
 }: {
-    content: BlogOverview1Props;
+    content: any;
     featured: PostPreview | undefined | null;
     categories: Category[];
     posts: PostPreview[];

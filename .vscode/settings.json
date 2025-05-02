@@ -1,7 +1,0 @@
-{
-    "css.lint.unknownAtRules": "ignore",
-    "editor.codeActionsOnSave": {
-        "source.removeUnusedImports": "always",
-        "source.sortImports": "always"
-    }
-}
