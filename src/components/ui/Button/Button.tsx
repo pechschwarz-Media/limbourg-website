@@ -1,3 +1,4 @@
+import ArrowRight from '@/components/icons/ArrowRight';
 import { AcfLink } from '@/lib/types';
 import { cn } from '@/lib/utils';
 import { cva, VariantProps } from 'class-variance-authority';
@@ -21,6 +22,21 @@ export const buttonVariants = cva(
     },
 );
 
+const arrowVariants = cva('', {
+    variants: {
+        variant: {
+            primary: 'hidden',
+            light: 'hidden',
+            dark: 'hidden',
+            glass: 'hidden',
+            text: 'text-brand-primary',
+        },
+    },
+    defaultVariants: {
+        variant: 'primary',
+    },
+});
+
 type AsButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & { as: 'button' };
 type AsLinkProps = Omit<React.AnchorHTMLAttributes<HTMLAnchorElement> & { as: 'link'; link: AcfLink }, 'href'>;
 
@@ -41,6 +57,12 @@ export function Button({ className, ...props }: ButtonBaseProps) {
                 {...rest}
                 role="link">
                 {props.children}
+                <ArrowRight
+                    className={cn(
+                        'size-6 mr-1 group-hover:translate-x-1 transition-all duration-100',
+                        arrowVariants({ variant }),
+                    )}
+                />
             </Link>
         );
     }

@@ -9,11 +9,11 @@ import { VariantProps, cva } from 'class-variance-authority';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const cardVariants = cva('group block rounded-xl p-theme-xl', {
+const cardVariants = cva('group block rounded-xl', {
     variants: {
         variant: {
             dark: 'bg-neutral-900 text-text-alternate',
-            light: 'bg-neutral-100 text-text-primary',
+            light: 'text-text-primary',
             darkPrimary: 'bg-brand-primary-900 text-text-alternate',
             lightPrimary: 'bg-brand-primary-100 text-text-primary',
         },
@@ -62,7 +62,7 @@ export default function Blog_Card_1({ post, variant, showAuthor, showButton }: B
             )}
             {post?.categories?.length > 0 && (
                 <div className="mb-theme-xl">
-                    <div className="flex gap-theme-md">
+                    <div className="flex gap-theme-md items-center">
                         {post?.categories?.map((category, index) => {
                             return (
                                 <Tag
@@ -72,6 +72,7 @@ export default function Blog_Card_1({ post, variant, showAuthor, showButton }: B
                                 </Tag>
                             );
                         })}
+                        {post?.date && <p>{post?.date}</p>}
                     </div>
                 </div>
             )}
@@ -83,10 +84,6 @@ export default function Blog_Card_1({ post, variant, showAuthor, showButton }: B
                         tagline: '',
                         headline: post?.title,
                     }}
-                />
-                <Wysiwyg
-                    text={`<p>${post?.excerpt}</p>`}
-                    className={cn(textVariants({ variant }))}
                 />
             </div>
             {showButton && (

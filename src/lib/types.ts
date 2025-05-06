@@ -54,6 +54,13 @@ export type AcfFile = {
     type: string;
 };
 
+export type ImageType = {
+    url: string;
+    alt: string;
+    width: number;
+    height: number;
+};
+
 export type AcfHeadline = {
     style: 'h0' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
     tagline?: string;
@@ -66,7 +73,25 @@ export type AcfMedia = {
     media_mobile: AcfFile | false;
 };
 
-export type Options = {};
+export type Options = {
+    footeroptions: FooterOptions;
+    logos: {
+        logolight: ImageType;
+        logodark: ImageType;
+    };
+};
+
+export type FooterOptions = {
+    leftside: {
+        adress: string;
+    };
+    menulist: { menuitem: AcfLink }[];
+    rightside: {
+        text: string;
+        button: AcfLink;
+        sociallinks: { icon: ImageType; link: AcfLink }[];
+    };
+};
 
 export type Variant = VariantProps<typeof sectionVariants>['variant'];
 

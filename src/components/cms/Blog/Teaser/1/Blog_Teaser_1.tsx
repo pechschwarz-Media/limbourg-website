@@ -5,6 +5,7 @@ import Blog_Teaser_1_Inner from './Blog_Teaser_1_Inner';
 export type BlogTeaser1Props = {
     textblock: AcfTextBlock;
     amount: number;
+    allposts: true;
     posttype: string;
     category: number[] | false;
     showAuthor: true;

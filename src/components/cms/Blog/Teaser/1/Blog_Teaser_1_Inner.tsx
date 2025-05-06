@@ -9,8 +9,10 @@ import { motion, useInView } from 'motion/react';
 import { useRef } from 'react';
 import Blog_Card_1 from '../../Card/1/Blog_Card_1';
 import { BlogTeaser1Props } from './Blog_Teaser_1';
+import { Button } from '@/components/ui/Button/Button';
+import { url } from 'inspector';
 
-const textVariants = cva('max-w-lg', {
+const textVariants = cva('w-full', {
     variants: {
         textAlign: {
             center: 'mx-auto text-center',
@@ -42,10 +44,20 @@ export default function Blog_Teaser_1_Inner({ content, posts }: { content: BlogT
                         style={{ opacity: 0, y: 100 }}
                         transition={{ duration: 0.5 }}
                         className={cn(textVariants({ textAlign: content?.textAlign }))}>
-                        <TextBlock
-                            variant={content?.settings?.variant}
-                            textblock={content?.textblock}
-                        />
+                        <div className="flex flex-col lg:flex-row gap-4 lg:justify-between items-start lg:items-center">
+                            <TextBlock
+                                variant={content?.settings?.variant}
+                                textblock={content?.textblock}
+                            />
+                            {content?.allposts && (
+                                <Button
+                                    as="link"
+                                    variant="light"
+                                    link={{ url: '/blog', title: '', target: '_self' }}>
+                                    Alle Beiträge
+                                </Button>
+                            )}
+                        </div>
                     </motion.div>
                 )}
                 <div className="grid md:grid-cols-3 gap-theme-3xl">
