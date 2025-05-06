@@ -4,7 +4,7 @@ import { IconArrowRight } from '@/components/icons/IconArrowRight';
 import { Logo } from '@/components/static/Logo/Logo';
 import { LogoInverted } from '@/components/static/LogoInverted/LogoInverted';
 import { Button } from '@/components/ui/Button/Button';
-import { FooterOptions } from '@/lib/types';
+import { FooterOptions, ImageType } from '@/lib/types';
 import { cn } from '@/lib/utils';
 import { cva, VariantProps } from 'class-variance-authority';
 import parse from 'html-react-parser';
@@ -16,7 +16,7 @@ const footerVariants = cva('py-theme-6xl', {
     variants: {
         variant: {
             light: 'bg-neutral-25',
-            dark: 'bg-neutral-950 text-text-alternate',
+            dark: 'bg-brand-black text-text-alternate',
         },
     },
     defaultVariants: {
@@ -132,9 +132,13 @@ const footerLangLinkVariants = cva('flex items-center gap-x-theme-lg p-theme-md 
 type Footer1Props = {
     variant: VariantProps<typeof footerVariants>['variant'];
     footerinfo: FooterOptions;
+    logos: {
+        logolight: ImageType;
+        logodark: ImageType;
+    };
 };
 
-export default function Footer_2_inner({ variant, footerinfo }: Footer1Props) {
+export default function Footer_2_inner({ variant, footerinfo, logos }: Footer1Props) {
     return (
         <footer className={cn(footerVariants({ variant }))}>
             <div className="container">
@@ -153,9 +157,9 @@ export default function Footer_2_inner({ variant, footerinfo }: Footer1Props) {
                                             <Link
                                                 href={item?.menuitem?.url}
                                                 target={item?.menuitem?.target}
-                                                className="text-h4 leading-tight font-headline relative group hover:text-brand-secondary-400 hover:pl-theme-4xl transition-all"
+                                                className="text-h4 leading-tight font-headline relative group hover:pl-theme-4xl transition-all"
                                                 role="menuitem">
-                                                <IconArrowRight className="absolute left-0 top-1/2 opacity-0 text-brand-secondary-400 -translate-x-theme-4xl -translate-y-1/2 group-hover:translate-x-0 group-hover:opacity-100 transition-all group-hover:delay-100" />
+                                                <IconArrowRight className="absolute left-0 top-1/2 opacity-0  -translate-x-theme-4xl -translate-y-1/2 group-hover:translate-x-0 group-hover:opacity-100 transition-all group-hover:delay-100" />
                                                 {item?.menuitem?.title}
                                             </Link>
                                         </li>
@@ -199,7 +203,26 @@ export default function Footer_2_inner({ variant, footerinfo }: Footer1Props) {
                         </div>
                     </div>
                 </div>
-                <div className="pt-theme-3xl sm:pt-theme-6xl"></div>
+                <div className="pt-theme-3xl sm:pt-theme-6xl flex justify-between items-center">
+                    <Image
+                        src={logos?.logolight?.url}
+                        alt={logos?.logolight?.alt}
+                        width={logos?.logolight?.width}
+                        height={logos?.logolight?.height}
+                    />
+                    <div className="flex items-center gap-x-theme-md">
+                        {footerinfo?.legallinks?.length > 0 &&
+                            footerinfo?.legallinks.map((item, index) => (
+                                <Link
+                                    key={index}
+                                    href={item?.link?.url}
+                                    target={item?.link?.target}
+                                    className="underline">
+                                    {item?.link?.title}
+                                </Link>
+                            ))}
+                    </div>
+                </div>
             </div>
         </footer>
     );

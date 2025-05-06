@@ -91,6 +91,7 @@ export type FooterOptions = {
         button: AcfLink;
         sociallinks: { icon: ImageType; link: AcfLink }[];
     };
+    legallinks: { link: AcfLink }[];
 };
 
 export type Variant = VariantProps<typeof sectionVariants>['variant'];
