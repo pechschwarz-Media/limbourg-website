@@ -51,18 +51,6 @@ export default function Logo1(content: Logo1Props) {
             ref={container}
             settings={content?.settings}>
             <div className="space-y-theme-3xl lg:space-y-theme-6xl">
-                <div>
-                    <div className="container">
-                        <motion.div
-                            initial={{ opacity: 0, y: 100 }}
-                            animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 100 }}
-                            style={{ opacity: 0, y: 100 }}
-                            transition={{ duration: 0.5 }}
-                            className="max-w-2xl mx-auto text-center">
-                            <Headline headline={content?.headline} />
-                        </motion.div>
-                    </div>
-                </div>
                 <motion.div
                     initial={{ opacity: 0, y: 100 }}
                     animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 100 }}
@@ -95,7 +83,7 @@ export default function Logo1(content: Logo1Props) {
                                     alt={item.logo.alt}
                                     width={item.logo.width}
                                     height={item.logo.height}
-                                    className="w-full h-auto"
+                                    className="w-auto max-h-16"
                                 />
                             </SwiperSlide>
                         ))}

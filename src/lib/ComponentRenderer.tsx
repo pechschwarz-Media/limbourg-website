@@ -40,6 +40,8 @@ const Components = {
     ),
     blog_teaser_1: dynamic(() => import('@/components/cms/Blog/Teaser/1/Blog_Teaser_1')),
     blog_overview_1: dynamic(() => import('@/components/cms/Blog/Overview/1/Blog_Overview_1')),
+    layout_249: dynamic(() => import('@/components/cms/Layout/249')),
+    ifram_crisalix: dynamic(() => import('@/components/cms/Crisalix')),
 };
 
 export default function ComponentRenderer({ content }: { content: FlexibleContent }) {

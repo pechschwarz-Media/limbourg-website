@@ -52,7 +52,6 @@ export default async function Page({ params }: { params: Promise<{ uri: string[]
         default:
             return (
                 <>
-                    TEST
                     <ComponentRenderer content={page?.acf?.content} />
                 </>
             );

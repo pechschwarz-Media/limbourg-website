@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
         remotePatterns: [
             {
                 protocol: 'https',
-                hostname: 'wordpress.pechschwarz.dev',
+                hostname: 'limbourg-backend.pechschwarz.dev',
                 port: '',
             },
         ],

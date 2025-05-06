@@ -88,7 +88,7 @@ const burgerLineVariants = cva('bg-base-black h-full w-full block absolute left-
 
 type Navbar1Props = VariantProps<typeof headerVariants>;
 
-export default function Navbar_1({ variant = 'glass' }: Navbar1Props) {
+export default function Navbar_1({ variant = 'light' }: Navbar1Props) {
     const [submenuIndex, setSubmenuIndex] = useState<number | null>(null);
     const [openMenu, setOpenMenu] = useState(false);
 

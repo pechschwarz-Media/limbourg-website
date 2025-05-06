@@ -68,7 +68,7 @@ export default function Hero_Fullscreen_1(content: HeroFullscreen1Props) {
                 <div className="h-full relative">
                     <div className="h-full container">
                         <div className="h-full flex flex-col gap-y-theme-3xl md:flex-row gap-x-theme-7xl justify-end md:items-end md:justify-between">
-                            <div className="max-w-3xl space-y-theme-3xl">
+                            <div className="max-w-4xl space-y-theme-3xl text-white">
                                 <motion.div
                                     initial={{ opacity: 0, y: 100 }}
                                     animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 100 }}

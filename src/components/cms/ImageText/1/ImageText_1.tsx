@@ -132,7 +132,7 @@ export default function ImageText_1(content: ImageText1Props) {
                             transition={{ duration: 1 }}>
                             <Media
                                 media={content?.media}
-                                className="block"
+                                className="size-full object-cover"
                             />
                         </motion.div>
                     </motion.div>

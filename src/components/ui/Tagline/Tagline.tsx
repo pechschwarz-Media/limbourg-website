@@ -6,5 +6,5 @@ type TaglineProps = {
 };
 
 export function Tagline({ children, className }: TaglineProps) {
-    return <div className={cn('uppercase font-highlight tracking-r-sm text-text-tertiary', className)}>{children}</div>;
+    return <div className={cn('uppercase font-highlight tracking-r-sm text-neutral-400', className)}>{children}</div>;
 }

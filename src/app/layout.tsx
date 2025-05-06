@@ -4,6 +4,7 @@ import localFont from 'next/font/local';
 import { draftMode } from 'next/headers';
 import Link from 'next/link';
 import './globals.css';
+import Header from '@/components/layout/Header';
 
 const saans = localFont({
     src: [
@@ -73,6 +74,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                     saans.variable,
                     'text-base font-base text-text-primary font-(family-name:--font-saans) leading-base',
                 )}>
+                <Header />
                 {children}
                 {isEnabled && (
                     <div className="bg-system-info-600 fixed bottom-0 left-0 z-[100] text-small px-8 py-2 w-full text-center text-white">

@@ -1,11 +1,13 @@
 import { Section } from '@/components/static/Section/Section';
-import { TextBlock } from '@/components/ui/TextBlock/TextBlock';
-import { AcfTextBlock, Settings } from '@/lib/types';
-import { cn } from '@/lib/utils';
+import { Headline } from '@/components/ui/Headline/Headline';
+import { AcfButton, AcfHeadline, Settings } from '@/lib/types';
+import parse from 'html-react-parser';
+import { Button } from '@/components/ui/Button/Button';
 
 type Header1Props = {
-    textblock: AcfTextBlock;
-    position: 'left' | 'center';
+    headline: AcfHeadline;
+    text: string;
+    button: AcfButton;
     settings: Settings;
 };
 
@@ -15,13 +17,19 @@ export default function Header_1(content: Header1Props) {
             dataComponent="Header_1"
             settings={content?.settings}>
             <div className="container">
-                <div className={cn('max-w-2xl', content?.position === 'center' && 'mx-auto text-center')}>
-                    <div className="mb-theme-3xl">
-                        <TextBlock
-                            variant={content?.settings?.variant}
-                            textblock={content?.textblock}
-                            center={content?.position === 'center'}
-                        />
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-20">
+                    <Headline headline={content?.headline} />
+                    <div>
+                        {parse(content.text)}
+                        {content?.button && (
+                            <Button
+                                as="link"
+                                link={content?.button?.link}
+                                variant={content?.button?.variant}
+                                className="mt-10">
+                                {content?.button?.link?.title}
+                            </Button>
+                        )}
                     </div>
                 </div>
             </div>
