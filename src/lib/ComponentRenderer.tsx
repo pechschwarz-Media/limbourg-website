@@ -45,6 +45,7 @@ const Components = {
     blog_overview_1: dynamic(() => import('@/components/cms/Blog/Overview/1/Blog_Overview_1')),
     layout_249: dynamic(() => import('@/components/cms/Layout/249')),
     ifram_crisalix: dynamic(() => import('@/components/cms/Crisalix')),
+    reviewsgrid: dynamic(() => import('@/components/cms/Reviewsgrid')),
 };
 
 export default function ComponentRenderer({ content }: { content: FlexibleContent }) {

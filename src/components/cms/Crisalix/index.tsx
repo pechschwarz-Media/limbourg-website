@@ -15,11 +15,11 @@ type CrisalixContent = {
     settings: Settings;
 };
 
-export default function Hero_Fullscreen_1(content: CrisalixContent) {
+export default function Crisalix(content: CrisalixContent) {
     return (
         <>
             <Section
-                dataComponent="Hero_Fullscreen_1"
+                dataComponent="Crisalix"
                 settings={content?.settings}>
                 <div className="container">
                     <div className="crisalix_widget_wrap_6ec074e3">

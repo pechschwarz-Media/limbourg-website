@@ -23,6 +23,9 @@ importers:
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
+      dateformat:
+        specifier: ^5.0.3
+        version: 5.0.3
       html-react-parser:
         specifier: ^5.2.2
         version: 5.2.3(@types/react@19.1.2)(react@19.1.0)
@@ -83,7 +86,7 @@ importers:
         version: 8.6.3(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(storybook@8.6.3)
       '@storybook/experimental-addon-test':
         specifier: 8.6.3
-        version: 8.6.3(@vitest/browser@3.1.2)(@vitest/runner@3.1.2)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(storybook@8.6.3)(vitest@3.1.2)
+        version: 8.6.3(@vitest/browser@3.1.2(playwright@1.52.0)(vite@6.3.2(@types/node@20.17.30)(jiti@2.4.2)(lightningcss@1.29.2))(vitest@3.1.2))(@vitest/runner@3.1.2)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(storybook@8.6.3)(vitest@3.1.2(@types/node@20.17.30)(@vitest/browser@3.1.2)(jiti@2.4.2)(lightningcss@1.29.2))
       '@storybook/experimental-nextjs-vite':
         specifier: 8.6.3
         version: 8.6.3(@babel/core@7.26.10)(@storybook/test@8.6.3(storybook@8.6.3))(next@15.1.4(@babel/core@7.26.10)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(rollup@4.40.0)(storybook@8.6.3)(typescript@5.8.3)(vite@6.3.2(@types/node@20.17.30)(jiti@2.4.2)(lightningcss@1.29.2))
@@ -96,6 +99,9 @@ importers:
       '@tailwindcss/typography':
         specifier: ^0.5.16
         version: 0.5.16(tailwindcss@4.1.4)
+      '@types/dateformat':
+        specifier: ^5.0.3
+        version: 5.0.3
       '@types/node':
         specifier: ^20
         version: 20.17.30
@@ -110,7 +116,7 @@ importers:
         version: 3.1.2(playwright@1.52.0)(vite@6.3.2(@types/node@20.17.30)(jiti@2.4.2)(lightningcss@1.29.2))(vitest@3.1.2)
       '@vitest/coverage-v8':
         specifier: ^3.0.7
-        version: 3.1.2(@vitest/browser@3.1.2)(vitest@3.1.2)
+        version: 3.1.2(@vitest/browser@3.1.2(playwright@1.52.0)(vite@6.3.2(@types/node@20.17.30)(jiti@2.4.2)(lightningcss@1.29.2))(vitest@3.1.2))(vitest@3.1.2(@types/node@20.17.30)(@vitest/browser@3.1.2)(jiti@2.4.2)(lightningcss@1.29.2))
       eslint:
         specifier: ^9
         version: 9.25.1(jiti@2.4.2)
@@ -1394,6 +1400,9 @@ packages:
   '@types/babel__traverse@7.20.7':
     resolution: {integrity: sha512-dkO5fhS7+/oos4ciWxyEyjWe48zmG6wbCheo/G2ZnHx4fs3EU6YC6UM8rk56gAjNJ9P3MTH2jo5jb92/K6wbng==}
 
+  '@types/dateformat@5.0.3':
+    resolution: {integrity: sha512-hvskLa9ObgUwJe0rtfkyBbU+VIK8Ia3BACsxRsp4CPnyPBAOyIHbqImfBGFfaVVxn82wGx5SD8Twll6jMc/BaQ==}
+
   '@types/doctrine@0.0.9':
     resolution: {integrity: sha512-eOIHzCUSH7SMfonMG1LsC2f8vxBFtho6NGBznK41R84YzPuvSBzrhEps33IsQiOW9+VL6NQ9DbjQJznk/S4uRA==}
 
@@ -1888,6 +1897,10 @@ packages:
   data-view-byte-offset@1.0.1:
     resolution: {integrity: sha512-BS8PfmtDGnrgYdOonGZQdLZslWIeCGFP9tpan0hi1Co2Zr2NKADsvGYA8XxuG/4UWgJ6Cjtv+YJnB6MM69QGlQ==}
     engines: {node: '>= 0.4'}
+
+  dateformat@5.0.3:
+    resolution: {integrity: sha512-Kvr6HmPXUMerlLcLF+Pwq3K7apHpYmGDVqrxcDasBg86UcKeTSNWbEzU8bwdXnxnR44FtMhJAxI4Bov6Y/KUfA==}
+    engines: {node: '>=12.20'}
 
   debug@3.2.7:
     resolution: {integrity: sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ==}
@@ -4568,7 +4581,7 @@ snapshots:
     dependencies:
       type-fest: 2.19.0
 
-  '@storybook/experimental-addon-test@8.6.3(@vitest/browser@3.1.2)(@vitest/runner@3.1.2)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(storybook@8.6.3)(vitest@3.1.2)':
+  '@storybook/experimental-addon-test@8.6.3(@vitest/browser@3.1.2(playwright@1.52.0)(vite@6.3.2(@types/node@20.17.30)(jiti@2.4.2)(lightningcss@1.29.2))(vitest@3.1.2))(@vitest/runner@3.1.2)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(storybook@8.6.3)(vitest@3.1.2(@types/node@20.17.30)(@vitest/browser@3.1.2)(jiti@2.4.2)(lightningcss@1.29.2))':
     dependencies:
       '@storybook/global': 5.0.0
       '@storybook/icons': 1.4.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -4824,6 +4837,8 @@ snapshots:
     dependencies:
       '@babel/types': 7.27.0
 
+  '@types/dateformat@5.0.3': {}
+
   '@types/doctrine@0.0.9': {}
 
   '@types/estree@1.0.7': {}
@@ -5002,7 +5017,7 @@ snapshots:
       - utf-8-validate
       - vite
 
-  '@vitest/coverage-v8@3.1.2(@vitest/browser@3.1.2)(vitest@3.1.2)':
+  '@vitest/coverage-v8@3.1.2(@vitest/browser@3.1.2(playwright@1.52.0)(vite@6.3.2(@types/node@20.17.30)(jiti@2.4.2)(lightningcss@1.29.2))(vitest@3.1.2))(vitest@3.1.2(@types/node@20.17.30)(@vitest/browser@3.1.2)(jiti@2.4.2)(lightningcss@1.29.2))':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@bcoe/v8-coverage': 1.0.2
@@ -5365,6 +5380,8 @@ snapshots:
       es-errors: 1.3.0
       is-data-view: 1.0.2
 
+  dateformat@5.0.3: {}
+
   debug@3.2.7:
     dependencies:
       ms: 2.1.3
@@ -5632,7 +5649,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-module-utils@2.12.0(@typescript-eslint/parser@8.31.0(eslint@9.25.1(jiti@2.4.2))(typescript@5.8.3))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.10.1)(eslint@9.25.1(jiti@2.4.2)):
+  eslint-module-utils@2.12.0(@typescript-eslint/parser@8.31.0(eslint@9.25.1(jiti@2.4.2))(typescript@5.8.3))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.10.1(eslint-plugin-import@2.31.0)(eslint@9.25.1(jiti@2.4.2)))(eslint@9.25.1(jiti@2.4.2)):
     dependencies:
       debug: 3.2.7
     optionalDependencies:
@@ -5654,7 +5671,7 @@ snapshots:
       doctrine: 2.1.0
       eslint: 9.25.1(jiti@2.4.2)
       eslint-import-resolver-node: 0.3.9
-      eslint-module-utils: 2.12.0(@typescript-eslint/parser@8.31.0(eslint@9.25.1(jiti@2.4.2))(typescript@5.8.3))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.10.1)(eslint@9.25.1(jiti@2.4.2))
+      eslint-module-utils: 2.12.0(@typescript-eslint/parser@8.31.0(eslint@9.25.1(jiti@2.4.2))(typescript@5.8.3))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.10.1(eslint-plugin-import@2.31.0)(eslint@9.25.1(jiti@2.4.2)))(eslint@9.25.1(jiti@2.4.2))
       hasown: 2.0.2
       is-core-module: 2.16.1
       is-glob: 4.0.3
