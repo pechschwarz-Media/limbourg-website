@@ -99,6 +99,8 @@
     --color-border-warning: var(--color-system-warning-400);
     --color-border-info: var(--color-system-info-500);
 
+    --color-background-primary: #f7f7f8;
+
     --color-text-primary: #27272a;
     --color-text-secondary: var(--color-neutral-600);
     --color-text-tertiary: var(--color-neutral-300);

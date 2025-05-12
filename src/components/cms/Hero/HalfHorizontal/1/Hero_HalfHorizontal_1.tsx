@@ -44,10 +44,6 @@ type HeroHalfHorizontal1Props = {
     headline: AcfHeadline;
     text: string;
     buttons: ButtonGroupProps['buttons'];
-    facts: {
-        value: string;
-        description: string;
-    }[];
     media: AcfMedia;
     settings: Settings;
 };
@@ -102,30 +98,6 @@ export default function Hero_HalfHorizontal_1(content: HeroHalfHorizontal1Props)
                                     <ButtonGroup buttons={content?.buttons} />
                                 </motion.div>
                             )}
-
-                            <div className="flex gap-theme-3xl md:mt-theme-7xl">
-                                {content?.facts?.map((fact, index) => {
-                                    return (
-                                        <motion.div
-                                            key={index}
-                                            initial={{ opacity: 0, y: 100 }}
-                                            animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 100 }}
-                                            style={{ opacity: 0, y: 100 }}
-                                            transition={{ delay: 0.4 + index * 0.1, duration: 0.5 }}
-                                            className="flex-1">
-                                            <div className="text-h4 leading-headline font-headline mb-theme-md">
-                                                {fact?.value}
-                                            </div>
-                                            <div
-                                                className={cn(
-                                                    statsTextVariants({ variant: content?.settings?.variant }),
-                                                )}>
-                                                {fact?.description}
-                                            </div>
-                                        </motion.div>
-                                    );
-                                })}
-                            </div>
                         </div>
                         <div className="lg:col-span-6 lg:col-start-7">
                             <div className="overflow-hidden rounded-2xl">

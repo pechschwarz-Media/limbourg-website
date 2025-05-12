@@ -20,6 +20,7 @@ const Components = {
     faq_2: dynamic(() => import('@/components/cms/Faq/2/Faq_2')),
     header_1: dynamic(() => import('@/components/cms/Header/1/Header_1')),
     header_44: dynamic(() => import('@/components/cms/Header/44/Header_44')),
+    header_47: dynamic(() => import('@/components/cms/Header/47/Header_47')),
     contact_form_1: dynamic(() => import('@/components/cms/Contact/Form/1/Contact_Form_1')),
     cta_halfhorizontal_1: dynamic(() => import('@/components/cms/Cta/HalfHorizontal/1/Cta_HalfHorizontal_1')),
     cta_fullcentered_1: dynamic(() => import('@/components/cms/Cta/FullCentered/1/Cta_FullCentered_1')),

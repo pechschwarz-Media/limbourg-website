@@ -203,14 +203,14 @@ export default function Footer_2_inner({ variant, footerinfo, logos }: Footer1Pr
                         </div>
                     </div>
                 </div>
-                <div className="pt-theme-3xl sm:pt-theme-6xl flex justify-between items-center">
+                <div className="pt-theme-3xl sm:pt-theme-6xl flex flex-col lg:flex-row justify-between items-start gap-4 lg:items-center">
                     <Image
                         src={logos?.logolight?.url}
                         alt={logos?.logolight?.alt}
                         width={logos?.logolight?.width}
                         height={logos?.logolight?.height}
                     />
-                    <div className="flex items-center gap-x-theme-md">
+                    <div className="flex flex-row items-start lg:items-center gap-x-theme-md">
                         {footerinfo?.legallinks?.length > 0 &&
                             footerinfo?.legallinks.map((item, index) => (
                                 <Link

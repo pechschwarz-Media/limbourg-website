@@ -31,11 +31,16 @@ export default function Layout_249(content: Header1Props) {
                         <Link
                             key={index}
                             href={box?.link?.url}
-                            target={box?.link?.target}>
-                            <Media
-                                media={box?.media}
-                                className="size-full object-cover"
-                            />
+                            target={box?.link?.target}
+                            className="group overflow-hidden">
+                            <div className="w-full h-auto rounded-md overflow-hidden">
+                                <Media
+                                    media={box?.media}
+                                    className="size-full group-hover:scale-105 transition-transform duration-300 ease-in-out"
+                                />
+                            </div>
+
+                            <h6 className="text-h6 font-medium text-center mt-theme-2xl">{parse(box?.link?.title)}</h6>
                         </Link>
                     ))}
                 </div>

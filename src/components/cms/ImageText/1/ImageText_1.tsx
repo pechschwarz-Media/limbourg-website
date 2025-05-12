@@ -123,13 +123,14 @@ export default function ImageText_1(content: ImageText1Props) {
                         transition={{ duration: 0.5 }}
                         className={cn(
                             imageWrapperVariants({ switchOrder: content?.switchOrder, imageSize: content?.imageSize }),
-                            'overflow-hidden rounded-md',
+                            'overflow-hidden rounded-md aspect-[6/8]',
                         )}>
                         <motion.div
                             initial={{ scale: 1.2 }}
                             animate={{ scale: isInView ? 1 : 1.2 }}
                             style={{ scale: 1.2 }}
-                            transition={{ duration: 1 }}>
+                            transition={{ duration: 1 }}
+                            className="size-full">
                             <Media
                                 media={content?.media}
                                 className="size-full object-cover"

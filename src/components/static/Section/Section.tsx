@@ -27,9 +27,9 @@ export const sectionVariants = cva('', {
         },
         variant: {
             dark: 'bg-neutral-950 text-text-alternate',
-            light: 'bg-neutral-25 text-text-primary',
+            light: 'bg-background-primary text-text-primary',
             darkPrimary: 'bg-brand-primary-950 text-text-alternate',
-            lightPrimary: 'bg-brand-primary-25 text-text-primary',
+            lightPrimary: 'bg-neutral-100 text-text-primary',
         },
     },
     defaultVariants: {
