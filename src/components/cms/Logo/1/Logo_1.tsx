@@ -14,9 +14,9 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 export const gradientOverlayVariants = cva('pointer-events-none absolute inset-y-0 z-10', {
     variants: {
         variant: {
-            light: 'from-white via-white/80 to-white/0',
+            light: 'from-background-primary via-background-primary/80 to-background-primary/0',
             dark: 'from-neutral-950 via-neutral-950/80 to-neutral-950/0',
-            lightPrimary: 'from-brand-primary-25 via-brand-primary-25/80 to-brand-primary-25/0',
+            lightPrimary: 'from-bg-background-primary via-bg-background-primary/80 to-bg-background-primary-25/0',
             darkPrimary: 'from-brand-primary-950 via-brand-primary-950/80 to-brand-primary-950/0',
         },
         direction: {

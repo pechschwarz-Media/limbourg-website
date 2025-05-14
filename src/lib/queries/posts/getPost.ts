@@ -1,15 +1,26 @@
 import { api } from '@/lib/api';
+import { FlexibleContent, PostImageType } from '@/lib/types';
 
 type PostProps = {
     title: {
         rendered: string;
     };
+    link: string;
+    excerpt: { rendered: string };
     acf: {
-        content: any[];
+        category: number;
+        content: FlexibleContent;
+    };
+    date: string;
+    _embedded: {
+        'wp:featuredmedia': PostImageType[];
+        'wp:term': [[{ name: string }]];
     };
 };
 
 export async function getPost({ id }: { id: number }) {
-    const response = await api<PostProps>(`wp/v2/post/${id}?_fields=title,acf&acf_format=standard`);
+    const response = await api<PostProps>(
+        `wp/v2/posts/${id}?_embed&_fields=title,_embedded,excerpt,acf,date&acf_format=standard`,
+    );
     return response;
 }

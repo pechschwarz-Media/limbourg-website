@@ -5,11 +5,11 @@ import Blog_Teaser_1_Inner from './Blog_Teaser_1_Inner';
 export type BlogTeaser1Props = {
     textblock: AcfTextBlock;
     amount: number;
-    allposts: true;
+    allposts: boolean;
     posttype: string;
     category: number[] | false;
-    showAuthor: true;
-    showButton: false;
+    showAuthor: boolean;
+    showButton: boolean;
     textAlign: 'left' | 'center';
     settings: Settings;
 };

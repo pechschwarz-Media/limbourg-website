@@ -2,12 +2,12 @@ import { Author } from '@/components/ui/Author/Author';
 import { Button } from '@/components/ui/Button/Button';
 import { Headline } from '@/components/ui/Headline/Headline';
 import { Tag } from '@/components/ui/Tag/Tag';
-import { Wysiwyg } from '@/components/ui/Wysiwyg/Wysiwyg';
 import { PostPreview } from '@/lib/types';
 import { cn } from '@/lib/utils';
 import { VariantProps, cva } from 'class-variance-authority';
 import Image from 'next/image';
 import Link from 'next/link';
+import parse from 'html-react-parser';
 
 const cardVariants = cva('group block rounded-xl', {
     variants: {
@@ -68,7 +68,7 @@ export default function Blog_Card_1({ post, variant, showAuthor, showButton }: B
                                 <Tag
                                     key={index}
                                     variant={variant}>
-                                    {category?.name}
+                                    {parse(category?.name)}
                                 </Tag>
                             );
                         })}

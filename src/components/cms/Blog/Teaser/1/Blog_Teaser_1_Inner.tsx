@@ -10,7 +10,6 @@ import { useRef } from 'react';
 import Blog_Card_1 from '../../Card/1/Blog_Card_1';
 import { BlogTeaser1Props } from './Blog_Teaser_1';
 import { Button } from '@/components/ui/Button/Button';
-import { url } from 'inspector';
 
 const textVariants = cva('w-full', {
     variants: {

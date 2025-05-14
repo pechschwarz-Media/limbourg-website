@@ -40,6 +40,7 @@
 
     --text-tiny: 0.75rem;
     --text-small: 0.875rem;
+    --text-regular: 1rem;
     --text-base: 1.125rem;
     --text-large: 1.25rem;
     --text-h0: clamp(2.5rem, 0rem + 6.25vw, 5rem);
@@ -168,10 +169,10 @@
     --color-neutral-25: #fdfdfd;
     --color-neutral-100: #eeeef0;
     --color-neutral-200: #e5e5e5;
-    --color-neutral-300: #d4d4d4;
+    --color-neutral-300: #babbbf;
     --color-neutral-400: #94959c;
     --color-neutral-500: #737373;
-    --color-neutral-600: #525252;
+    --color-neutral-600: #606169;
     --color-neutral-700: #404040;
     --color-neutral-800: #262626;
     --color-neutral-900: #181818;

@@ -32,6 +32,7 @@ export type AcfButton = {
 
 export type ComponentData<TComponent> = {
     acf_fc_layout: string;
+    i: number;
 } & TComponent;
 
 export type AcfLink = {
@@ -61,6 +62,15 @@ export type ImageType = {
     height: number;
 };
 
+export type PostImageType = {
+    source_url: string;
+    alt_text: string;
+    media_details: {
+        width: number;
+        height: number;
+    };
+};
+
 export type AcfHeadline = {
     style: 'h0' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
     tagline?: string;
@@ -74,6 +84,7 @@ export type AcfMedia = {
 };
 
 export type Options = {
+    content: { content: FlexibleContent };
     footeroptions: FooterOptions;
     logos: {
         logolight: ImageType;

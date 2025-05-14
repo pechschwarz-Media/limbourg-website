@@ -80,7 +80,6 @@ export default function Blog_Overview_1_Inner({
               }&page=${page}`
             : null,
         async (url: string) => {
-            console.log('fetching!');
             const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}${url}`);
             const posts = await response.json();
             const headers = response.headers;
@@ -168,16 +167,15 @@ export default function Blog_Overview_1_Inner({
                                     <li>
                                         <button
                                             className={cn(
-                                                'cursor-pointer py-theme-sm px-theme-lg rounded-full bg-neutral-50 border border-neutral-100 text-neutral-400 text-small text-highlight hover:text-text-primary transition-all duration-400',
-                                                currentCategory === false &&
-                                                    'bg-brand-secondary-300 border-brand-secondary-400 text-text-primary',
+                                                'cursor-pointer py-theme-sm px-theme-lg rounded-md  text-secondary text-small text-primary hover:text-text-primary transition-all duration-400',
+                                                currentCategory === false && 'text-text-primary border border-primary',
                                             )}
                                             onClick={() => {
                                                 setInit(true);
                                                 setPage(1);
                                                 setCurrentCategory(false);
                                             }}>
-                                            All Articles
+                                            Alle Beiträge
                                         </button>
                                     </li>
                                     {categories?.map((category, index) => {
@@ -185,9 +183,9 @@ export default function Blog_Overview_1_Inner({
                                             <li key={index}>
                                                 <button
                                                     className={cn(
-                                                        'cursor-pointer py-theme-sm px-theme-lg rounded-full bg-neutral-50 border border-neutral-100 text-neutral-400 text-small text-highlight hover:text-text-primary transition-all duration-400',
+                                                        'cursor-pointer py-theme-sm px-theme-lg rounded-md text-secondary text-small text-text-secondary hover:text-text-primary transition-all duration-400',
                                                         currentCategory === category?.id &&
-                                                            'bg-brand-secondary-300 border-brand-secondary-400 text-text-primary',
+                                                            'text-text-primary border border-primary',
                                                     )}
                                                     onClick={() => {
                                                         setInit(true);
@@ -223,7 +221,7 @@ export default function Blog_Overview_1_Inner({
                             {!isLoading && (
                                 <Button
                                     as="button"
-                                    variant="primary"
+                                    variant="light"
                                     onClick={() => {
                                         loadMore();
                                     }}>

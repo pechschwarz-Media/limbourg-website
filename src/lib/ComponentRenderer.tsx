@@ -47,9 +47,15 @@ const Components = {
     layout_249: dynamic(() => import('@/components/cms/Layout/249')),
     ifram_crisalix: dynamic(() => import('@/components/cms/Crisalix')),
     reviewsgrid: dynamic(() => import('@/components/cms/Reviewsgrid')),
+    content_32: dynamic(() => import('@/components/cms/Content/32')),
+    blogdetail_1: dynamic(() => import('@/components/cms/BlogDetail/1')),
+    blogdetail_2: dynamic(() => import('@/components/cms/BlogDetail/2')),
+    blogdetail_3: dynamic(() => import('@/components/cms/BlogDetail/3')),
 };
 
 export default function ComponentRenderer({ content }: { content: FlexibleContent }) {
+    let number = 0;
+
     return (content || [])?.map((component, index) => {
         if (!Components[component.acf_fc_layout as keyof typeof Components] && process.env.NODE_ENV === 'development') {
             return <p key={index}>Komponente: {component.acf_fc_layout} hat kein Template!</p>;
@@ -57,10 +63,15 @@ export default function ComponentRenderer({ content }: { content: FlexibleConten
 
         const Component = Components[component?.acf_fc_layout as keyof typeof Components];
 
+        if (component?.acf_fc_layout === 'blogdetail_1') {
+            number++;
+        }
+
         return (
             // @ts-expect-error
             <Component
                 {...component}
+                i={number}
                 key={index}
             />
         );
