@@ -1,8 +1,5 @@
 'use client';
 
-import { IconChevronDown } from '@/components/icons/IconChevronDown';
-import { Logo } from '@/components/static/Logo/Logo';
-import { LogoInverted } from '@/components/static/LogoInverted/LogoInverted';
 import { Button } from '@/components/ui/Button/Button';
 import { cn } from '@/lib/utils';
 import { cva, VariantProps } from 'class-variance-authority';
@@ -11,13 +8,17 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import MobileMenu_1 from '../../MobileMenu/1/MobileMenu_1';
 import Submenu_1 from '../../Submenu/1/Submenu_1';
+import { AcfLink, AcfMedia, NavbarProps, Options } from '@/lib/types';
+import Image from 'next/image';
+import { IconChevronDown } from '@/components/icons/IconChevronDown';
+import Calender from '@/components/icons/Calender';
 
-const headerVariants = cva('navbar fixed z-40 top-0 left-0 w-full text-text-alternate h-[72px]', {
+const headerVariants = cva('fixed z-40 top-0 left-0 w-full text-black h-[72px]', {
     variants: {
         variant: {
-            glass: 'bg-neutral-900/15 text-text-alternate',
-            light: 'bg-neutral-25 text-text-primary',
-            dark: 'bg-brand-primary-950 text-text-alternate',
+            glass: 'bg-neutral-900/15 text-black',
+            light: 'bg-background-primary text-black',
+            dark: 'bg-brand-primary-950 text-black',
         },
     },
     defaultVariants: {
@@ -25,46 +26,49 @@ const headerVariants = cva('navbar fixed z-40 top-0 left-0 w-full text-text-alte
     },
 });
 
-const linkVariants = cva('flex items-center gap-theme-md h-10 px-theme-lg rounded-xs transition-all font-highlight', {
-    variants: {
-        variant: {
-            glass: 'hover:bg-neutral-500/30',
-            light: 'hover:bg-brand-secondary-300',
-            dark: 'hover:bg-brand-secondary-300 hover:text-text-primary',
+const linkVariants = cva(
+    'flex items-center gap-md h-10 p-theme-md rounded-xs transition-all text-regular font-medium',
+    {
+        variants: {
+            variant: {
+                glass: 'hover:bg-neutral-500/30',
+                light: '',
+                dark: 'hover:bg-neutral-300 hover:text-text-primary',
+            },
+            active: {
+                true: 'bg-neutral-500/30',
+                false: '',
+            },
         },
-        active: {
-            true: 'bg-neutral-500/30',
-            false: '',
-        },
-    },
-    defaultVariants: {
-        variant: 'glass',
-        active: false,
-    },
-    compoundVariants: [
-        {
+        defaultVariants: {
             variant: 'glass',
-            active: true,
-            class: 'bg-neutral-500/30',
+            active: false,
         },
-        {
-            variant: 'light',
-            active: true,
-            class: 'bg-brand-secondary-300',
-        },
-        {
-            variant: 'dark',
-            active: true,
-            class: 'bg-brand-secondary-300 text-text-primary',
-        },
-    ],
-});
+        compoundVariants: [
+            {
+                variant: 'glass',
+                active: true,
+                class: 'bg-neutral-500/30',
+            },
+            {
+                variant: 'light',
+                active: true,
+                class: '',
+            },
+            {
+                variant: 'dark',
+                active: true,
+                class: 'bg-neutral-300 text-text-primary',
+            },
+        ],
+    },
+);
 
 const burgerVariants = cva('flex-[0_0_auto] size-10 md:size-12 rounded-md border relative cursor-pointer', {
     variants: {
         variant: {
             glass: 'backdrop-blur bg-neutral-900/15 border-border-tertiary/15',
-            light: 'bg-neutral-25 border-border-secondary',
+            light: 'bg-white border-border-secondary',
             dark: 'bg-brand-primary-900 border-brand-primary-800',
         },
     },
@@ -73,12 +77,12 @@ const burgerVariants = cva('flex-[0_0_auto] size-10 md:size-12 rounded-md border
     },
 });
 
-const burgerLineVariants = cva('bg-base-black h-full w-full block absolute left-0', {
+const burgerLineVariants = cva('bg-black h-full w-full block absolute left-0', {
     variants: {
         variant: {
-            glass: 'bg-base-white',
-            light: 'bg-base-black',
-            dark: 'bg-base-white',
+            glass: 'bg-white',
+            light: 'bg-black',
+            dark: 'bg-white',
         },
     },
     defaultVariants: {
@@ -86,9 +90,14 @@ const burgerLineVariants = cva('bg-base-black h-full w-full block absolute left-
     },
 });
 
-type Navbar1Props = VariantProps<typeof headerVariants>;
+type Navbar1Props = {
+    variant: VariantProps<typeof headerVariants>['variant'];
+    navbar: NavbarProps[];
+    options: Options;
+    navbutton: AcfLink | undefined;
+};
 
-export default function Navbar_1({ variant = 'light' }: Navbar1Props) {
+export default function Navbar_1({ variant, navbar, navbutton, options }: Navbar1Props) {
     const [submenuIndex, setSubmenuIndex] = useState<number | null>(null);
     const [openMenu, setOpenMenu] = useState(false);
 
@@ -134,14 +143,29 @@ export default function Navbar_1({ variant = 'light' }: Navbar1Props) {
     return (
         <>
             <header className={cn(headerVariants({ variant }))}>
-                {variant === 'glass' && <div className="absolute -z-10 inset-0 backdrop-blur"></div>}
+                {variant === 'light' && <div className="absolute -z-10 inset-0 backdrop-blur"></div>}
                 <div className="container h-full">
-                    <div className="h-full flex gap-x-theme-xl items-center justify-between">
+                    <div className="h-full flex gap-x-2 lg:gap-x-xl items-center justify-between">
                         <Link href="/">
-                            {variant === 'light' ? (
-                                <LogoInverted className="h-12 w-auto" />
-                            ) : (
-                                <Logo className="h-12 w-auto" />
+                            {variant === 'dark' && (
+                                <Image
+                                    src={options?.logos?.logolight?.url}
+                                    alt="Logo von Gessner & Jacobi"
+                                    width={options?.logos?.logolight?.width}
+                                    height={options?.logos?.logolight?.height}
+                                    quality={100}
+                                    className="h-6xl w-auto"
+                                />
+                            )}
+                            {variant === 'light' && (
+                                <Image
+                                    src={options?.logos.logodark?.url}
+                                    alt="Logo von Gessner & Jacobi"
+                                    width={options?.logos.logodark?.width}
+                                    height={options?.logos.logodark?.height}
+                                    quality={100}
+                                    className="h-6xl w-auto"
+                                />
                             )}
                         </Link>
                         <div className="hidden lg:block">
@@ -149,128 +173,66 @@ export default function Navbar_1({ variant = 'light' }: Navbar1Props) {
                                 role="navigation"
                                 aria-label="Hauptnavigation">
                                 <ul className="flex items-center gap-x-theme-md">
-                                    <li>
-                                        <Link
-                                            href="#"
-                                            className={cn(linkVariants({ variant, active: submenuIndex === 0 }))}
-                                            aria-haspopup="true"
-                                            aria-expanded={submenuIndex === 0 ? 'true' : 'false'}
-                                            role="menuitem"
-                                            onClick={(e) => {
-                                                e.preventDefault();
-                                                setSubmenuIndex(submenuIndex === 0 ? null : 0);
-                                            }}>
-                                            Products
-                                            <IconChevronDown
-                                                className={cn(
-                                                    'size-4 transition-transform',
-                                                    submenuIndex === 0 && 'rotate-180',
-                                                )}
-                                            />
-                                        </Link>
-                                        <Submenu_1
-                                            visible={submenuIndex === 0}
-                                            close={() => setSubmenuIndex(null)}
-                                            variant={variant}
-                                        />
-                                    </li>
-                                    <li>
-                                        <Link
-                                            href="#"
-                                            className={cn(linkVariants({ variant, active: submenuIndex === 1 }))}
-                                            aria-haspopup="true"
-                                            aria-expanded={submenuIndex === 1 ? 'true' : 'false'}
-                                            role="menuitem"
-                                            onClick={(e) => {
-                                                e.preventDefault();
-                                                setSubmenuIndex(submenuIndex === 1 ? null : 1);
-                                            }}>
-                                            Solutions
-                                            <IconChevronDown
-                                                className={cn(
-                                                    'size-4 transition-transform',
-                                                    submenuIndex === 1 && 'rotate-180',
-                                                )}
-                                            />
-                                        </Link>
-                                        <Submenu_1
-                                            visible={submenuIndex === 1}
-                                            close={() => setSubmenuIndex(null)}
-                                            variant={variant}
-                                        />
-                                    </li>
-                                    <li>
-                                        <Link
-                                            href="#"
-                                            className={cn(linkVariants({ variant, active: submenuIndex === 2 }))}
-                                            aria-haspopup="false"
-                                            role="menuitem"
-                                            onClick={() => {
-                                                setSubmenuIndex(null);
-                                            }}>
-                                            Customers
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link
-                                            href="#"
-                                            className={cn(linkVariants({ variant, active: submenuIndex === 3 }))}
-                                            aria-haspopup="true"
-                                            aria-expanded={submenuIndex === 3 ? 'true' : 'false'}
-                                            role="menuitem"
-                                            onClick={(e) => {
-                                                e.preventDefault();
-                                                setSubmenuIndex(submenuIndex === 3 ? null : 3);
-                                            }}>
-                                            Ressources
-                                            <IconChevronDown
-                                                className={cn(
-                                                    'size-4 transition-transform',
-                                                    submenuIndex === 3 && 'rotate-180',
-                                                )}
-                                            />
-                                        </Link>
-                                        <Submenu_1
-                                            visible={submenuIndex === 3}
-                                            close={() => setSubmenuIndex(null)}
-                                            variant={variant}
-                                        />
-                                    </li>
-                                    <li>
-                                        <Link
-                                            href="#"
-                                            className={cn(linkVariants({ variant, active: submenuIndex === 4 }))}
-                                            aria-haspopup="true"
-                                            aria-expanded={submenuIndex === 4 ? 'true' : 'false'}
-                                            role="menuitem"
-                                            onClick={(e) => {
-                                                e.preventDefault();
-                                                setSubmenuIndex(submenuIndex === 4 ? null : 4);
-                                            }}>
-                                            Pricing
-                                            <IconChevronDown
-                                                className={cn(
-                                                    'size-4 transition-transform',
-                                                    submenuIndex === 4 && 'rotate-180',
-                                                )}
-                                            />
-                                        </Link>
-                                        <Submenu_1
-                                            visible={submenuIndex === 4}
-                                            close={() => setSubmenuIndex(null)}
-                                            variant={variant}
-                                        />
-                                    </li>
+                                    {navbar?.map((item, index) => (
+                                        <li key={index}>
+                                            {item?.type === 'submenu' ? (
+                                                <>
+                                                    <Link
+                                                        href="#"
+                                                        className={cn(
+                                                            linkVariants({
+                                                                variant,
+                                                                active: submenuIndex === index,
+                                                            }),
+                                                        )}
+                                                        aria-haspopup="true"
+                                                        aria-expanded={submenuIndex === 0 ? 'true' : 'false'}
+                                                        role="menuitem"
+                                                        onClick={(e) => {
+                                                            e.preventDefault();
+                                                            setSubmenuIndex(submenuIndex === index ? null : index);
+                                                        }}>
+                                                        {item?.label}
+                                                        <IconChevronDown
+                                                            className={cn(
+                                                                'size-[20px] transition-transform',
+                                                                submenuIndex === index && 'rotate-180',
+                                                            )}
+                                                        />
+                                                    </Link>
+                                                    <Submenu_1
+                                                        visible={submenuIndex === index}
+                                                        variant={variant}
+                                                        submenu={item?.submenus}
+                                                        close={() => setSubmenuIndex(null)}
+                                                    />
+                                                </>
+                                            ) : (
+                                                <Link
+                                                    href={item?.link.url}
+                                                    className={cn(
+                                                        linkVariants({
+                                                            variant,
+                                                            active: submenuIndex === 0,
+                                                        }),
+                                                    )}
+                                                    target={item?.link?.target}
+                                                    aria-haspopup="false"
+                                                    role="menuitem">
+                                                    {item?.label}
+                                                </Link>
+                                            )}
+                                        </li>
+                                    ))}
                                 </ul>
                             </nav>
                         </div>
-                        <div className="flex gap-theme-md items-center lg:hidden">
+                        <div className="flex gap-md items-center lg:hidden">
                             <Button
                                 as="link"
-                                variant={variant}
-                                link={{ url: '#', title: 'Sign in', target: '_self' }}>
-                                Sing in
-                            </Button>
+                                variant="light"
+                                link={navbutton}
+                            />
                             <button
                                 className={cn(burgerVariants({ variant }))}
                                 ref={menuButton}
@@ -290,35 +252,25 @@ export default function Navbar_1({ variant = 'light' }: Navbar1Props) {
                                 </div>
                             </button>
                         </div>
-                        <div className="hidden lg:flex items-center gap-theme-lg">
+                        <div className="hidden lg:flex items-center gap-lg">
                             <Button
                                 as="link"
-                                variant={variant}
-                                onClick={() => {
-                                    setSubmenuIndex(null);
-                                }}
-                                link={{ url: '#', title: 'Sign in', target: '_self' }}>
-                                Sing in
-                            </Button>
-                            <Button
-                                as="link"
-                                variant="primary"
-                                onClick={() => {
-                                    setSubmenuIndex(null);
-                                }}
-                                link={{ url: '#', title: 'See a Demo', target: '_self' }}>
-                                See a Demo
+                                variant="dark"
+                                link={navbutton}>
+                                <Calender className="group size-3xl text-inherit" />
+                                {navbutton?.title}
                             </Button>
                         </div>
                     </div>
                 </div>
             </header>
             <MobileMenu_1
+                navbar={navbar}
                 visible={openMenu}
+                variant="light"
                 close={() => setOpenMenu(false)}
-                variant={variant}
             />
-            {submenuIndex !== null && variant !== 'glass' && (
+            {submenuIndex !== null && variant !== 'dark' && (
                 <AnimatePresence>
                     <motion.div
                         initial={{ opacity: 0 }}

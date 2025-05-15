@@ -5,6 +5,7 @@ import { IconPlay } from '@/components/icons/IconPlay';
 import { Section } from '@/components/static/Section/Section';
 import { Headline } from '@/components/ui/Headline/Headline';
 import { Media } from '@/components/ui/Media/Media';
+import { Rating_1 } from '@/components/ui/Rating/1/Rating_1';
 import { Rating_2 } from '@/components/ui/Rating/2/Rating_2';
 import { AcfFile, AcfHeadline, AcfMedia, Settings } from '@/lib/types';
 import { cva } from 'class-variance-authority';
@@ -74,7 +75,7 @@ export default function Hero_Fullscreen_1(content: HeroFullscreen1Props) {
                                     animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 100 }}
                                     style={{ opacity: 0, y: 100 }}
                                     transition={{ duration: 0.5 }}>
-                                    <Rating_2 />
+                                    <Rating_1 />
                                 </motion.div>
                                 <motion.div
                                     initial={{ opacity: 0, y: 100 }}

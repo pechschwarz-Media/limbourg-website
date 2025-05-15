@@ -1,20 +1,24 @@
-import { IconChevronDown } from '@/components/icons/IconChevronDown';
-import { Button } from '@/components/ui/Button/Button';
 import { cn } from '@/lib/utils';
 import { motion, stagger, useAnimate } from 'motion/react';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import Submenu_1 from '../../Submenu/1/Submenu_1';
+import { NavbarProps } from '@/lib/types';
+import { IconChevronDown } from '@/components/icons/IconChevronDown';
 
 type MobileMenu1Props = {
-    variant: 'glass' | 'dark' | 'light' | null;
-    close: () => void;
+    variant: 'dark' | 'glass' | 'light' | null | undefined;
     visible: boolean;
+    close: () => void;
 };
 
-export default function MobileMenu_1({ visible, close, variant = 'glass' }: MobileMenu1Props) {
+export default function MobileMenu_1({
+    visible,
+    variant = 'glass',
+    navbar,
+    close,
+}: MobileMenu1Props & { navbar: NavbarProps[] }) {
     const [submenuIndex, setSubmenuIndex] = useState<number | null>(null);
-
     const [menu, animate] = useAnimate();
 
     useEffect(() => {
@@ -42,133 +46,71 @@ export default function MobileMenu_1({ visible, close, variant = 'glass' }: Mobi
             style={{ y: '-100%' }}
             ref={menu}>
             <div className="container h-full">
-                <div className="h-full overflow-auto hide-scrollbar flex flex-col justify-between gap-y-theme-3xl pb-theme-lg">
+                <div className="h-full overflow-auto hide-scrollbar flex flex-col justify-between gap-y-3xl pb-lg">
                     <nav
                         role="navigation"
                         aria-label="Hauptnavigation">
                         <ul className="divide-y divide-border-secondary">
-                            <li className="children">
-                                <Link
-                                    href="#"
-                                    className="text-h6 font-highlight leading-headline py-theme-xl flex items-center justify-between gap-theme-md"
-                                    aria-haspopup="true"
-                                    aria-expanded={submenuIndex === 0 ? 'true' : 'false'}
-                                    role="menuitem"
-                                    onClick={(e) => {
-                                        e.preventDefault();
-                                        setSubmenuIndex(submenuIndex === 0 ? null : 0);
-                                    }}>
-                                    Products
-                                    <IconChevronDown
-                                        className={cn('size-5 transition-all', submenuIndex === 0 && 'rotate-180')}
-                                    />
-                                </Link>
-                                <Submenu_1
-                                    variant={variant}
-                                    close={close}
-                                    visible={submenuIndex === 0}
-                                />
-                            </li>
-                            <li className="children">
-                                <Link
-                                    href="#"
-                                    className="text-h6 font-highlight leading-headline py-theme-xl flex items-center justify-between gap-theme-md"
-                                    aria-haspopup="true"
-                                    aria-expanded={submenuIndex === 1 ? 'true' : 'false'}
-                                    role="menuitem"
-                                    onClick={(e) => {
-                                        e.preventDefault();
-                                        setSubmenuIndex(submenuIndex === 1 ? null : 1);
-                                    }}>
-                                    Solutions
-                                    <IconChevronDown
-                                        className={cn('size-5 transition-all', submenuIndex === 1 && 'rotate-180')}
-                                    />
-                                </Link>
-                                <Submenu_1
-                                    variant={variant}
-                                    close={close}
-                                    visible={submenuIndex === 1}
-                                />
-                            </li>
-                            <li className="children">
-                                <Link
-                                    href="#"
-                                    className="text-h6 font-highlight leading-headline py-theme-xl flex items-center justify-between gap-theme-md"
-                                    aria-haspopup="false"
-                                    role="menuitem"
-                                    onClick={() => {
-                                        close();
-                                    }}>
-                                    Customers
-                                </Link>
-                            </li>
-                            <li className="children">
-                                <Link
-                                    href="#"
-                                    className="text-h6 font-highlight leading-headline py-theme-xl flex items-center justify-between gap-theme-md"
-                                    aria-haspopup="true"
-                                    aria-expanded={submenuIndex === 3 ? 'true' : 'false'}
-                                    role="menuitem"
-                                    onClick={(e) => {
-                                        e.preventDefault();
-                                        setSubmenuIndex(submenuIndex === 3 ? null : 3);
-                                    }}>
-                                    Ressources
-                                    <IconChevronDown
-                                        className={cn('size-5 transition-all', submenuIndex === 3 && 'rotate-180')}
-                                    />
-                                </Link>
-                                <Submenu_1
-                                    variant={variant}
-                                    close={close}
-                                    visible={submenuIndex === 3}
-                                />
-                            </li>
-                            <li className="children">
-                                <Link
-                                    href="#"
-                                    className="text-h6 font-highlight leading-headline py-theme-xl flex items-center justify-between gap-theme-md"
-                                    aria-haspopup="true"
-                                    aria-expanded={submenuIndex === 4 ? 'true' : 'false'}
-                                    role="menuitem"
-                                    onClick={(e) => {
-                                        e.preventDefault();
-                                        setSubmenuIndex(submenuIndex === 4 ? null : 4);
-                                    }}>
-                                    Pricing
-                                    <IconChevronDown
-                                        className={cn('size-5 transition-all', submenuIndex === 4 && 'rotate-180')}
-                                    />
-                                </Link>
-                                <Submenu_1
-                                    variant={variant}
-                                    close={close}
-                                    visible={submenuIndex === 4}
-                                />
-                            </li>
+                            {navbar?.map((item, index) => (
+                                <li
+                                    key={index}
+                                    className="children">
+                                    {item?.type === 'submenu' ? (
+                                        <>
+                                            <Link
+                                                href="#"
+                                                className="text-h6 font-highlight leading-headline py-xl flex items-center justify-between gap-md"
+                                                aria-haspopup="true"
+                                                aria-expanded={submenuIndex === 0 ? 'true' : 'false'}
+                                                role="menuitem"
+                                                onClick={(e) => {
+                                                    e.preventDefault();
+                                                    setSubmenuIndex(submenuIndex === index ? null : index);
+                                                }}>
+                                                {item?.label}
+                                                <IconChevronDown
+                                                    className={cn(
+                                                        'size-5 transition-all',
+                                                        submenuIndex === 0 && 'rotate-180',
+                                                    )}
+                                                />
+                                            </Link>
+                                            <Submenu_1
+                                                submenu={item?.submenus}
+                                                variant={variant}
+                                                visible={submenuIndex === index}
+                                                close={close}
+                                            />
+                                        </>
+                                    ) : item?.type === 'extern' ? (
+                                        <Link
+                                            href="#"
+                                            className="text-h6 font-highlight leading-headline py-xl flex items-center justify-between gap-md"
+                                            target="_blank"
+                                            aria-haspopup="false"
+                                            role="menuitem"
+                                            onClick={() => {
+                                                close();
+                                            }}>
+                                            {item?.label}
+                                        </Link>
+                                    ) : (
+                                        <Link
+                                            href="#"
+                                            className="text-h6 font-highlight leading-headline py-xl flex items-center justify-between gap-md"
+                                            aria-haspopup="false"
+                                            target="_self"
+                                            role="menuitem"
+                                            onClick={() => {
+                                                close();
+                                            }}>
+                                            {item?.label}
+                                        </Link>
+                                    )}
+                                </li>
+                            ))}
                         </ul>
                     </nav>
-                    <div className="flex flex-col gap-theme-lg children">
-                        <Button
-                            as="link"
-                            variant="light"
-                            onClick={() => {
-                                close();
-                            }}
-                            link={{ url: '#', title: 'Sign in', target: '_self' }}>
-                            Sing in
-                        </Button>
-                        <Button
-                            as="link"
-                            variant="primary"
-                            onClick={() => {
-                                close();
-                            }}
-                            link={{ url: '#', title: 'Sign in', target: '_self' }}>
-                            See a Demo
-                        </Button>
-                    </div>
                 </div>
             </div>
         </motion.div>

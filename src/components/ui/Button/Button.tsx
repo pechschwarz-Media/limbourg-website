@@ -38,7 +38,10 @@ const arrowVariants = cva('', {
 });
 
 type AsButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & { as: 'button' };
-type AsLinkProps = Omit<React.AnchorHTMLAttributes<HTMLAnchorElement> & { as: 'link'; link: AcfLink }, 'href'>;
+type AsLinkProps = Omit<
+    React.AnchorHTMLAttributes<HTMLAnchorElement> & { as: 'link'; link: AcfLink | undefined },
+    'href'
+>;
 
 type ButtonOrLinkProps = AsButtonProps | AsLinkProps;
 
@@ -47,11 +50,11 @@ export type ButtonBaseProps = VariantProps<typeof buttonVariants> & ButtonOrLink
 export function Button({ className, ...props }: ButtonBaseProps) {
     if (props.as === 'link') {
         const { as, link, variant, ...rest } = props;
-        const target = link.target ? link.target : '_self';
+        const target = link?.target ? link.target : '_self';
 
         return (
             <Link
-                href={link.url || '#'}
+                href={link?.url || '#'}
                 target={target}
                 className={cn(buttonVariants({ variant, className }))}
                 {...rest}

@@ -50,13 +50,13 @@ export default function Blog_Card_1({ post, variant, showAuthor, showButton }: B
             href={post?.permalink || '#'}
             className={cn(cardVariants({ variant }))}>
             {post?.thumbnail && (
-                <div className="rounded-md mb-theme-3xl overflow-hidden">
+                <div className="rounded-md mb-theme-3xl aspect-[3/2] overflow-hidden">
                     <Image
                         src={post?.thumbnail}
                         alt={post?.title}
                         width="1920"
                         height="1080"
-                        className="group-hover:scale-105 transition-all duration-400"
+                        className="group-hover:scale-105 transition-all duration-400 size-full object-cover"
                     />
                 </div>
             )}

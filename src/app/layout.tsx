@@ -6,6 +6,7 @@ import Link from 'next/link';
 import './globals.css';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import Script from 'next/script';
 
 const saans = localFont({
     src: [
@@ -50,6 +51,10 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                     </div>
                 )}
             </body>
+            <Script
+                type="text/javascript"
+                src="https://pro.crisalix.com/reviews_widget.js?token=208177cba0bbb2e6adc0dff6f8bc9812&type=micro_review_count&selector=crisalix_widget_wrap_681ef77e"
+                async></Script>
         </html>
     );
 }

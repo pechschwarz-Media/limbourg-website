@@ -18,6 +18,7 @@ const Components = {
     related_content_1: dynamic(() => import('@/components/cms/Related/Content/1/Related_Content_1')),
     faq_1: dynamic(() => import('@/components/cms/Faq/1/Faq_1')),
     faq_2: dynamic(() => import('@/components/cms/Faq/2/Faq_2')),
+    faq_3: dynamic(() => import('@/components/cms/Faq/3/Faq_3')),
     header_1: dynamic(() => import('@/components/cms/Header/1/Header_1')),
     header_44: dynamic(() => import('@/components/cms/Header/44/Header_44')),
     header_47: dynamic(() => import('@/components/cms/Header/47/Header_47')),

@@ -217,7 +217,7 @@ export default function Timeline_1(content: Timeline1Props) {
                                 )}>
                                 <Headline
                                     headline={{
-                                        headline: slide.title,
+                                        headline: slide?.title,
                                         tagline: '',
                                         tag: 'span',
                                         style: 'h6',

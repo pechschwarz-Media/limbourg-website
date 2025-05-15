@@ -1,4 +1,4 @@
-export function generateMetadata() {
+export async function generateMetadata() {
     return {
         title: '404: Seite nicht gefunden',
         description: 'Die Seite wurde nicht gefunden',

@@ -84,12 +84,30 @@ export type AcfMedia = {
 };
 
 export type Options = {
+    menupunkt: NavbarProps[];
     content: { content: FlexibleContent };
     footeroptions: FooterOptions;
     logos: {
         logolight: ImageType;
         logodark: ImageType;
     };
+    navbutton: AcfLink;
+};
+
+export type NavbarProps = {
+    label: string;
+    type: string;
+    link: AcfLink;
+    submenus: SubmenuProps[];
+};
+
+export type SubmenuProps = {
+    label: AcfLink;
+    thirdmenu: ThirdmenuProps[];
+};
+
+export type ThirdmenuProps = {
+    link: AcfLink;
 };
 
 export type FooterOptions = {
