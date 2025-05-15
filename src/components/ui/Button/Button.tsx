@@ -10,7 +10,7 @@ export const buttonVariants = cva(
         variants: {
             variant: {
                 glass: 'bg-neutral-900/15 text-text-alternate border border-border-tertiary/15 h-10 md:h-12 rounded-none px-theme-2xl rounded-md md:rounded-xl backdrop-blur transition-all flex lg:inline-flex',
-                light: 'bg-background-primary text-text-primary border border-border-secondary h-10 md:h-12 rounded-none px-theme-2xl rounded-md md:rounded-xl transition-all flex lg:inline-flex',
+                light: 'bg-brand-gray text-text-primary border border-brand-gray h-10 md:h-12 rounded-none px-theme-2xl rounded-md md:rounded-xl transition-all flex lg:inline-flex',
                 dark: 'bg-brand-black text-text-alternate border border-brand-black h-10 md:h-12 rounded-none px-theme-2xl rounded-md md:rounded-xl transition-all flex lg:inline-flex',
                 primary:
                     'bg-brand-secondary-300 border border-brand-secondary-300 text-text-primary h-10 md:h-12 rounded-none px-theme-2xl rounded-md md:rounded-xl flex lg:inline-flex',

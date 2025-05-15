@@ -89,7 +89,7 @@
     --breakpoint-2xl: 90rem;
 
     --color-border-primary: var(--color-neutral-950);
-    --color-border-secondary: var(--color-neutral-300);
+    --color-border-secondary: var(--color-neutral-400);
     --color-border-tertiary: #4e4e56;
     --color-border-alternate: var(--color-neutral-25);
     --color-border-brand-primary: var(--color-system-success-200);
@@ -107,7 +107,7 @@
     --color-text-tertiary: var(--color-neutral-300);
     --color-text-alternate: var(--color-neutral-25);
     --color-text-brand-primary: var(--color-brand-primary-500);
-    --color-text-brand-secondary: var(--color-brand-secondary-300);
+    --color-text-brand-secondary: #fff;
     --color-text-brand-tertiary: var(--color-brand-white);
     --color-text-success: var(--color-system-success-400);
     --color-text-error: var(--color-system-error-500);
@@ -115,6 +115,7 @@
     --color-text-info: var(--color-system-info-500);
 
     --color-brand-black: #27272a;
+    --color-brand-gray: #dfe2e4;
     --color-brand-white: #ffffff;
     --color-brand-primary-25: #fafbf9;
     --color-brand-primary-50: #f7f8f5;

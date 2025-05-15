@@ -93,10 +93,12 @@ export function Form({ form }: FormProps) {
                     <Button
                         as="button"
                         type="submit"
+                        variant="dark"
                         disabled={loading}>
                         {form?.button?.text}
                         {loading && <IconSpin className="size-4 animate-spin" />}
                     </Button>
+
                     {success === false && <div className="text-tiny text-text-error mt-4">{message}</div>}
                 </div>
             </form>

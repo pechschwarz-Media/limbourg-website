@@ -119,10 +119,12 @@ export default function Cta_HalfHorizontal_1(content: CtaHalfHorizontal1Props) {
                                         })}
                                     </ul>
                                 )}
-                                <ButtonGroup
-                                    buttons={content?.buttons}
-                                    className={cn(content?.textAlign === 'center' && 'justify-center')}
-                                />
+                                {content?.buttons?.length > 0 && (
+                                    <ButtonGroup
+                                        buttons={content?.buttons}
+                                        className={cn(content?.textAlign === 'center' && 'justify-center')}
+                                    />
+                                )}
                             </div>
                             <Rating_2 />
                         </div>

@@ -15,20 +15,18 @@ export default function Blogdetail_2(content: ComponentData<Content>) {
         <Section
             dataComponent="Blogdetail_2"
             settings={{ padding: { top: 'off', bottom: 'small' }, variant: 'light' }}>
-            <div className="container">
-                <div className="pb-5 md:pb-6">
-                    <div className="h-[550px]">
-                        <Media
-                            media={content?.media}
-                            className="h-full w-full object-cover"
-                        />
-                    </div>
-
-                    <Wysiwyg
-                        className="mt-2"
-                        text={content.text}
+            <div className="pb-5 md:pb-6">
+                <div className="h-[550px] rounded-md overflow-hidden">
+                    <Media
+                        media={content?.media}
+                        className="h-full w-full object-cover"
                     />
                 </div>
+
+                <Wysiwyg
+                    className="mt-2"
+                    text={content.text}
+                />
             </div>
         </Section>
     );

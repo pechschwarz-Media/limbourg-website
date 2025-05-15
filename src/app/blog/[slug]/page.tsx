@@ -17,6 +17,10 @@ import { Tag } from '@/components/ui/Tag/Tag';
 import { IconArrowLeft } from '@/components/icons/IconArrowLeft';
 import { IconChevronLeft } from '@/components/icons/IconChevronLeft';
 import { Headline } from '@/components/ui/Headline/Headline';
+import getAuthor from '@/lib/queries/author/getAuthor';
+import { Form } from '@/components/ui/Form/GravityForms/Form';
+import { getForm } from '@/lib/queries/form/getForm';
+import ShareButtons from '@/components/ui/ShareButtons/shareButton';
 
 export async function generateStaticParams() {
     const posts = await getPostSlugs();
@@ -57,6 +61,9 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
     const postMedia = post?._embedded['wp:featuredmedia']?.at(0);
     const content = post?.acf?.content;
     const options = await getOptions();
+    const authorIds = post?.acf?.authors?.toString();
+    const authors = await getAuthor(authorIds);
+    const form = await getForm({ id: 2 });
     let counter = 1;
 
     return (
@@ -97,37 +104,91 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
                         </div>
                     </div>
                     <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-10 lg:gap-20 items-start">
-                        <div className="bg-neutral-100 p-8 rounded-md">
-                            <h5 className="text-h5 mb-4 font-semibold hyphens-auto lg:hyphens-none">
-                                Inhaltsverzeichnis
-                            </h5>
-                            <div>
-                                <ul className="mb-6xl flex flex-col gap-3">
-                                    {Array.isArray(content) &&
-                                        content.length > 0 &&
-                                        content
-                                            .filter((post) => post?.acf_fc_layout === 'blogdetail_1')
-                                            .map((post: any, index) => {
-                                                if (post) {
-                                                    return (
-                                                        <li
-                                                            className="transition-all border-brand-primary text-text-secondary hover:text-black hover:border-l-2 hover:pl-2"
-                                                            key={index}>
-                                                            <Link
-                                                                className="text-base transition"
-                                                                href={`#${index + 1}`}>
-                                                                {post?.textblock?.headline?.headline}
-                                                            </Link>
-                                                        </li>
-                                                    );
-                                                }
-                                                return null;
-                                            })}
-                                </ul>
+                        <div className=" flex flex-col gap-12">
+                            <div className="bg-neutral-100 p-8 rounded-md">
+                                <h5 className="text-h5 mb-4 font-semibold hyphens-auto lg:hyphens-none">
+                                    Inhaltsverzeichnis
+                                </h5>
+                                <div>
+                                    <ul className="mb-6xl flex flex-col gap-3">
+                                        {Array.isArray(content) &&
+                                            content.length > 0 &&
+                                            content
+                                                .filter((post) => post?.acf_fc_layout === 'blogdetail_1')
+                                                .map((post: any, index) => {
+                                                    if (post) {
+                                                        return (
+                                                            <li
+                                                                className="transition-all border-brand-primary text-text-secondary hover:text-black hover:border-l-2 hover:pl-2"
+                                                                key={index}>
+                                                                <Link
+                                                                    className="text-base transition"
+                                                                    href={`#${index + 1}`}>
+                                                                    {post?.textblock?.headline?.headline}
+                                                                </Link>
+                                                            </li>
+                                                        );
+                                                    }
+                                                    return null;
+                                                })}
+                                    </ul>
+                                </div>
+                            </div>
+                            {authors && (
+                                <div className="flex flex-col gap-6">
+                                    <Headline headline={{ style: 'h5', tagline: '', headline: 'Autoren', tag: 'h5' }} />
+                                    {authors.map((author, index) => (
+                                        <div
+                                            key={index}
+                                            className="flex flex-row gap-4 items-center">
+                                            <div className="size-14 rounded-full overflow-hidden">
+                                                <Image
+                                                    src={author?.acf?.portrait?.url}
+                                                    alt={author?.acf?.portrait?.alt}
+                                                    width={author?.acf?.portrait?.width}
+                                                    height={author?.acf?.portrait?.height}
+                                                    className="size-full object-cover"
+                                                />
+                                            </div>
+                                            <div>
+                                                <p className="text-regular font-medium">{author?.title?.rendered}</p>
+                                                <p className="text-regular text-text-secondary">
+                                                    {author?.acf?.jobtitle}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
+
+                            <hr className="bg-border-secondary"></hr>
+                            <div className="flex flex-col gap-4">
+                                <Headline
+                                    headline={{
+                                        style: 'h5',
+                                        tagline: '',
+                                        headline: 'Newsletter abonnieren',
+                                        tag: 'h5',
+                                    }}
+                                />
+                                <Form form={form} />
+                            </div>
+                            <hr className="bg-border-secondary"></hr>
+                            <div className="flex flex-col gap-4">
+                                <Headline
+                                    headline={{
+                                        style: 'h5',
+                                        tagline: '',
+                                        headline: 'Beitrag teilen',
+                                        tag: 'h5',
+                                    }}
+                                />
+                                <ShareButtons post={post} />
                             </div>
                         </div>
+
                         {Array.isArray(content) && content.length > 0 && (
-                            <div className="pb-28">
+                            <div>
                                 <ComponentRenderer content={content} />
                             </div>
                         )}

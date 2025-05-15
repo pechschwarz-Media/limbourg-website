@@ -9,10 +9,10 @@ export function Input({ className, label, ...props }: InputProps) {
     const [value, setValue] = useState('');
 
     return (
-        <label className="relative block text-tiny border border-border-secondary bg-neutral-25 rounded-xs">
+        <label className="relative block text-tiny border border-border-secondary bg-neutral-25 rounded-md">
             <input
                 className={cn(
-                    'pb-3 pt-7 w-full block px-theme-lg peer rounded-xs focus-visible:outline focus-visible:outline-border-primary',
+                    'pb-3 pt-7 w-full block px-theme-lg peer rounded-md focus-visible:outline focus-visible:outline-border-primary',
                     className,
                 )}
                 {...props}

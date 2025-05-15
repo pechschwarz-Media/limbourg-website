@@ -151,3 +151,21 @@ export type GravityFormsResponse = {
         [key: string]: string;
     };
 };
+
+export type PostProps = {
+    title: {
+        rendered: string;
+    };
+    link: string;
+    excerpt: { rendered: string };
+    acf: {
+        category: number;
+        authors: number[] | false | null;
+        content: FlexibleContent;
+    };
+    date: string;
+    _embedded: {
+        'wp:featuredmedia': PostImageType[];
+        'wp:term': [[{ name: string }]];
+    };
+};

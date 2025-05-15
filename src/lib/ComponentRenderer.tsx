@@ -24,6 +24,7 @@ const Components = {
     contact_form_1: dynamic(() => import('@/components/cms/Contact/Form/1/Contact_Form_1')),
     cta_halfhorizontal_1: dynamic(() => import('@/components/cms/Cta/HalfHorizontal/1/Cta_HalfHorizontal_1')),
     cta_fullcentered_1: dynamic(() => import('@/components/cms/Cta/FullCentered/1/Cta_FullCentered_1')),
+    cta_39: dynamic(() => import('@/components/cms/Cta/39')),
     text_features_1: dynamic(() => import('@/components/cms/Text/Features/1/Text_Features_1')),
     text_features_2: dynamic(() => import('@/components/cms/Text/Features/2/Text_Features_2')),
     text_highlight_1: dynamic(() => import('@/components/cms/Text/Highlight/1/Text_Highlight_1')),
@@ -44,13 +45,17 @@ const Components = {
     ),
     blog_teaser_1: dynamic(() => import('@/components/cms/Blog/Teaser/1/Blog_Teaser_1')),
     blog_overview_1: dynamic(() => import('@/components/cms/Blog/Overview/1/Blog_Overview_1')),
+    layout_115: dynamic(() => import('@/components/cms/Layout/115')),
     layout_249: dynamic(() => import('@/components/cms/Layout/249')),
+    layout_484: dynamic(() => import('@/components/cms/Layout/484')),
     ifram_crisalix: dynamic(() => import('@/components/cms/Crisalix')),
     reviewsgrid: dynamic(() => import('@/components/cms/Reviewsgrid')),
+    content_29: dynamic(() => import('@/components/cms/Content/29')),
     content_32: dynamic(() => import('@/components/cms/Content/32')),
     blogdetail_1: dynamic(() => import('@/components/cms/BlogDetail/1')),
     blogdetail_2: dynamic(() => import('@/components/cms/BlogDetail/2')),
     blogdetail_3: dynamic(() => import('@/components/cms/BlogDetail/3')),
+    team_8: dynamic(() => import('@/components/cms/Team/8')),
 };
 
 export default function ComponentRenderer({ content }: { content: FlexibleContent }) {

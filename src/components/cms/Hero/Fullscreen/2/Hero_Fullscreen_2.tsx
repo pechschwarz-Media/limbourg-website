@@ -37,7 +37,7 @@ const gridVariants = cva('h-full flex flex-col', {
     },
 });
 
-const containerVariants = cva('max-w-4xl space-y-theme-3xl', {
+const containerVariants = cva('max-w-5xl space-y-theme-3xl', {
     variants: {
         textAlign: {
             center: ' mx-auto',
@@ -123,7 +123,10 @@ export default function Hero_Fullscreen_2(content: HeroFullscreen2Props) {
                                 style={{ opacity: 0, y: 100 }}
                                 transition={{ duration: 0.5 }}
                                 className={cn(headlineVariants({ textAlign: content?.textAlign }))}>
-                                <Headline headline={content?.headline} />
+                                <Headline
+                                    headline={content?.headline}
+                                    classNameTagline="text-white"
+                                />
                             </motion.div>
                             <div
                                 className={cn(

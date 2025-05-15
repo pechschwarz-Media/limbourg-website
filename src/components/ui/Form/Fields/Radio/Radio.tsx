@@ -6,7 +6,7 @@ type InputProps = {
 
 export function Radio({ label, ...props }: InputProps) {
     return (
-        <label className="text-tiny p-theme-xl flex items-center justify-between gap-theme-xl cursor-pointer bg-neutral-25 border border-border-secondary rounded-xs">
+        <label className="text-tiny p-theme-xl flex items-center justify-between gap-theme-xl cursor-pointer bg-neutral-25 border border-border-secondary rounded-md">
             <div className="font-highlight text-text-primary">{label}</div>
             <input
                 type="radio"

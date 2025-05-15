@@ -194,7 +194,7 @@ export default function Footer_2_inner({ variant, footerinfo, logos }: Footer1Pr
                                                     alt={item?.icon?.alt}
                                                     width={item?.icon?.width}
                                                     height={item?.icon?.height}
-                                                    className="h-6 w-6"
+                                                    className="size-auto"
                                                 />
                                             </Link>
                                         </div>

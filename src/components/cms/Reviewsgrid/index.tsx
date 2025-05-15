@@ -51,7 +51,7 @@ export default function Reviewsgrid(content: ReviewsProps) {
         once: true,
     });
 
-    const sliptLength = Math.ceil(content?.reviews.length / 3);
+    const sliptLength = Math.ceil(content?.reviews?.length / 3);
     const firstBracket = content?.reviews.slice(0, sliptLength);
     const secondBracket = content?.reviews.slice(sliptLength, sliptLength * 2);
     const thirdBracket = content?.reviews.slice(sliptLength * 2, sliptLength * 3);

@@ -14,12 +14,10 @@ export default function Blogdetail_1(content: ComponentData<Content>) {
             settings={{ padding: { top: 'off', bottom: 'small' }, variant: 'light' }}
             id={content.i.toString()}
             className="scroll-mt-24">
-            <div className="container ">
-                <TextBlock
-                    textblock={content?.textblock}
-                    variant="light"
-                />
-            </div>
+            <TextBlock
+                textblock={content?.textblock}
+                variant="light"
+            />
         </Section>
     );
 }

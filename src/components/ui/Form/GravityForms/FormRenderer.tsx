@@ -46,6 +46,13 @@ export function FormRenderer({ form, hookForm }: FormRendererProps) {
                     field={field}
                     hookForm={hookForm}
                 />
+                {field?.type === 'consent' && (
+                    <>
+                        {hookForm?.formState?.errors['input_' + field?.id + '_1'] && (
+                            <div className="text-tiny text-text-error mt-theme-sm">Bitte das Feld ausfüllen!</div>
+                        )}
+                    </>
+                )}
                 {hookForm?.formState?.errors['input_' + field?.id] && (
                     <div className="text-tiny text-text-error mt-theme-sm">Bitte das Feld ausfüllen!</div>
                 )}

@@ -59,7 +59,7 @@ export default function Hero_HalfVertical_1(content: HeroHalfVertical1Props) {
                             animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 100 }}
                             style={{ opacity: 0, y: 100 }}
                             transition={{ duration: 0.5 }}>
-                            <Rating_1 variant={content?.settings?.variant} />
+                            <Rating_1 />
                         </motion.div>
                         <motion.div
                             initial={{ opacity: 0, y: 100 }}
@@ -105,7 +105,7 @@ export default function Hero_HalfVertical_1(content: HeroHalfVertical1Props) {
                         style={{ marginLeft: margin, marginRight: margin, opacity: 0, y: 100 }}>
                         <Media
                             media={content?.media}
-                            className="aspect-[16/9] object-cover"
+                            className="aspect-[16/9] size-auto object-cover"
                         />
                     </motion.div>
                 </div>

@@ -1,4 +1,5 @@
 import { IconCheck } from '@/components/icons/IconCheck';
+import parse from 'html-react-parser';
 
 type ConsentProps = { label: string } & React.InputHTMLAttributes<HTMLInputElement>;
 
@@ -15,7 +16,7 @@ export default function Consent({ label, ...props }: ConsentProps) {
                     <IconCheck className="size-4" />
                 </div>
             </div>
-            <div>{label}</div>
+            <div>{parse(label)}</div>
         </label>
     );
 }

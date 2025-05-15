@@ -54,7 +54,7 @@ export default function Cta_FullCentered_1(content: CtaHalfHorizontal1Props) {
                     <div className="absolute hidden lg:block left-0 top-0 bottom-0 m-0">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            width="auto"
+                            width="100%"
                             height="100%"
                             viewBox="0 0 261 517"
                             fill="none">
@@ -68,7 +68,7 @@ export default function Cta_FullCentered_1(content: CtaHalfHorizontal1Props) {
                     <div className="absolute inset-0 lg:inset-auto lg:right-0 lg:top-0 lg:bottom-0 m-0">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            width="auto"
+                            width="100%"
                             height="100%"
                             viewBox="0 0 283 517"
                             fill="none">
@@ -81,7 +81,7 @@ export default function Cta_FullCentered_1(content: CtaHalfHorizontal1Props) {
                     </div>
 
                     <div className="relative z-10 max-w-2xl mx-auto text-center space-y-theme-3xl">
-                        <Rating_1 variant={content?.settings?.variant} />
+                        <Rating_1 />
                         <TextBlock
                             variant={content?.settings?.variant}
                             textblock={content?.textblock}

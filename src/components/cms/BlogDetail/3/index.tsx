@@ -11,9 +11,10 @@ export default function Blogdetail_3(content: ComponentData<Content>) {
         <Section
             dataComponent="Blogdetail_3"
             settings={{ padding: { top: 'off', bottom: 'small' }, variant: 'light' }}>
-            <div className="container">
-                <Wysiwyg text={content?.text} />
-            </div>
+            <Wysiwyg
+                text={content?.text}
+                className="border-l-2 pl-4 border-neutral-300"
+            />
         </Section>
     );
 }
