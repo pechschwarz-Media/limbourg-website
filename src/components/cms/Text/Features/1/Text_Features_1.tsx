@@ -56,29 +56,31 @@ export default function Text_Feature_1(content: TextFeatures1Props) {
                         textblock={content?.textblock}
                     />
                 </motion.div>
-                <div className="grid gap-theme-xl lg:gap-theme-3xl lg:auto-cols-fr lg:grid-flow-col">
-                    {content?.features?.map((feature, index) => {
-                        return (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, y: 100 }}
-                                animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 100 }}
-                                style={{ opacity: 0, y: 100 }}
-                                transition={{ duration: 0.5, delay: 0.1 * (index + 1) }}
-                                className={cn(featureVariants({ variant: content?.settings?.variant }))}>
-                                <Headline
-                                    headline={{
-                                        tagline: feature?.tagline,
-                                        style: 'h5',
-                                        tag: 'h5',
-                                        headline: feature?.text,
-                                    }}
-                                    className="-mt-theme-xs"
-                                />
-                            </motion.div>
-                        );
-                    })}
-                </div>
+                {content?.features && (
+                    <div className="grid gap-theme-xl lg:gap-theme-3xl lg:auto-cols-fr lg:grid-flow-col">
+                        {content?.features?.map((feature, index) => {
+                            return (
+                                <motion.div
+                                    key={index}
+                                    initial={{ opacity: 0, y: 100 }}
+                                    animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 100 }}
+                                    style={{ opacity: 0, y: 100 }}
+                                    transition={{ duration: 0.5, delay: 0.1 * (index + 1) }}
+                                    className={cn(featureVariants({ variant: content?.settings?.variant }))}>
+                                    <Headline
+                                        headline={{
+                                            tagline: feature?.tagline,
+                                            style: 'h5',
+                                            tag: 'h5',
+                                            headline: feature?.text,
+                                        }}
+                                        className="-mt-theme-xs"
+                                    />
+                                </motion.div>
+                            );
+                        })}
+                    </div>
+                )}
             </div>
         </Section>
     );
