@@ -82,24 +82,12 @@ export default function MobileMenu_1({
                                                 close={close}
                                             />
                                         </>
-                                    ) : item?.type === 'extern' ? (
-                                        <Link
-                                            href="#"
-                                            className="text-h6 font-highlight leading-headline py-xl flex items-center justify-between gap-md"
-                                            target="_blank"
-                                            aria-haspopup="false"
-                                            role="menuitem"
-                                            onClick={() => {
-                                                close();
-                                            }}>
-                                            {item?.label}
-                                        </Link>
                                     ) : (
                                         <Link
-                                            href="#"
+                                            href={item?.link?.url}
                                             className="text-h6 font-highlight leading-headline py-xl flex items-center justify-between gap-md"
                                             aria-haspopup="false"
-                                            target="_self"
+                                            target={item?.link?.title}
                                             role="menuitem"
                                             onClick={() => {
                                                 close();

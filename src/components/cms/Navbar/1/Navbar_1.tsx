@@ -230,9 +230,11 @@ export default function Navbar_1({ variant, navbar, navbutton, options }: Navbar
                         <div className="flex gap-md items-center lg:hidden">
                             <Button
                                 as="link"
-                                variant="light"
-                                link={navbutton}
-                            />
+                                variant="dark"
+                                link={navbutton}>
+                                <Calender className="group size-3xl text-inherit" />
+                                {navbutton?.title}
+                            </Button>
                             <button
                                 className={cn(burgerVariants({ variant }))}
                                 ref={menuButton}
