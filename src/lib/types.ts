@@ -139,6 +139,7 @@ export type FormField = {
     formId: number;
     label: string;
     labelPlacement: string;
+    content: string;
     isRequired: boolean;
     layoutGridColumnSpan: string | number;
     choices: {

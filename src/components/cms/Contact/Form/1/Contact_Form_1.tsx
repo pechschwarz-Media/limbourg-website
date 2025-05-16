@@ -19,6 +19,10 @@ const formWrappervariants = cva('p-theme-3xl md:p-theme-4xl rounded-md', {
 
 export type ContactForm1Props = {
     textblock: AcfTextBlock;
+    mail: string;
+    phone: string;
+    adress: string;
+    callingtimes: { day: string; time: string }[];
     form: number;
     settings: Settings;
 };

@@ -9,6 +9,8 @@ import { FormSelect } from './fields/FormSelect';
 import { FormText } from './fields/FormText';
 import { FormTextarea } from './fields/FormTextarea';
 import { Inputs } from './Form';
+import { FormHtml } from './fields/FormHtml';
+import { FormCheckbox } from './fields/FormCeckbox';
 
 export const FormTypes = {
     select: FormSelect,
@@ -18,6 +20,8 @@ export const FormTypes = {
     textarea: FormTextarea,
     section: FormSection,
     consent: FormConsent,
+    html: FormHtml,
+    checkbox: FormCheckbox,
 };
 
 type FormRendererProps = {

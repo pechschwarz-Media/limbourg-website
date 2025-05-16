@@ -9,6 +9,7 @@ import { cva } from 'class-variance-authority';
 import { motion, useInView } from 'motion/react';
 import { useRef } from 'react';
 import { ContactForm1Props } from './Contact_Form_1';
+import Link from 'next/link';
 
 const formWrappervariants = cva('p-theme-3xl md:p-theme-4xl rounded-md', {
     variants: {
@@ -36,7 +37,6 @@ export function Contact_Form_1_Inner({
     const isInView = useInView(container, {
         once: true,
     });
-
     return (
         <Section
             dataComponent="Contact_Form_1"
@@ -54,6 +54,20 @@ export function Contact_Form_1_Inner({
                             variant={content?.settings?.variant}
                             textblock={content?.textblock}
                         />
+                        <p className="font-medium mb-4 mt-12">Kontaktinformationen</p>
+                        <div className="flex gap-2 flex-col">
+                            <Link
+                                href={'mailto:' + content?.mail}
+                                target="_blank">
+                                {content?.mail}
+                            </Link>
+                            <Link
+                                href={'tel:' + content?.phone}
+                                target="_blank">
+                                {content?.phone}
+                            </Link>
+                            <p>{content?.adress}</p>
+                        </div>
                     </motion.div>
                     <motion.div
                         initial={{ opacity: 0, y: 100 }}

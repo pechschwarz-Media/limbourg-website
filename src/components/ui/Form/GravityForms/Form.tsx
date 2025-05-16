@@ -51,16 +51,16 @@ export function Form({ form }: FormProps) {
         });
 
         const { status } = (await response.json()) as APIRouteFormResponse;
-
+        console.log(status);
         if (status) {
             const confirmation = Object.values(form?.confirmations)[0];
 
             if (confirmation?.type === 'redirect') {
-                router.push(confirmation?.url);
+                router.push('/vielen-dank');
             }
 
             if (confirmation?.type === 'message') {
-                setMessage(confirmation?.message);
+                router.push('/vielen-dank');
             }
 
             setSuccess(true);
