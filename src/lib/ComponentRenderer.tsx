@@ -1,6 +1,5 @@
 import dynamic from 'next/dynamic';
 import { FlexibleContent } from './types';
-import Testimonial_31 from '@/components/cms/Testimonial/31';
 
 const Components = {
     blueprint: dynamic(() => import('@/components/cms/Blueprint/Blueprint')),
@@ -57,6 +56,7 @@ const Components = {
     blogdetail_2: dynamic(() => import('@/components/cms/BlogDetail/2')),
     blogdetail_3: dynamic(() => import('@/components/cms/BlogDetail/3')),
     team_8: dynamic(() => import('@/components/cms/Team/8')),
+    termin_1: dynamic(() => import('@/components/cms/Termin')),
 };
 
 export default function ComponentRenderer({ content }: { content: FlexibleContent }) {
