@@ -227,11 +227,12 @@ export default function Navbar_1({ variant, navbar, navbutton, options }: Navbar
                                 </ul>
                             </nav>
                         </div>
-                        <div className="flex gap-md items-center lg:hidden">
+                        <div className="flex gap-theme-md items-center lg:hidden">
                             <Button
                                 as="link"
                                 variant="dark"
-                                link={navbutton}>
+                                link={navbutton}
+                                className="whitespace-nowrap">
                                 <Calender className="group size-3xl text-inherit" />
                                 {navbutton?.title}
                             </Button>

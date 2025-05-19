@@ -63,28 +63,24 @@ export default function Hero_HalfHorizontal_1(content: HeroHalfHorizontal1Props)
 
     return (
         <Section
-            dataComponent="Hero_HalfVertical_1"
+            dataComponent="Hero_HalfHorizontal_1"
             ref={container}
             settings={content?.settings}>
             <div className="pt-[72px]">
                 <div className="container">
-                    <div className="grid lg:grid-cols-2 gap-5 lg:gap-20 items-center gap-y-theme-3xl md:gap-y-theme-7xl gap-x-theme-3xl order-1">
-                        <div className={cn('', content.switchOrder === true ? 'order-1' : 'order-2')}>
-                            {content?.showrating && (
-                                <motion.div
-                                    initial={{ opacity: 0, y: 100 }}
-                                    animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 100 }}
-                                    style={{ opacity: 0, y: 100 }}
-                                    transition={{ duration: 0.5 }}>
-                                    <Rating_1 />
-                                </motion.div>
-                            )}
+                    <div className="grid lg:grid-cols-12 items-center gap-y-theme-3xl md:gap-y-theme-7xl gap-x-theme-3xl">
+                        <div className="lg:col-span-6 xl:col-span-5 space-y-theme-3xl">
+                            <motion.div
+                                initial={{ opacity: 0, y: 100 }}
+                                animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 100 }}
+                                style={{ opacity: 0, y: 100 }}
+                                transition={{ duration: 0.5 }}></motion.div>
                             <motion.div
                                 initial={{ opacity: 0, y: 100 }}
                                 animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 100 }}
                                 style={{ opacity: 0, y: 100 }}
                                 transition={{ duration: 0.5, delay: 0.1 }}
-                                className="text-h1 font-headline leading-headline mb-4">
+                                className="text-h1 font-headline leading-headline">
                                 <Headline headline={content?.headline} />
                             </motion.div>
                             <motion.div
@@ -102,14 +98,13 @@ export default function Hero_HalfHorizontal_1(content: HeroHalfHorizontal1Props)
                                     initial={{ opacity: 0, y: 100 }}
                                     animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 100 }}
                                     style={{ opacity: 0, y: 100 }}
-                                    transition={{ delay: 0.3, duration: 0.5 }}
-                                    className="mt-9">
+                                    transition={{ delay: 0.3, duration: 0.5 }}>
                                     <ButtonGroup buttons={content?.buttons} />
                                 </motion.div>
                             )}
-                            <div className="flex gap-theme-3xl md:mt-theme-7xl">
-                                {content?.facts?.length > 0 &&
-                                    content?.facts?.map((fact, index) => {
+                            {content?.facts && (
+                                <div className="flex gap-theme-3xl md:mt-theme-7xl">
+                                    {content?.facts?.map((fact, index) => {
                                         return (
                                             <motion.div
                                                 key={index}
@@ -130,9 +125,10 @@ export default function Hero_HalfHorizontal_1(content: HeroHalfHorizontal1Props)
                                             </motion.div>
                                         );
                                     })}
-                            </div>
+                                </div>
+                            )}
                         </div>
-                        <div className={cn('', content.switchOrder === true ? 'order-2' : 'order-1 lg:col-start-1')}>
+                        <div className="lg:col-span-6 lg:col-start-7">
                             <div className="overflow-hidden rounded-2xl">
                                 <motion.div
                                     initial={{ opacity: 0 }}
@@ -147,7 +143,7 @@ export default function Hero_HalfHorizontal_1(content: HeroHalfHorizontal1Props)
                                         transition={{ duration: 1 }}>
                                         <Media
                                             media={content?.media}
-                                            className="aspect-[3/4] object-cover"
+                                            className="aspect-square object-cover"
                                         />
                                     </motion.div>
                                 </motion.div>
