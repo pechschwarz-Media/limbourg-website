@@ -164,7 +164,7 @@ export default function Blog_Overview_1_Inner({
                                 animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 100 }}
                                 style={{ opacity: 0, y: 100 }}
                                 transition={{ duration: 0.5, delay: 0.3 }}>
-                                <ul className="flex flex-row overflow-scroll items-center gap-theme-xl">
+                                <ul className="flex flex-row overflow-auto items-center gap-theme-xl">
                                     <li>
                                         <button
                                             className={cn(
@@ -203,18 +203,27 @@ export default function Blog_Overview_1_Inner({
                         )}
                     </div>
                     <div className="grid md:grid-cols-3 items-start gap-theme-3xl">
-                        {fetchedPosts?.map((post, index) => {
-                            return (
-                                <Blog_Card_1
-                                    key={index}
-                                    variant={content?.settings?.variant}
-                                    post={post}
-                                    showAuthor={content?.showAuthor}
-                                    showButton={content?.showButton}
-                                />
-                            );
-                        })}
+                        {fetchedPosts.length > 0 ? (
+                            fetchedPosts?.map((post, index) => {
+                                return (
+                                    <Blog_Card_1
+                                        key={index}
+                                        variant={content?.settings?.variant}
+                                        post={post}
+                                        showAuthor={content?.showAuthor}
+                                        showButton={content?.showButton}
+                                    />
+                                );
+                            })
+                        ) : (
+                            <p>Keine Beiträge zu diesem Thema gefunden</p>
+                        )}
                     </div>
+                    {isLoading && (
+                        <div className="flex justify-center mt-8">
+                            <Loader text="Beiträge werden geladen..." />
+                        </div>
+                    )}
                     {page < totalPages && (
                         <div
                             className="flex justify-center"
