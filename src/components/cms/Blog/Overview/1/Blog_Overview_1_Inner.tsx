@@ -164,11 +164,11 @@ export default function Blog_Overview_1_Inner({
                                 animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 100 }}
                                 style={{ opacity: 0, y: 100 }}
                                 transition={{ duration: 0.5, delay: 0.3 }}>
-                                <ul className="flex gap-theme-xl">
+                                <ul className="flex flex-row overflow-scroll items-center gap-theme-xl">
                                     <li>
                                         <button
                                             className={cn(
-                                                'cursor-pointer py-theme-sm px-theme-lg rounded-md  text-secondary text-small text-primary hover:text-text-primary transition-all duration-400',
+                                                'cursor-pointer text-nowrap py-theme-sm px-theme-lg rounded-md  text-secondary text-small text-primary hover:text-text-primary transition-all duration-400',
                                                 currentCategory === false && 'text-text-primary border border-primary',
                                             )}
                                             onClick={() => {
@@ -184,7 +184,7 @@ export default function Blog_Overview_1_Inner({
                                             <li key={index}>
                                                 <button
                                                     className={cn(
-                                                        'cursor-pointer py-theme-sm px-theme-lg rounded-md text-secondary text-small text-text-secondary hover:text-text-primary transition-all duration-400',
+                                                        'cursor-pointer text-nowrap py-theme-sm px-theme-lg rounded-md text-secondary text-small text-text-secondary hover:text-text-primary transition-all duration-400',
                                                         currentCategory === category?.id &&
                                                             'text-text-primary border border-primary',
                                                     )}

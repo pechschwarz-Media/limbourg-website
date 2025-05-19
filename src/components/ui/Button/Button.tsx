@@ -12,7 +12,7 @@ export const buttonVariants = cva(
                 primary:
                     'bg-brand-black text-text-alternate border border-brand-black h-10 md:h-12 rounded-none px-theme-2xl rounded-md md:rounded-xl transition-all flex lg:inline-flex',
                 secondary:
-                    'bg-transparent text-text-secondary border border-brand-black h-10 md:h-12 rounded-none px-theme-2xl rounded-md md:rounded-xl transition-all flex lg:inline-flex',
+                    'bg-background-primary text-text-primary border border-brand-black h-10 md:h-12 rounded-none px-theme-2xl rounded-md md:rounded-xl transition-all flex lg:inline-flex',
                 text: 'items-center',
             },
         },

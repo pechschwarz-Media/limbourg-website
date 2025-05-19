@@ -90,7 +90,7 @@ export default function MobileMenu_1({
                                             href={item?.link?.url}
                                             className="text-h6 font-highlight leading-headline py-theme-xl flex items-center justify-between gap-md"
                                             aria-haspopup="false"
-                                            target={item?.link?.title}
+                                            target={item?.link?.target}
                                             role="menuitem"
                                             onClick={() => {
                                                 close();
