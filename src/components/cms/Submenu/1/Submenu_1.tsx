@@ -25,7 +25,7 @@ const submenuVariants = cva(
     },
 );
 
-const titleVariants = cva('text-text-secondary font-medium mb-xl', {
+const titleVariants = cva('text-text-secondary font-medium mb-theme-xl', {
     variants: {
         variant: {
             glass: 'lg:text-text-tertiary',
@@ -159,9 +159,15 @@ export default function Submenu_1({
                                     className="flex flex-col justify-between lg:flex-row gap-4xl">
                                     {submenu?.map((item, index) => (
                                         <div key={index}>
-                                            <div className={cn('mb-2 lg:mb-4 lg:px-3', titleVariants({ variant }))}>
+                                            <Link
+                                                href={item?.label?.url}
+                                                target={item?.label?.target}
+                                                className={cn(
+                                                    'mb-2 lg:mb-4 lg:px-3 block',
+                                                    titleVariants({ variant }),
+                                                )}>
                                                 {item?.label?.title}
-                                            </div>
+                                            </Link>
                                             <ul
                                                 className={cn(
                                                     '',
@@ -211,7 +217,7 @@ export default function Submenu_1({
                                                     }}
                                                     aria-controls={`faq-panel-${index}`}
                                                     id={`faq-button-${index}`}
-                                                    className="flex items-center justify-between gap-theme-3xl cursor-pointer w-full text-large text-left font-highlight py-theme-3xl">
+                                                    className="flex items-center justify-between gap-theme-3xl cursor-pointer w-full text-large text-left font-highlight py-theme-xl">
                                                     <div className="flex-1">{item?.label?.title}</div>
                                                     <div
                                                         className="shrink"

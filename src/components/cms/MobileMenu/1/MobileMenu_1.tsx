@@ -3,8 +3,10 @@ import { motion, stagger, useAnimate } from 'motion/react';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import Submenu_1 from '../../Submenu/1/Submenu_1';
-import { NavbarProps } from '@/lib/types';
+import { AcfLink, NavbarProps } from '@/lib/types';
 import { IconChevronDown } from '@/components/icons/IconChevronDown';
+import { Button } from '@/components/ui/Button/Button';
+import Calender from '@/components/icons/Calender';
 
 type MobileMenu1Props = {
     variant: 'dark' | 'glass' | 'light' | null | undefined;
@@ -16,8 +18,9 @@ export default function MobileMenu_1({
     visible,
     variant = 'glass',
     navbar,
+    navbutton,
     close,
-}: MobileMenu1Props & { navbar: NavbarProps[] }) {
+}: MobileMenu1Props & { navbar: NavbarProps[] } & { navbutton: AcfLink | undefined }) {
     const [submenuIndex, setSubmenuIndex] = useState<number | null>(null);
     const [menu, animate] = useAnimate();
 
@@ -97,6 +100,14 @@ export default function MobileMenu_1({
                                     )}
                                 </li>
                             ))}
+                            <Button
+                                as="link"
+                                variant="dark"
+                                link={navbutton}
+                                className="mt-4 place-self-start">
+                                <Calender className="group size-3xl text-inherit" />
+                                {navbutton?.title}
+                            </Button>
                         </ul>
                     </nav>
                 </div>

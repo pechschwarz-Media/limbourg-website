@@ -228,14 +228,6 @@ export default function Navbar_1({ variant, navbar, navbutton, options }: Navbar
                             </nav>
                         </div>
                         <div className="flex gap-theme-md items-center lg:hidden">
-                            <Button
-                                as="link"
-                                variant="dark"
-                                link={navbutton}
-                                className="whitespace-nowrap">
-                                <Calender className="group size-3xl text-inherit" />
-                                {navbutton?.title}
-                            </Button>
                             <button
                                 className={cn(burgerVariants({ variant }))}
                                 ref={menuButton}
@@ -269,6 +261,7 @@ export default function Navbar_1({ variant, navbar, navbutton, options }: Navbar
             </header>
             <MobileMenu_1
                 navbar={navbar}
+                navbutton={navbutton}
                 visible={openMenu}
                 variant="light"
                 close={() => setOpenMenu(false)}
