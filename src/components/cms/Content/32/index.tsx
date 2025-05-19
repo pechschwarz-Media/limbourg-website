@@ -58,10 +58,13 @@ export default async function Content_32(content: Content32Props) {
                             {item.sections?.map((item, index) => (
                                 <div key={index}>
                                     {item?.acf_fc_layout === 'text' && (
-                                        <TextBlock
-                                            variant="light"
-                                            textblock={item?.textblock}
-                                            key={index}></TextBlock>
+                                        <div className="mt-4">
+                                            <TextBlock
+                                                variant="light"
+                                                textblock={item?.textblock}
+                                                key={index}
+                                            />
+                                        </div>
                                     )}
                                     {item?.acf_fc_layout === 'media' && (
                                         <div

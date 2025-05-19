@@ -27,7 +27,7 @@ const headerVariants = cva('fixed z-40 top-0 left-0 w-full text-black h-[72px]',
 });
 
 const linkVariants = cva(
-    'flex items-center gap-md h-10 p-theme-md rounded-xs transition-all text-regular font-medium',
+    'flex items-center gap-md h-10 p-theme-md rounded-xs transition-all text-regular font-medium hover:bg-neutral-500/30',
     {
         variants: {
             variant: {
@@ -219,7 +219,6 @@ export default function Navbar_1({ variant, navbar, navbutton, options, navbox }
                                                     className={cn(
                                                         linkVariants({
                                                             variant,
-                                                            active: submenuIndex === 0,
                                                         }),
                                                     )}
                                                     target={item?.link?.target}
