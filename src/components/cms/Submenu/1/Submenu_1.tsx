@@ -3,9 +3,11 @@
 import { SubmenuProps } from '@/lib/types';
 import { cn } from '@/lib/utils';
 import { cva, VariantProps } from 'class-variance-authority';
-import { AnimatePresence, motion } from 'motion/react';
+import { AnimatePresence, motion, useInView } from 'motion/react';
 import Link from 'next/link';
 import { useMediaQuery } from 'react-responsive';
+import { useRef, useState } from 'react';
+import { IconChevronDown } from '@/components/icons/IconChevronDown';
 
 const submenuVariants = cva(
     'container lg:text-inherit overflow-hidden lg:absolute pb-theme-4xl lg:left-1/2 top:top-full lg:-translate-x-1/2 lg:rounded-xl lg:p-theme-4xl lg:mt-theme-xl  z-40',
@@ -131,12 +133,17 @@ export default function Submenu_1({
     submenu,
     close,
 }: Submenu1Props & { submenu: SubmenuProps[] }) {
+    const [faqIndex, setFaqIndex] = useState<null | number>(null);
     const isMobile = useMediaQuery({
         query: '(max-width: 64rem)',
     });
+    const container = useRef(null);
+    const isInView = useInView(container, {
+        once: true,
+    });
     return (
         <AnimatePresence>
-            {visible && (
+            {visible && !isMobile && (
                 <>
                     <motion.div
                         initial={isMobile ? { height: 0, opacity: 0 } : { opacity: 0, y: 50 }}
@@ -177,6 +184,81 @@ export default function Submenu_1({
                                             </ul>
                                         </div>
                                     ))}
+                                </nav>
+                            </div>
+                        </div>
+                    </motion.div>
+                </>
+            )}
+            {visible && isMobile && (
+                <>
+                    <motion.div>
+                        <div className="lg:flex justify-between">
+                            <div className="w-full flex flex-col md:flex-row lg:flex-col justify-between gap-x-xl gap-y-4xl">
+                                <nav
+                                    role="navigation"
+                                    aria-label="Unternavigation"
+                                    className="pl-4 flex flex-col justify-between lg:flex-row gap-4xl">
+                                    {submenu?.map((item, index) => {
+                                        return (
+                                            <motion.div
+                                                className="border-border-tertiary"
+                                                key={index}>
+                                                <button
+                                                    aria-expanded={faqIndex === index}
+                                                    onClick={() => {
+                                                        setFaqIndex(faqIndex === index ? null : index);
+                                                    }}
+                                                    aria-controls={`faq-panel-${index}`}
+                                                    id={`faq-button-${index}`}
+                                                    className="flex items-center justify-between gap-theme-3xl cursor-pointer w-full text-large text-left font-highlight py-theme-3xl">
+                                                    <div className="flex-1">{item?.label?.title}</div>
+                                                    <div
+                                                        className="shrink"
+                                                        aria-hidden="true">
+                                                        <IconChevronDown
+                                                            className={cn(
+                                                                'size-5 transition-all',
+                                                                faqIndex === index && 'rotate-180',
+                                                            )}
+                                                        />
+                                                    </div>
+                                                </button>
+                                                <AnimatePresence>
+                                                    {faqIndex === index && (
+                                                        <motion.div
+                                                            role="region"
+                                                            aria-labelledby={`faq-button-${index}`}
+                                                            id={`faq-panel-${index}`}
+                                                            className="overflow-hidden text-text-secondary pb-4">
+                                                            <ul
+                                                                className={cn(
+                                                                    '',
+                                                                    submenu?.length > 1
+                                                                        ? 'flex flex-col gap-4'
+                                                                        : 'flex flex-col gap-2',
+                                                                )}>
+                                                                {item?.thirdmenu?.map((item, index) => (
+                                                                    <li
+                                                                        key={index}
+                                                                        className="hover:bg-brand-vw-light px-3 rounded-2xl">
+                                                                        <Link
+                                                                            href={item?.link.url}
+                                                                            target={item?.link.target}
+                                                                            className="text-regular text-brand-black"
+                                                                            role="menuitem"
+                                                                            onClick={close}>
+                                                                            {item?.link?.title}
+                                                                        </Link>
+                                                                    </li>
+                                                                ))}
+                                                            </ul>
+                                                        </motion.div>
+                                                    )}
+                                                </AnimatePresence>
+                                            </motion.div>
+                                        );
+                                    })}
                                 </nav>
                             </div>
                         </div>

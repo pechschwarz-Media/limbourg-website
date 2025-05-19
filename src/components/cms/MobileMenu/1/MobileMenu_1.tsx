@@ -59,7 +59,7 @@ export default function MobileMenu_1({
                                         <>
                                             <Link
                                                 href="#"
-                                                className="text-h6 font-highlight leading-headline py-xl flex items-center justify-between gap-md"
+                                                className="text-h6 font-highlight leading-headline py-theme-xl flex items-center justify-between gap-theme-md"
                                                 aria-haspopup="true"
                                                 aria-expanded={submenuIndex === 0 ? 'true' : 'false'}
                                                 role="menuitem"
@@ -85,7 +85,7 @@ export default function MobileMenu_1({
                                     ) : (
                                         <Link
                                             href={item?.link?.url}
-                                            className="text-h6 font-highlight leading-headline py-xl flex items-center justify-between gap-md"
+                                            className="text-h6 font-highlight leading-headline py-theme-xl flex items-center justify-between gap-md"
                                             aria-haspopup="false"
                                             target={item?.link?.title}
                                             role="menuitem"
