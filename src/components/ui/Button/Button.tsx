@@ -60,7 +60,7 @@ export function Button({ className, ...props }: ButtonBaseProps) {
                 {props.children}
                 <ArrowRight
                     className={cn(
-                        'size-6 mr-1 group-hover:translate-x-1 transition-all items-center duration-100',
+                        'size-6 group-hover:translate-x-1 transition-all items-center duration-100',
                         arrowVariants({ variant }),
                     )}
                 />
