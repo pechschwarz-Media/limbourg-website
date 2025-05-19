@@ -219,11 +219,6 @@ export default function Blog_Overview_1_Inner({
                             <p>Keine Beiträge zu diesem Thema gefunden</p>
                         )}
                     </div>
-                    {isLoading && (
-                        <div className="flex justify-center mt-8">
-                            <Loader text="Beiträge werden geladen..." />
-                        </div>
-                    )}
                     {page < totalPages && (
                         <div
                             className="flex justify-center"
