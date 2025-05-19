@@ -34,7 +34,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             <body
                 className={cn(
                     saans.variable,
-                    'text-base font-base text-text-primary font-(family-name:--font-aeonik) leading-base mt-[72px]',
+                    'text-base font-base text-text-primary font-(family-name:--font-aeonik) leading-base mt-[72px] antialiased',
                 )}>
                 <Header />
                 {children}

@@ -9,7 +9,7 @@ export type ButtonGroupProps = {
 
 export function ButtonGroup({ className, buttons }: ButtonGroupProps) {
     return (
-        <div className={cn('flex flex-col md:flex-row items-center gap-theme-md', className)}>
+        <div className={cn('flex flex-col md:flex-row items-center gap-theme-3xl', className)}>
             {buttons?.map((button, index) => {
                 return (
                     <Button

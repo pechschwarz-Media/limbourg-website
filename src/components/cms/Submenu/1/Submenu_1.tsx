@@ -164,14 +164,14 @@ export default function Submenu_1({
                                 <nav
                                     role="navigation"
                                     aria-label="Unternavigation"
-                                    className="flex flex-col justify-between lg:flex-row gap-4xl">
+                                    className="grid grid-cols-4 gap-4xl">
                                     {submenu?.map((item, index) => (
                                         <div key={index}>
                                             <Link
                                                 href={item?.label?.url}
                                                 target={item?.label?.target}
                                                 className={cn(
-                                                    'mb-2 lg:mb-4 lg:px-3 block',
+                                                    'mb-2 lg:mb-4 lg:pl-3 block underline-hover',
                                                     titleVariants({ variant }),
                                                 )}>
                                                 {item?.label?.title}
@@ -184,7 +184,7 @@ export default function Submenu_1({
                                                 {item?.thirdmenu?.map((item, index) => (
                                                     <li
                                                         key={index}
-                                                        className="hover:bg-brand-vw-light px-3 rounded-2xl">
+                                                        className="hover:pl-4 transition-all pl-3">
                                                         <Link
                                                             href={item?.link.url}
                                                             target={item?.link.target}

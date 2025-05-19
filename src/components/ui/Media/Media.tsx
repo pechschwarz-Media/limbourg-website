@@ -20,6 +20,7 @@ export function Media(content: MediaProps) {
                     width={content?.media?.media?.width}
                     height={content?.media?.media?.height}
                     className={cn(content?.className, content?.media?.media_mobile && 'hidden sm:block')}
+                    quality={100}
                 />
             )}
             {content?.media?.media && content?.media?.media?.type === 'video' && (
@@ -28,6 +29,7 @@ export function Media(content: MediaProps) {
                     muted
                     loop
                     playsInline
+                    controls={true}
                     className={cn(content?.className, content?.media?.media_mobile && 'hidden sm:block')}>
                     <source src={content?.media?.media?.url} />
                 </video>
@@ -47,6 +49,7 @@ export function Media(content: MediaProps) {
                     muted
                     loop
                     playsInline
+                    controls={true}
                     className={cn(content?.className, 'sm:hidden')}>
                     <source src={content?.media?.media_mobile?.url} />
                 </video>

@@ -5,7 +5,7 @@ import { cva, VariantProps } from 'class-variance-authority';
 import Link from 'next/link';
 
 export const buttonVariants = cva(
-    'group cursor-pointer font-base w-full md:w-auto inline-flex justify-center items-center gap-x-theme-lg disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-2',
+    'group cursor-pointer text-regular w-full md:w-auto inline-flex justify-center items-center gap-x-theme-lg disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-2',
     {
         variants: {
             variant: {
