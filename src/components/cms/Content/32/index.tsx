@@ -54,22 +54,20 @@ export default async function Content_32(content: Content32Props) {
                         <div
                             key={index}
                             id={index.toString()}
-                            className="scroll-mt-24">
+                            className="scroll-mt-24 flex flex-col gap-6">
                             {item.sections?.map((item, index) => (
                                 <div key={index}>
                                     {item?.acf_fc_layout === 'text' && (
-                                        <div className="mt-4">
-                                            <TextBlock
-                                                variant="light"
-                                                textblock={item?.textblock}
-                                                key={index}
-                                            />
-                                        </div>
+                                        <TextBlock
+                                            variant="light"
+                                            textblock={item?.textblock}
+                                            key={index}
+                                        />
                                     )}
                                     {item?.acf_fc_layout === 'media' && (
                                         <div
                                             key={index}
-                                            className="w-full rounded-md overflow-hidden mt-12">
+                                            className="w-full rounded-md overflow-hidden">
                                             <Media
                                                 media={item?.media}
                                                 className="size-full"

@@ -70,7 +70,7 @@ export default function Blog_Card_Large_1({ post, variant, showAuthor, showButto
                                     return (
                                         <Tag
                                             key={index}
-                                            variant={variant}>
+                                            variant="lightPrimary">
                                             {parse(category?.name)}
                                         </Tag>
                                     );
