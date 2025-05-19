@@ -173,7 +173,7 @@ export default function Footer_2_inner({ variant, footerinfo, logos }: Footer1Pr
                                 <div className="flex gap-theme-lg">
                                     <Button
                                         as="link"
-                                        variant="light"
+                                        variant="secondary"
                                         link={footerinfo?.rightside?.button}>
                                         {footerinfo?.rightside?.button?.title}
                                     </Button>

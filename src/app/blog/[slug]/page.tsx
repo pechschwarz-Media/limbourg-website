@@ -1,5 +1,4 @@
 import { Section } from '@/components/static/Section/Section';
-
 import { getPost } from '@/lib/queries/posts/getPost';
 import { getPostId } from '@/lib/queries/posts/getPostId';
 import { getPostMeta } from '@/lib/queries/posts/getPostMeta';
@@ -104,8 +103,8 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
                         </div>
                     </div>
                     <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-10 lg:gap-20 items-start">
-                        <div className=" flex flex-col gap-12">
-                            <div className="bg-neutral-100 p-8 rounded-md">
+                        <div className="lg:sticky lg:top-24 lg:left-0 lg:bottom-0 lg:right-0 lg:block justify-end">
+                            <div className="bg-neutral-100 p-8 rounded-md mb-12">
                                 <h5 className="text-h5 mb-4 font-semibold hyphens-auto lg:hyphens-none">
                                     Inhaltsverzeichnis
                                 </h5>
@@ -135,7 +134,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
                                 </div>
                             </div>
                             {authors && (
-                                <div className="flex flex-col gap-6">
+                                <div className="flex flex-col gap-6 mb-12">
                                     <Headline headline={{ style: 'h5', tagline: '', headline: 'Autoren', tag: 'h5' }} />
                                     {authors.map((author, index) => (
                                         <div
@@ -161,8 +160,8 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
                                 </div>
                             )}
 
-                            <hr className="bg-border-secondary"></hr>
-                            <div className="flex flex-col gap-4">
+                            <hr className="bg-border-secondary mb-12"></hr>
+                            <div className="flex flex-col gap-4 mb-12">
                                 <Headline
                                     headline={{
                                         style: 'h5',
@@ -173,8 +172,8 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
                                 />
                                 <Form form={form} />
                             </div>
-                            <hr className="bg-border-secondary"></hr>
-                            <div className="flex flex-col gap-4">
+                            <hr className="bg-border-secondary mb-12"></hr>
+                            <div className="flex flex-col gap-4 mb-12">
                                 <Headline
                                     headline={{
                                         style: 'h5',

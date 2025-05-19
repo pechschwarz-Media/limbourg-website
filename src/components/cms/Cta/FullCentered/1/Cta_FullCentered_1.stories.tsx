@@ -27,7 +27,7 @@ const meta = {
                 },
                 {
                     button: {
-                        variant: 'light',
+                        variant: 'secondary',
                         link: {
                             title: 'Simplify your Finances',
                             target: '_self',

@@ -5,12 +5,14 @@ export default async function Header() {
     const options = await getOptions();
     const navbar = options.menupunkt;
     const navbutton = options.navbutton;
+    const navbox = options?.subemenu_box;
     return (
         <Navbar_1
             navbar={navbar}
             variant="light"
             navbutton={navbutton}
             options={options}
+            navbox={navbox}
         />
     );
 }

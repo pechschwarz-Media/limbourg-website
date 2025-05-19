@@ -8,6 +8,7 @@ import { cn } from '@/lib/utils';
 import { VariantProps, cva } from 'class-variance-authority';
 import Image from 'next/image';
 import Link from 'next/link';
+import parse from 'html-react-parser';
 
 const cardVariants = cva('group flex rounded-xl overflow-hidden', {
     variants: {
@@ -70,7 +71,7 @@ export default function Blog_Card_Large_1({ post, variant, showAuthor, showButto
                                         <Tag
                                             key={index}
                                             variant={variant}>
-                                            {category?.name}
+                                            {parse(category?.name)}
                                         </Tag>
                                     );
                                 })}

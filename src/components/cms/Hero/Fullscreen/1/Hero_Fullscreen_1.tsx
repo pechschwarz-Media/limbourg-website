@@ -55,7 +55,7 @@ export default function Hero_Fullscreen_1(content: HeroFullscreen1Props) {
             <Section
                 dataComponent="Hero_Fullscreen_1"
                 ref={container}
-                className="w-full h-screen relative"
+                className="w-full h-screen -mt-[72px] relative"
                 settings={content?.settings}>
                 <div className="absolute size-full top-0 left-0">
                     <div

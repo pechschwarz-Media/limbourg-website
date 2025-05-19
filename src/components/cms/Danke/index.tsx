@@ -16,7 +16,7 @@ export default function Danke() {
 
                 <Button
                     as="link"
-                    variant="dark"
+                    variant="primary"
                     link={{ url: '/', target: '_blank', title: 'Zur Startseite' }}>
                     Zur Startseite
                 </Button>

@@ -14,6 +14,7 @@ import { useInView as useIntersectionObserverInView } from 'react-intersection-o
 import useSWR from 'swr';
 import Blog_Card_1 from '../../Card/1/Blog_Card_1';
 import Blog_Card_Large_1 from '../../Card/Large/1/Blog_Card_Large_1';
+import parse from 'html-react-parser';
 
 const textVariants = cva('max-w-lg', {
     variants: {
@@ -192,7 +193,7 @@ export default function Blog_Overview_1_Inner({
                                                         setPage(1);
                                                         setCurrentCategory(category?.id);
                                                     }}>
-                                                    {category?.name}
+                                                    {parse(category?.name)}
                                                 </button>
                                             </li>
                                         );
@@ -221,7 +222,7 @@ export default function Blog_Overview_1_Inner({
                             {!isLoading && (
                                 <Button
                                     as="button"
-                                    variant="light"
+                                    variant="secondary"
                                     onClick={() => {
                                         loadMore();
                                     }}>

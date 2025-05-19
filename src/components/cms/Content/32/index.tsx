@@ -32,7 +32,7 @@ export default async function Content_32(content: Content32Props) {
             dataComponent="Content_32"
             settings={content?.settings}>
             <div className="container grid grid-cols-1 items-start lg:grid-cols-3 gap-5 lg:gap-20">
-                <div className="lg:col-span-1 bg-neutral-100 p-8 rounded-md">
+                <div className="lg:col-span-1 bg-neutral-100 p-8 rounded-md lg:sticky lg:top-24 lg:left-0 lg:bottom-0 lg:right-0 lg:block justify-end">
                     <h6 className="text-h6 font-medium mb-6">{content?.tabletitle}</h6>
                     <div className="flex flex-col gap-3">
                         {content?.content?.map((item, index) => (

@@ -1,6 +1,6 @@
 'use client';
 
-import { SubmenuProps } from '@/lib/types';
+import { AcfLink, AcfMedia, SubmenuProps } from '@/lib/types';
 import { cn } from '@/lib/utils';
 import { cva, VariantProps } from 'class-variance-authority';
 import { AnimatePresence, motion, useInView } from 'motion/react';
@@ -8,6 +8,8 @@ import Link from 'next/link';
 import { useMediaQuery } from 'react-responsive';
 import { useRef, useState } from 'react';
 import { IconChevronDown } from '@/components/icons/IconChevronDown';
+import { Media } from '@/components/ui/Media/Media';
+import { IconChevronLeft } from '@/components/icons/IconChevronLeft';
 
 const submenuVariants = cva(
     'container lg:text-inherit overflow-hidden lg:absolute pb-theme-4xl lg:left-1/2 top:top-full lg:-translate-x-1/2 lg:rounded-xl lg:p-theme-4xl lg:mt-theme-xl  z-40',
@@ -123,6 +125,11 @@ type Submenu1Props = {
     variant: VariantProps<typeof submenuVariants>['variant'];
     visible: boolean;
     preview?: boolean;
+    navbox?: {
+        media: AcfMedia;
+        title: string;
+        link: AcfLink;
+    };
     close: () => void;
 };
 
@@ -131,6 +138,7 @@ export default function Submenu_1({
     preview,
     variant,
     submenu,
+    navbox,
     close,
 }: Submenu1Props & { submenu: SubmenuProps[] }) {
     const [faqIndex, setFaqIndex] = useState<null | number>(null);
@@ -191,6 +199,24 @@ export default function Submenu_1({
                                         </div>
                                     ))}
                                 </nav>
+                                {navbox?.media && (
+                                    <Link
+                                        href={navbox?.link?.url ?? ''}
+                                        className="relative rounded-md overflow-hidden self-start group mt-6">
+                                        <Media
+                                            media={navbox?.media}
+                                            className="max-w-[340px] group-hover:scale-105 transition-all"
+                                        />
+                                        <div className="absolute inset-0 bg-black opacity-30"></div>
+                                        <div className="absolute bottom-0 px-4 py-6">
+                                            <div className="text-regular text-white mb-1">{navbox?.title}</div>
+                                            <h5 className="text-h5 text-white">{navbox?.link?.title}</h5>
+                                        </div>
+                                        <div className="absolute bottom-0 right-0 px-4 py-6">
+                                            <IconChevronLeft className="text-white rotate-180 size-6" />
+                                        </div>
+                                    </Link>
+                                )}
                             </div>
                         </div>
                     </motion.div>

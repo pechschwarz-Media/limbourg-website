@@ -49,17 +49,16 @@ export default function Testimonial_31(content: TestimonialLogoQuoteName1Props) 
 
                 <Swiper
                     modules={[Navigation, Pagination]}
-                    spaceBetween={50}
                     slidesPerView="auto"
                     ref={swiperRef}
                     onSlideChange={(swiper) => {
                         setCurrentIndex(swiper.activeIndex);
                     }}
-                    className="!overflow-visible mt-14">
+                    className="!overflow-visible mt-9 lg:mt-14">
                     {content?.testimonials?.map((testimonial, index) => (
                         <SwiperSlide
                             key={index}
-                            className="!w-1/3">
+                            className="!w-3/4 lg:!w-1/3 mr-6 lg:mr-12">
                             <div className="">
                                 <div className="w-full mb-4xl">
                                     <Image
@@ -71,7 +70,9 @@ export default function Testimonial_31(content: TestimonialLogoQuoteName1Props) 
                                         className="size-full object-cover"
                                     />
                                 </div>
-                                <h6 className="text-h6 font-headline mt-6 text-center">{testimonial?.title}</h6>
+                                <h6 className="text-h6 font-headline mt-6 lg:text-center hyphens-auto lg:hyphens-none">
+                                    {testimonial?.title}
+                                </h6>
                             </div>
                         </SwiperSlide>
                     ))}

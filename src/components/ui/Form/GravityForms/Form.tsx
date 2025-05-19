@@ -93,7 +93,7 @@ export function Form({ form }: FormProps) {
                     <Button
                         as="button"
                         type="submit"
-                        variant="dark"
+                        variant="primary"
                         disabled={loading}>
                         {form?.button?.text}
                         {loading && <IconSpin className="size-4 animate-spin" />}

@@ -13,8 +13,7 @@ export default function Header_44(content: Header44Props) {
     return (
         <Section
             dataComponent="Header_44"
-            settings={content?.settings}
-            className="!pt-52">
+            settings={content?.settings}>
             <div className="container">
                 <div className="max-w-3xl">
                     <Headline headline={content?.headline} />

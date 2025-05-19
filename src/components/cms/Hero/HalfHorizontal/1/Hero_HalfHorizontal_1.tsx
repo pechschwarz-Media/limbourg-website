@@ -12,7 +12,7 @@ import { cva } from 'class-variance-authority';
 import { motion, useInView } from 'motion/react';
 import { useRef } from 'react';
 
-const textVariants = cva('text-large', {
+const textVariants = cva('', {
     variants: {
         variant: {
             dark: 'text-text-tertiary',
@@ -66,7 +66,7 @@ export default function Hero_HalfHorizontal_1(content: HeroHalfHorizontal1Props)
             dataComponent="Hero_HalfHorizontal_1"
             ref={container}
             settings={content?.settings}>
-            <div className="pt-[72px]">
+            <div className="">
                 <div className="container">
                     <div className="grid lg:grid-cols-12 items-center gap-y-theme-3xl md:gap-y-theme-7xl gap-x-theme-3xl">
                         <div className="lg:col-span-6 xl:col-span-5 space-y-theme-3xl">

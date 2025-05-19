@@ -102,7 +102,7 @@ export default function MobileMenu_1({
                             ))}
                             <Button
                                 as="link"
-                                variant="dark"
+                                variant="primary"
                                 link={navbutton}
                                 className="mt-4 place-self-start">
                                 <Calender className="group size-3xl text-inherit" />

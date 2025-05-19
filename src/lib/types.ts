@@ -92,6 +92,11 @@ export type Options = {
         logodark: ImageType;
     };
     navbutton: AcfLink;
+    subemenu_box: {
+        media: AcfMedia;
+        title: string;
+        link: AcfLink;
+    };
 };
 
 export type NavbarProps = {

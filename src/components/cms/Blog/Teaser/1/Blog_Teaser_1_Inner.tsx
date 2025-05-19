@@ -51,7 +51,7 @@ export default function Blog_Teaser_1_Inner({ content, posts }: { content: BlogT
                             {content?.allposts && (
                                 <Button
                                     as="link"
-                                    variant="light"
+                                    variant="secondary"
                                     link={{ url: '/blog', title: '', target: '_self' }}>
                                     Alle Beiträge
                                 </Button>

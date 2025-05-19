@@ -9,11 +9,11 @@ export const buttonVariants = cva(
     {
         variants: {
             variant: {
-                glass: 'bg-neutral-900/15 text-text-alternate border border-border-tertiary/15 h-10 md:h-12 rounded-none px-theme-2xl rounded-md md:rounded-xl backdrop-blur transition-all flex lg:inline-flex',
-                light: 'bg-brand-gray text-text-primary border border-brand-gray h-10 md:h-12 rounded-none px-theme-2xl rounded-md md:rounded-xl transition-all flex lg:inline-flex',
-                dark: 'bg-brand-black text-text-alternate border border-brand-black h-10 md:h-12 rounded-none px-theme-2xl rounded-md md:rounded-xl transition-all flex lg:inline-flex',
                 primary:
-                    'bg-brand-secondary-300 border border-brand-secondary-300 text-text-primary h-10 md:h-12 rounded-none px-theme-2xl rounded-md md:rounded-xl flex lg:inline-flex',
+                    'bg-brand-black text-text-alternate border border-brand-black h-10 md:h-12 rounded-none px-theme-2xl rounded-md md:rounded-xl transition-all flex lg:inline-flex',
+                secondary:
+                    'bg-transparent text-text-secondary border border-brand-black h-10 md:h-12 rounded-none px-theme-2xl rounded-md md:rounded-xl transition-all flex lg:inline-flex',
+                text: 'items-center',
             },
         },
         defaultVariants: {
@@ -26,9 +26,7 @@ const arrowVariants = cva('', {
     variants: {
         variant: {
             primary: 'hidden',
-            light: 'hidden',
-            dark: 'hidden',
-            glass: 'hidden',
+            secondary: 'hidden',
             text: 'text-brand-primary',
         },
     },
@@ -62,7 +60,7 @@ export function Button({ className, ...props }: ButtonBaseProps) {
                 {props.children}
                 <ArrowRight
                     className={cn(
-                        'size-6 mr-1 group-hover:translate-x-1 transition-all duration-100',
+                        'size-6 mr-1 group-hover:translate-x-1 transition-all items-center duration-100',
                         arrowVariants({ variant }),
                     )}
                 />

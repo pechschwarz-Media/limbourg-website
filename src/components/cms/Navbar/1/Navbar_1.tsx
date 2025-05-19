@@ -95,9 +95,14 @@ type Navbar1Props = {
     navbar: NavbarProps[];
     options: Options;
     navbutton: AcfLink | undefined;
+    navbox: {
+        media: AcfMedia;
+        title: string;
+        link: AcfLink;
+    };
 };
 
-export default function Navbar_1({ variant, navbar, navbutton, options }: Navbar1Props) {
+export default function Navbar_1({ variant, navbar, navbutton, options, navbox }: Navbar1Props) {
     const [submenuIndex, setSubmenuIndex] = useState<number | null>(null);
     const [openMenu, setOpenMenu] = useState(false);
 
@@ -204,6 +209,7 @@ export default function Navbar_1({ variant, navbar, navbutton, options }: Navbar
                                                         visible={submenuIndex === index}
                                                         variant={variant}
                                                         submenu={item?.submenus}
+                                                        navbox={navbox}
                                                         close={() => setSubmenuIndex(null)}
                                                     />
                                                 </>
@@ -250,7 +256,7 @@ export default function Navbar_1({ variant, navbar, navbutton, options }: Navbar
                         <div className="hidden lg:flex items-center gap-lg">
                             <Button
                                 as="link"
-                                variant="dark"
+                                variant="primary"
                                 link={navbutton}>
                                 <Calender className="group size-3xl text-inherit" />
                                 {navbutton?.title}

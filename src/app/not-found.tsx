@@ -23,7 +23,7 @@ export default async function NotFound() {
                 <Button
                     as="link"
                     link={{ title: 'Zur Startseite', target: '_blank', url: '/' }}
-                    variant="dark">
+                    variant="primary">
                     Zur Startseite
                 </Button>
             </div>
