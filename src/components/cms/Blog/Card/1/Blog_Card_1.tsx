@@ -62,7 +62,7 @@ export default function Blog_Card_1({ post, variant, showAuthor, showButton }: B
             )}
             {post?.categories?.length > 0 && (
                 <div className="mb-theme-xl">
-                    <div className="flex gap-theme-md items-center">
+                    <div className="flex gap-theme-md items-center flex-wrap">
                         {post?.categories?.map((category, index) => {
                             return (
                                 <Tag

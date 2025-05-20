@@ -16,7 +16,7 @@ export default function Consent({ label, ...props }: ConsentProps) {
                     <IconCheck className="size-4" />
                 </div>
             </div>
-            <div>{parse(label)}</div>
+            <div className="prose-a:underline">{parse(label)}</div>
         </label>
     );
 }

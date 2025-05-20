@@ -55,10 +55,6 @@ export function Form({ form }: FormProps) {
         if (status) {
             const confirmation = Object.values(form?.confirmations)[0];
 
-            if (confirmation?.type === 'redirect') {
-                router.push('/vielen-dank');
-            }
-
             if (confirmation?.type === 'message') {
                 router.push('/vielen-dank');
             }

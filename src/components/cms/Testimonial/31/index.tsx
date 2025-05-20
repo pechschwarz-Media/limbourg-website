@@ -2,7 +2,7 @@
 
 import { Section } from '@/components/static/Section/Section';
 import { TextBlock } from '@/components/ui/TextBlock/TextBlock';
-import { AcfTextBlock, ImageType, Settings } from '@/lib/types';
+import { AcfLink, AcfTextBlock, ImageType, Settings } from '@/lib/types';
 import { cn } from '@/lib/utils';
 import { motion, useInView } from 'motion/react';
 import Image from 'next/image';
@@ -18,12 +18,15 @@ import 'swiper/css/pagination';
 import Dot from '@/components/icons/dot';
 import { IconArrowRight } from '@/components/icons/IconArrowRight';
 import { IconArrowLeft } from '@/components/icons/IconArrowLeft';
+import Link from 'next/link';
+import test from 'node:test';
 
 type TestimonialLogoQuoteName1Props = {
     textblock: AcfTextBlock;
     testimonials: {
         media: ImageType;
         title: string;
+        link: AcfLink;
     }[];
     settings: Settings;
 };
@@ -58,22 +61,25 @@ export default function Testimonial_31(content: TestimonialLogoQuoteName1Props) 
                     {content?.testimonials?.map((testimonial, index) => (
                         <SwiperSlide
                             key={index}
-                            className="!w-3/4 lg:!w-1/3 mr-6 lg:mr-12">
-                            <div className="">
-                                <div className="w-full mb-4xl">
+                            className="!w-3/4 lg:!w-1/3 mr-6 lg:mr-12 last:mr-0">
+                            <Link
+                                href={testimonial?.link?.url}
+                                target={testimonial?.link?.target}
+                                className="group">
+                                <div className="w-full mb-4xl rounded-md overflow-hidden">
                                     <Image
                                         src={testimonial?.media?.url}
                                         alt={testimonial?.media?.alt}
                                         width={testimonial?.media?.width}
                                         height={testimonial?.media?.height}
                                         quality={100}
-                                        className="size-full object-cover"
+                                        className="size-full object-cover group-hover:scale-110 transition-all"
                                     />
                                 </div>
                                 <h6 className="text-h6 font-headline mt-6 lg:text-center hyphens-auto lg:hyphens-none">
                                     {testimonial?.title}
                                 </h6>
-                            </div>
+                            </Link>
                         </SwiperSlide>
                     ))}
                 </Swiper>
@@ -86,7 +92,7 @@ export default function Testimonial_31(content: TestimonialLogoQuoteName1Props) 
                                 }
                             }}
                             className={cn(
-                                'rounded-full bg-neutral-300 p-1 lg:p-3',
+                                'rounded-full bg-neutral-300 p-1 lg:p-3 cursor-pointer',
                                 currentIndex === 0 && 'opacity-50',
                             )}>
                             <IconArrowLeft className="text-white" />
@@ -98,7 +104,7 @@ export default function Testimonial_31(content: TestimonialLogoQuoteName1Props) 
                                 }
                             }}
                             className={cn(
-                                'rounded-full bg-neutral-300 p-1 lg:p-3',
+                                'rounded-full bg-neutral-300 p-1 lg:p-3 cursor-pointer',
                                 currentIndex === content?.testimonials?.length - 1 && 'opacity-50',
                             )}>
                             <IconArrowRight className="text-white" />
