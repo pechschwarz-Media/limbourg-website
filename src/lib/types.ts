@@ -32,6 +32,7 @@ export type AcfButton = {
 
 export type ComponentData<TComponent> = {
     acf_fc_layout: string;
+    options: Options;
     i: number;
 } & TComponent;
 
@@ -97,6 +98,11 @@ export type Options = {
         title: string;
         link: AcfLink;
     };
+    rating: RatingType;
+};
+
+export type RatingType = {
+    rating: { portrait: { image: ImageType }[]; ratingtext: string };
 };
 
 export type NavbarProps = {

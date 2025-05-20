@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic';
-import { FlexibleContent } from './types';
+import { FlexibleContent, Options } from './types';
 
 const Components = {
     blueprint: dynamic(() => import('@/components/cms/Blueprint/Blueprint')),
@@ -60,7 +60,7 @@ const Components = {
     termin_1: dynamic(() => import('@/components/cms/Termin')),
 };
 
-export default function ComponentRenderer({ content }: { content: FlexibleContent }) {
+export default function ComponentRenderer({ content, options }: { content: FlexibleContent; options: Options }) {
     let number = 0;
 
     return (content || [])?.map((component, index) => {
@@ -77,6 +77,7 @@ export default function ComponentRenderer({ content }: { content: FlexibleConten
         return (
             // @ts-expect-error
             <Component
+                options={options}
                 {...component}
                 i={number}
                 key={index}

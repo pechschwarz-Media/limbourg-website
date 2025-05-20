@@ -188,13 +188,21 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
 
                         {Array.isArray(content) && content.length > 0 && (
                             <div>
-                                <ComponentRenderer content={content} />
+                                <ComponentRenderer
+                                    content={content}
+                                    options={options}
+                                />
                             </div>
                         )}
                     </div>
                 </div>
             </Section>
-            {Array.isArray(content) && content.length > 0 && <ComponentRenderer content={options?.content?.content} />}
+            {Array.isArray(content) && content.length > 0 && (
+                <ComponentRenderer
+                    content={options?.content?.content}
+                    options={options}
+                />
+            )}
             <Blog_Teaser_1
                 textblock={{
                     headline: {

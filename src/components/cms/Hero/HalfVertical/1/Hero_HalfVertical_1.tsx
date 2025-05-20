@@ -5,8 +5,9 @@ import { Section } from '@/components/static/Section/Section';
 import { Headline } from '@/components/ui/Headline/Headline';
 import { Media } from '@/components/ui/Media/Media';
 import { Rating_1 } from '@/components/ui/Rating/1/Rating_1';
+import { Rating_2 } from '@/components/ui/Rating/2/Rating_2';
 import { Wysiwyg } from '@/components/ui/Wysiwyg/Wysiwyg';
-import { AcfHeadline, AcfMedia, Settings } from '@/lib/types';
+import { AcfHeadline, AcfMedia, Options, Settings } from '@/lib/types';
 import { cn } from '@/lib/utils';
 import { cva } from 'class-variance-authority';
 import { motion, useInView, useScroll, useTransform } from 'motion/react';
@@ -32,6 +33,7 @@ type HeroHalfVertical1Props = {
     buttons: ButtonGroupProps['buttons'];
     media: AcfMedia;
     settings: Settings;
+    options: Options;
 };
 
 export default function Hero_HalfVertical_1(content: HeroHalfVertical1Props) {
@@ -59,7 +61,7 @@ export default function Hero_HalfVertical_1(content: HeroHalfVertical1Props) {
                             animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 100 }}
                             style={{ opacity: 0, y: 100 }}
                             transition={{ duration: 0.5 }}>
-                            <Rating_1 />
+                            <Rating_2 options={content?.options} />
                         </motion.div>
                         <motion.div
                             initial={{ opacity: 0, y: 100 }}

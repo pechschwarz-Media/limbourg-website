@@ -1,5 +1,5 @@
 import ComponentRenderer from '@/lib/ComponentRenderer';
-import { ComponentData, FlexibleContent } from '@/lib/types';
+import { ComponentData, FlexibleContent, Options } from '@/lib/types';
 
 type BlueprintProps = {
     blueprint: {
@@ -7,9 +7,15 @@ type BlueprintProps = {
             content: FlexibleContent;
         };
     };
+    options: Options;
 };
 
 export default function BluePrint(content: ComponentData<BlueprintProps>) {
     if (!content?.blueprint?.acf?.content) return;
-    return <ComponentRenderer content={content?.blueprint?.acf?.content} />;
+    return (
+        <ComponentRenderer
+            content={content?.blueprint?.acf?.content}
+            options={content?.options}
+        />
+    );
 }

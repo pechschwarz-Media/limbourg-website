@@ -1,4 +1,5 @@
 import ComponentRenderer from '@/lib/ComponentRenderer';
+import getOptions from '@/lib/queries/options/getOptions';
 import { getPage } from '@/lib/queries/pages/getPage';
 import { getPageId } from '@/lib/queries/pages/getPageId';
 import { getPageMeta } from '@/lib/queries/pages/getPageMeta';
@@ -45,6 +46,7 @@ export default async function Page({ params }: { params: Promise<{ uri: string[]
     }
 
     const page = await getPage({ id });
+    const options = await getOptions();
 
     switch (page?.template) {
         case 'page-legal.php':
@@ -52,7 +54,10 @@ export default async function Page({ params }: { params: Promise<{ uri: string[]
         default:
             return (
                 <>
-                    <ComponentRenderer content={page?.acf?.content} />
+                    <ComponentRenderer
+                        content={page?.acf?.content}
+                        options={options}
+                    />
                 </>
             );
     }

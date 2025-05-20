@@ -7,7 +7,7 @@ import { Headline } from '@/components/ui/Headline/Headline';
 import { Media } from '@/components/ui/Media/Media';
 import { Rating_2 } from '@/components/ui/Rating/2/Rating_2';
 import { Wysiwyg } from '@/components/ui/Wysiwyg/Wysiwyg';
-import { AcfHeadline, AcfMedia, Settings } from '@/lib/types';
+import { AcfHeadline, AcfMedia, Options, Settings } from '@/lib/types';
 import { cn } from '@/lib/utils';
 import { cva } from 'class-variance-authority';
 import { motion, useInView } from 'motion/react';
@@ -63,6 +63,7 @@ type CtaHalfHorizontal1Props = {
     verticalAlign: 'top' | 'center' | 'bottom';
     textAlign: 'left' | 'center';
     settings: Settings;
+    options: Options;
 };
 
 export default function Cta_HalfHorizontal_1(content: CtaHalfHorizontal1Props) {
@@ -126,7 +127,7 @@ export default function Cta_HalfHorizontal_1(content: CtaHalfHorizontal1Props) {
                                     />
                                 )}
                             </div>
-                            <Rating_2 />
+                            <Rating_2 options={content?.options} />
                         </div>
                     </motion.div>
                     <motion.div

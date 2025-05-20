@@ -3,11 +3,12 @@
 import { IconClose } from '@/components/icons/IconClose';
 import { IconPlay } from '@/components/icons/IconPlay';
 import { Section } from '@/components/static/Section/Section';
+import { Button } from '@/components/ui/Button/Button';
 import { Headline } from '@/components/ui/Headline/Headline';
 import { Media } from '@/components/ui/Media/Media';
-import { Rating_1 } from '@/components/ui/Rating/1/Rating_1';
+
 import { Rating_2 } from '@/components/ui/Rating/2/Rating_2';
-import { AcfFile, AcfHeadline, AcfMedia, Settings } from '@/lib/types';
+import { AcfButton, AcfFile, AcfHeadline, AcfLink, AcfMedia, Options, Settings } from '@/lib/types';
 import { cva } from 'class-variance-authority';
 import { AnimatePresence, motion, useInView } from 'motion/react';
 import { useEffect, useRef, useState } from 'react';
@@ -29,9 +30,11 @@ const overlayVariants = cva('absolute inset-0', {
 type HeroFullscreen1Props = {
     media: AcfMedia;
     headline: AcfHeadline;
+    button: AcfButton;
     video_overlay: AcfFile;
     opacity: number;
     settings: Settings;
+    options: Options;
 };
 
 export default function Hero_Fullscreen_1(content: HeroFullscreen1Props) {
@@ -69,13 +72,13 @@ export default function Hero_Fullscreen_1(content: HeroFullscreen1Props) {
                 <div className="h-full relative">
                     <div className="h-full container">
                         <div className="h-full flex flex-col gap-y-theme-3xl md:flex-row gap-x-theme-7xl justify-end md:items-end md:justify-between">
-                            <div className="max-w-4xl space-y-theme-3xl text-white">
+                            <div className="max-w-5xl space-y-theme-3xl text-white">
                                 <motion.div
                                     initial={{ opacity: 0, y: 100 }}
                                     animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 100 }}
                                     style={{ opacity: 0, y: 100 }}
                                     transition={{ duration: 0.5 }}>
-                                    <Rating_1 />
+                                    <Rating_2 options={content?.options} />
                                 </motion.div>
                                 <motion.div
                                     initial={{ opacity: 0, y: 100 }}
@@ -83,6 +86,18 @@ export default function Hero_Fullscreen_1(content: HeroFullscreen1Props) {
                                     style={{ opacity: 0, y: 100 }}
                                     transition={{ duration: 0.5, delay: 0.1 }}>
                                     <Headline headline={content?.headline} />
+                                </motion.div>
+                                <motion.div
+                                    initial={{ opacity: 0, y: 100 }}
+                                    animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 100 }}
+                                    style={{ opacity: 0, y: 100 }}
+                                    transition={{ duration: 0.5, delay: 0.2 }}>
+                                    <Button
+                                        as="link"
+                                        link={content?.button?.link}
+                                        variant={content?.button?.variant}>
+                                        {content?.button?.link?.title}
+                                    </Button>
                                 </motion.div>
                             </div>
                             {content?.video_overlay?.type === 'video' && (

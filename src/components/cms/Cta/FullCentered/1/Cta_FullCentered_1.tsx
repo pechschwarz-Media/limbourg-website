@@ -1,9 +1,9 @@
 'use client';
 
 import { Section } from '@/components/static/Section/Section';
-import { Rating_1 } from '@/components/ui/Rating/1/Rating_1';
+import { Rating_2 } from '@/components/ui/Rating/2/Rating_2';
 import { TextBlock } from '@/components/ui/TextBlock/TextBlock';
-import { AcfTextBlock, Settings } from '@/lib/types';
+import { AcfTextBlock, Options, Settings } from '@/lib/types';
 import { cva } from 'class-variance-authority';
 import { motion, useInView } from 'motion/react';
 import { useRef } from 'react';
@@ -28,6 +28,7 @@ const boxVariants = cva(
 type CtaHalfHorizontal1Props = {
     textblock: AcfTextBlock;
     settings: Settings;
+    options: Options;
 };
 
 export default function Cta_FullCentered_1(content: CtaHalfHorizontal1Props) {
@@ -81,7 +82,10 @@ export default function Cta_FullCentered_1(content: CtaHalfHorizontal1Props) {
                     </div>
 
                     <div className="relative z-10 max-w-2xl mx-auto text-center space-y-theme-3xl">
-                        <Rating_1 />
+                        <div className="flex justify-center">
+                            <Rating_2 options={content?.options} />
+                        </div>
+
                         <TextBlock
                             variant={content?.settings?.variant}
                             textblock={content?.textblock}
