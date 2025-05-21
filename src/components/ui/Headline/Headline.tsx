@@ -35,7 +35,8 @@ export function Headline({ headline, className, classNameTagline }: HeadlineProp
             {headline?.tagline && (
                 <Tagline className={cn('mb-theme-2xl', classNameTagline)}>{headline?.tagline}</Tagline>
             )}
-            <HeadlineTag className={cn(headlineVariants({ style: headline?.style }), className)}>
+            <HeadlineTag
+                className={cn('hyphens-auto lg:hyphens-none', headlineVariants({ style: headline?.style }), className)}>
                 {headline?.headline}
             </HeadlineTag>
         </hgroup>

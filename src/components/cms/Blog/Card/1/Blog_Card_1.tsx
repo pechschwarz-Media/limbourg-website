@@ -72,7 +72,7 @@ export default function Blog_Card_1({ post, variant, showAuthor, showButton }: B
                                 </Tag>
                             );
                         })}
-                        {post?.date && <p>{post?.date}</p>}
+                        {post?.date && <p className="text-regular font-medium text-text-primary">{post?.date}</p>}
                     </div>
                 </div>
             )}

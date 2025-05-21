@@ -61,7 +61,7 @@ export default function Testimonial_31(content: TestimonialLogoQuoteName1Props) 
                     {content?.testimonials?.map((testimonial, index) => (
                         <SwiperSlide
                             key={index}
-                            className="!w-3/4 lg:!w-1/3 mr-6 lg:mr-12 last:mr-0">
+                            className="!w-3/4 lg:!w-[23%] mr-6 lg:mr-6 last:mr-0">
                             <Link
                                 href={testimonial?.link?.url}
                                 target={testimonial?.link?.target}

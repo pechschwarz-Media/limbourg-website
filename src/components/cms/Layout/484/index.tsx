@@ -5,13 +5,16 @@ import { Settings } from '@/lib/types';
 //@ts-ignore
 import { motion, MotionStyle, useScroll, useTransform } from 'framer-motion';
 import { Section } from '@/components/static/Section/Section';
+import { Tagline } from '@/components/ui/Tagline/Tagline';
 
 type Content = {
     text: string;
+    topline: string;
     settings: Settings;
 };
 
 export default function Layout_484(content: Content) {
+    console.log(content);
     const headingRef = useRef<HTMLHeadingElement>(null);
 
     const { scrollYProgress } = useScroll({
@@ -25,9 +28,10 @@ export default function Layout_484(content: Content) {
             dataComponent="Layout_484"
             settings={content?.settings}>
             <div className="container h-full flex justify-center flex-col">
+                <Tagline className="text-center mb-theme-2xl">{content?.topline}</Tagline>
                 <h3
                     ref={headingRef}
-                    className="text-h1 mx-auto xl:max-w-[75%] font-semibold text-center hyphens-auto lg:hyphens-none">
+                    className="text-h2 mx-auto xl:max-w-[75%] font-semibold text-center hyphens-auto lg:hyphens-none">
                     {words.map((word, index) => {
                         const start = index * 0.025;
                         const end = start + 0.025;

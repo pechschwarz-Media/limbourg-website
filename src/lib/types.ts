@@ -101,6 +101,21 @@ export type Options = {
     rating: RatingType;
 };
 
+export type FormProps = {
+    id: number;
+    fields: FormField[];
+    confirmations: {
+        [key: string]: {
+            type: string;
+            message: string;
+            url: string;
+        };
+    };
+    button: {
+        text: string;
+    };
+};
+
 export type RatingType = {
     rating: { portrait: { image: ImageType }[]; ratingtext: string };
 };

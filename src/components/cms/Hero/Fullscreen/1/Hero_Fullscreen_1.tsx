@@ -78,7 +78,10 @@ export default function Hero_Fullscreen_1(content: HeroFullscreen1Props) {
                                     animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 100 }}
                                     style={{ opacity: 0, y: 100 }}
                                     transition={{ duration: 0.5 }}>
-                                    <Rating_2 options={content?.options} />
+                                    <Rating_2
+                                        options={content?.options}
+                                        variant="light"
+                                    />
                                 </motion.div>
                                 <motion.div
                                     initial={{ opacity: 0, y: 100 }}

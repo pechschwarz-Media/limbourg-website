@@ -28,7 +28,7 @@ const questionVariants = cva('', {
     variants: {
         variant: {
             dark: 'border-border-tertiary',
-            light: 'border-border-secondary',
+            light: '',
             darkPrimary: 'border-border-tertiary',
             lightPrimary: 'border-border-secondary',
         },
@@ -99,7 +99,7 @@ export default function Faq_1(content: Faq1Props) {
                                         transition={{ duration: 0.5, delay: 0.1 * (index + 1) }}
                                         className={cn(
                                             questionVariants({ variant: content?.settings?.variant }),
-                                            index === 0 && 'border-t',
+                                            index === 0 && '',
                                             index === content?.faq?.length - 1 && 'border-b',
                                         )}
                                         key={index}>

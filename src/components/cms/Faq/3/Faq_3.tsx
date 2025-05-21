@@ -83,7 +83,7 @@ export default function Faq_3(content: Faq3Props) {
                                             aria-controls={`faq-panel-${tabIndex}-${featureIndex}`}
                                             id={`faq-button-${tabIndex}-${featureIndex}`}
                                             className="flex items-center justify-between gap-theme-3xl cursor-pointer w-full text-large text-left font-highlight py-theme-3xl">
-                                            <div className="flex-1">{feature.question}</div>
+                                            <div className="flex-1 text-2xl">{feature.question}</div>
                                             <div
                                                 className="shrink"
                                                 aria-hidden="true">

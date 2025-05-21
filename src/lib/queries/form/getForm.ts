@@ -1,20 +1,5 @@
 import { api } from '@/lib/api';
-import { FormField } from '@/lib/types';
-
-type FormProps = {
-    id: number;
-    fields: FormField[];
-    confirmations: {
-        [key: string]: {
-            type: string;
-            message: string;
-            url: string;
-        };
-    };
-    button: {
-        text: string;
-    };
-};
+import { FormProps } from '@/lib/types';
 
 export async function getForm({ id }: { id: number }) {
     const response = await api<FormProps>(`gf/v2/forms/${id}`, {

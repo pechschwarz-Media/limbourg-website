@@ -4,9 +4,9 @@ import { ButtonGroup, ButtonGroupProps } from '@/components/static/ButtonGroup/B
 import { Section } from '@/components/static/Section/Section';
 import { Headline } from '@/components/ui/Headline/Headline';
 import { Media } from '@/components/ui/Media/Media';
-import { Rating_1 } from '@/components/ui/Rating/1/Rating_1';
+import { Rating_2 } from '@/components/ui/Rating/2/Rating_2';
 import { Wysiwyg } from '@/components/ui/Wysiwyg/Wysiwyg';
-import { AcfHeadline, AcfMedia, Settings } from '@/lib/types';
+import { AcfHeadline, AcfMedia, Options, Settings } from '@/lib/types';
 import { cn } from '@/lib/utils';
 import { cva } from 'class-variance-authority';
 import { motion, useInView } from 'motion/react';
@@ -52,6 +52,7 @@ type HeroHalfHorizontal1Props = {
     showrating: boolean;
     switchOrder: boolean;
     settings: Settings;
+    options: Options;
 };
 
 export default function Hero_HalfHorizontal_1(content: HeroHalfHorizontal1Props) {
@@ -74,7 +75,12 @@ export default function Hero_HalfHorizontal_1(content: HeroHalfHorizontal1Props)
                                 initial={{ opacity: 0, y: 100 }}
                                 animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 100 }}
                                 style={{ opacity: 0, y: 100 }}
-                                transition={{ duration: 0.5 }}></motion.div>
+                                transition={{ duration: 0.5 }}>
+                                <Rating_2
+                                    options={content?.options}
+                                    variant="dark"
+                                />
+                            </motion.div>
                             <motion.div
                                 initial={{ opacity: 0, y: 100 }}
                                 animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 100 }}

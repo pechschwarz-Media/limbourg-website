@@ -1,12 +1,18 @@
 'use client';
 
+import CrysalixLogo from '@/components/icons/CrysalixLogo';
 import { Options, RatingType } from '@/lib/types';
+import { cn } from '@/lib/utils';
 import Image from 'next/image';
+import Link from 'next/link';
 
-export function Rating_2({ options }: { options: Options }) {
+export function Rating_2({ options, variant }: { options: Options; variant?: string }) {
     const rating = options?.rating?.rating;
     return (
-        <div className="flex items-center gap-x-theme-2xl">
+        <Link
+            href="https://www.crisalix.com/dr-limbourg"
+            target="_blank"
+            className="flex items-center gap-x-theme-2xl">
             <div className="hidden sm:flex items-center">
                 {rating?.portrait.map((portrait, index) => (
                     <Image
@@ -68,15 +74,11 @@ export function Rating_2({ options }: { options: Options }) {
                             fill="#FAFBF9"
                         />
                     </svg>
-                    <Image
-                        src="/Crysalix-icon.png"
-                        alt="Crysalix Icon"
-                        width="58"
-                        height="15"
-                    />
+
+                    <CrysalixLogo className={cn('text-black', variant === 'light' ? 'text-white' : 'text-black')} />
                 </div>
                 <div className="text-small font-highlight">{rating?.ratingtext}</div>
             </div>
-        </div>
+        </Link>
     );
 }

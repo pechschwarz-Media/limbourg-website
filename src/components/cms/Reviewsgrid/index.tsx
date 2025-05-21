@@ -95,7 +95,7 @@ export default function Reviewsgrid(content: ReviewsProps) {
                                             <div className="mb-4">{dateFormat(item.date, 'mmmm dd,yyyy')}</div>
                                             <Wysiwyg
                                                 text={item?.text}
-                                                className="font-medium"
+                                                className="font-medium !text-brand-black"
                                             />
                                             <div className="flex items-center mt-12 gap-2">
                                                 <div className="flex-shrink-0">
@@ -120,7 +120,7 @@ export default function Reviewsgrid(content: ReviewsProps) {
                                             <div className="mb-4">{dateFormat(item.date, 'mmmm dd,yyyy')}</div>
                                             <Wysiwyg
                                                 text={item?.text}
-                                                className="font-medium"
+                                                className="font-medium !text-brand-black"
                                             />
                                             <div className="flex items-center mt-12 gap-2">
                                                 <div className="flex-shrink-0">
@@ -145,7 +145,7 @@ export default function Reviewsgrid(content: ReviewsProps) {
                                             <div className="mb-4">{dateFormat(item.date, 'mmmm dd,yyyy')}</div>
                                             <Wysiwyg
                                                 text={item?.text}
-                                                className="font-medium"
+                                                className="font-medium !text-brand-black"
                                             />
                                             <div className="flex items-center mt-12 gap-2">
                                                 <div className="flex-shrink-0">
