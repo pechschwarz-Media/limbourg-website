@@ -12,6 +12,7 @@ import Link from 'next/link';
 import React from 'react';
 import { InView } from 'react-intersection-observer';
 import { cn } from '@/lib/utils';
+import { inView } from 'framer-motion';
 
 export type Content32Props = {
     tabletitle: string;
@@ -70,8 +71,8 @@ export default function Content_32(content: Content32Props) {
                                 <InView
                                     as="div"
                                     key={index}
-                                    threshold={0.6}
-                                    rootMargin="100px"
+                                    threshold={0.8}
+                                    rootMargin="48px 0px"
                                     onChange={(inView) => {
                                         if (inView) {
                                             setActiveIndex(index);

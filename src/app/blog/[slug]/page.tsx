@@ -19,7 +19,8 @@ import getAuthor from '@/lib/queries/author/getAuthor';
 import { Form } from '@/components/ui/Form/GravityForms/Form';
 import { getForm } from '@/lib/queries/form/getForm';
 import ShareButtons from '@/components/ui/ShareButtons/shareButton';
-import BlogContent from '@/components/cms/Content/blogContent';
+import BlogContent from '@/components/cms/Blog/BlogContent';
+import BlogHeader from '@/components/cms/Blog/BlogHeader';
 
 export async function generateStaticParams() {
     const posts = await getPostSlugs();
@@ -57,8 +58,6 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
     }
 
     const post = await getPost({ id });
-    const postMedia = post?._embedded['wp:featuredmedia']?.at(0);
-    const content = post?.acf?.content;
     const options = await getOptions();
     const authorIds = post?.acf?.authors?.toString();
     const authors = await getAuthor(authorIds);
@@ -67,56 +66,18 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
 
     return (
         <>
-            <Section
-                dataComponent="Blog Detail"
-                settings={{ padding: { top: 'medium', bottom: 'medium' }, variant: 'light' }}>
-                <div className="container pt-20 lg:pt-28">
-                    <div className="flex flex-col gap-20 mb-20">
-                        <div className="lg:max-w-2/3">
-                            <Link
-                                href="/blog"
-                                className="flex items-center mb-12">
-                                <IconChevronLeft />
-                                Alle Beiträge
-                            </Link>
-                            <div className="flex gap-4 items-center mb-4">
-                                <Tag variant="light">{parse(post?._embedded?.['wp:term']?.[0]?.[0]?.name)}</Tag>
-                                {post?.date && (
-                                    <p className="text-text-secondary">{dateFormat(post?.date, 'dd.mm.yyyy')}</p>
-                                )}
-                            </div>
+            <BlogHeader post={post} />
+            <BlogContent
+                authors={authors}
+                form={form}
+                options={options}
+                post={post}
+            />
 
-                            <Headline
-                                headline={{ style: 'h2', tagline: '', headline: post?.title?.rendered, tag: 'h1' }}
-                            />
-                        </div>
-
-                        <div className="h-[600px] w-full rounded-md overflow-hidden">
-                            <Image
-                                src={postMedia?.source_url ?? ''}
-                                alt={postMedia?.alt_text ?? ''}
-                                width={postMedia?.media_details?.width}
-                                height={postMedia?.media_details?.height}
-                                className="size-full object-cover"
-                                quality={100}
-                            />
-                        </div>
-                    </div>
-                    <BlogContent
-                        content={content}
-                        authors={authors}
-                        form={form}
-                        options={options}
-                        post={post}
-                    />
-                </div>
-            </Section>
-            {Array.isArray(content) && content.length > 0 && (
-                <ComponentRenderer
-                    content={options?.content?.content}
-                    options={options}
-                />
-            )}
+            <ComponentRenderer
+                content={options?.content?.content}
+                options={options}
+            />
             <Blog_Teaser_1
                 textblock={{
                     headline: {
