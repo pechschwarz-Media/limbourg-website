@@ -3,6 +3,7 @@ import { cn } from '@/lib/utils';
 import { cva } from 'class-variance-authority';
 import { JSX } from 'react';
 import { Tagline } from '../Tagline/Tagline';
+import parse from 'html-react-parser';
 
 const headlineVariants = cva('font-headline leading-headline', {
     variants: {
@@ -37,7 +38,7 @@ export function Headline({ headline, className, classNameTagline }: HeadlineProp
             )}
             <HeadlineTag
                 className={cn('hyphens-auto lg:hyphens-none', headlineVariants({ style: headline?.style }), className)}>
-                {headline?.headline}
+                {parse(headline?.headline)}
             </HeadlineTag>
         </hgroup>
     );
