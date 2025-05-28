@@ -8,6 +8,7 @@ type MediaProps = {
         media_mobile: AcfFile | false;
     };
     className?: string;
+    controls?: false | boolean;
 };
 
 export function Media(content: MediaProps) {
@@ -29,7 +30,7 @@ export function Media(content: MediaProps) {
                     muted
                     loop
                     playsInline
-                    controls={true}
+                    controls={content?.controls === false ? false : true}
                     className={cn(content?.className, content?.media?.media_mobile && 'hidden sm:block')}>
                     <source src={content?.media?.media?.url} />
                 </video>
@@ -49,7 +50,7 @@ export function Media(content: MediaProps) {
                     muted
                     loop
                     playsInline
-                    controls={true}
+                    controls={content?.controls === false ? false : true}
                     className={cn(content?.className, 'sm:hidden')}>
                     <source src={content?.media?.media_mobile?.url} />
                 </video>

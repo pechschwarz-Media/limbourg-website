@@ -75,12 +75,13 @@ export default function ImageText_2(content: ImageText1Props) {
                             key={index}>
                             <InView
                                 as="div"
+                                threshold={0.6}
+                                rootMargin="15% 0%"
                                 onChange={(inView) => {
                                     if (inView) {
                                         setCurrentIndex(index);
                                     }
-                                }}
-                                threshold={0.8}>
+                                }}>
                                 <div className="container">
                                     <div className="grid lg:grid-cols-12 gap-theme-6xl lg:gap-theme-3xl items-center">
                                         <motion.div

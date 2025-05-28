@@ -6,7 +6,6 @@ import Link from 'next/link';
 import './globals.css';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-import Script from 'next/script';
 
 const saans = localFont({
     src: [

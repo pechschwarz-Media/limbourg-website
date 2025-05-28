@@ -53,9 +53,6 @@ const Components = {
     reviewsgrid: dynamic(() => import('@/components/cms/Reviewsgrid')),
     content_29: dynamic(() => import('@/components/cms/Content/29')),
     content_32: dynamic(() => import('@/components/cms/Content/32')),
-    blogdetail_1: dynamic(() => import('@/components/cms/BlogDetail/1')),
-    blogdetail_2: dynamic(() => import('@/components/cms/BlogDetail/2')),
-    blogdetail_3: dynamic(() => import('@/components/cms/BlogDetail/3')),
     team_8: dynamic(() => import('@/components/cms/Team/8')),
     termin_1: dynamic(() => import('@/components/cms/Termin')),
 };

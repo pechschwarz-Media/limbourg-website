@@ -42,9 +42,9 @@ export default function Hero_Fullscreen_4(content: HeroFullscreen4Props) {
         <Section
             dataComponent="Hero_Fullscreen_4"
             ref={container}
-            className="w-full h-screen relative"
+            className="w-full h-screen relative -mt-[72px]"
             settings={{ ...content?.settings, padding: { top: content?.settings?.padding?.top, bottom: 'off' } }}>
-            <div className="absolute size-full top-0 left-0">
+            <div className="absolute size-full top-0 left-0 ">
                 <div
                     className={overlayVariants({ variant: content?.settings?.variant })}
                     style={{ opacity: `${content?.opacity}%` }}></div>

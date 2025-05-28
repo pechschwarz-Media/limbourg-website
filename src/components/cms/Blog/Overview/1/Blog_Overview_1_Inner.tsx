@@ -202,7 +202,7 @@ export default function Blog_Overview_1_Inner({
                             </motion.nav>
                         )}
                     </div>
-                    <div className="grid md:grid-cols-3 items-start gap-theme-3xl">
+                    <div className="grid md:grid-cols-3 items-start gap-theme-3xl gap-y-theme-7xl">
                         {fetchedPosts.length > 0 ? (
                             fetchedPosts?.map((post, index) => {
                                 return (

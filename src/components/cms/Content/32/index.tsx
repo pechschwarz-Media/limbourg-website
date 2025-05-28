@@ -12,7 +12,6 @@ import Link from 'next/link';
 import React from 'react';
 import { InView } from 'react-intersection-observer';
 import { cn } from '@/lib/utils';
-import { inView } from 'framer-motion';
 
 export type Content32Props = {
     tabletitle: string;
@@ -63,21 +62,20 @@ export default function Content_32(content: Content32Props) {
                 </div>
                 <div className="lg:col-span-2 flex flex-col gap-11">
                     {content?.content?.map((item, index) => (
-                        <div
+                        <InView
+                            as="div"
                             key={index}
+                            threshold={0.6}
+                            rootMargin="0% 0% 30% 0%"
+                            onChange={(inView) => {
+                                if (inView) {
+                                    setActiveIndex(index);
+                                }
+                            }}
                             id={index.toString()}
                             className="scroll-mt-24 flex flex-col gap-6">
                             {item.sections?.map((item, index) => (
-                                <InView
-                                    as="div"
-                                    key={index}
-                                    threshold={0.8}
-                                    rootMargin="48px 0px"
-                                    onChange={(inView) => {
-                                        if (inView) {
-                                            setActiveIndex(index);
-                                        }
-                                    }}>
+                                <div key={index}>
                                     {item?.acf_fc_layout === 'text' && (
                                         <div>
                                             <div
@@ -187,9 +185,9 @@ export default function Content_32(content: Content32Props) {
                                             </div>
                                         </div>
                                     )}
-                                </InView>
+                                </div>
                             ))}
-                        </div>
+                        </InView>
                     ))}
                 </div>
             </div>

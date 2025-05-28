@@ -31,7 +31,7 @@ export default function Layout_484(content: Content) {
                 <Tagline className="text-center mb-theme-2xl">{content?.topline}</Tagline>
                 <h3
                     ref={headingRef}
-                    className="text-h2 mx-auto xl:max-w-[75%] font-semibold text-center hyphens-auto lg:hyphens-none">
+                    className="text-h2 mx-auto xl:max-w-[75%] font-medium text-center hyphens-auto lg:hyphens-none">
                     {words.map((word, index) => {
                         const start = index * 0.025;
                         const end = start + 0.025;

@@ -134,8 +134,8 @@ export default function BlogContent({
                             <InView
                                 as="div"
                                 key={index}
-                                threshold={0.8}
-                                rootMargin="48px 0px"
+                                threshold={0.6}
+                                rootMargin="15% 0%"
                                 delay={100}
                                 onChange={(inView) => {
                                     if (inView) {

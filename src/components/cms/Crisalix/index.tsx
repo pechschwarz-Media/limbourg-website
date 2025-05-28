@@ -24,7 +24,6 @@ export default function Crisalix(content: CrisalixContent) {
             <div className="container">
                 <div className="crisalix_widget_wrap_6ec074e3">
                     <Script
-                        strategy="afterInteractive"
                         type="text/javascript"
                         src="https://pro.crisalix.com/reviews_widget.js?token=208177cba0bbb2e6adc0dff6f8bc9812&type=review_grid_carousel&selector=crisalix_widget_wrap_6ec074e3"
                         async></Script>

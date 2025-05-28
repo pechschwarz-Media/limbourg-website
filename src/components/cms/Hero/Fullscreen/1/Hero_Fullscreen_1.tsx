@@ -66,6 +66,7 @@ export default function Hero_Fullscreen_1(content: HeroFullscreen1Props) {
                         style={{ opacity: `${content.opacity}%` }}></div>
                     <Media
                         media={content?.media}
+                        controls={false}
                         className="size-full object-cover"
                     />
                 </div>
