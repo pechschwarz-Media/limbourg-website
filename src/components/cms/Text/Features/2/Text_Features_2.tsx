@@ -58,17 +58,20 @@ export default function Text_Feature_2(content: TextFeatures2Props) {
             settings={content?.settings}
             ref={container}>
             <div className="container pt-theme-9xl lg:pt-theme-10xl">
-                <motion.div
-                    initial={{ opacity: 0, y: 100 }}
-                    animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 100 }}
-                    style={{ opacity: 0, y: 100 }}
-                    transition={{ duration: 0.5 }}
-                    className={cn(containerVariants({ variant: content?.settings?.variant }))}>
-                    <TextBlock
-                        variant={content?.settings?.variant}
-                        textblock={content?.textblock}
-                    />
-                </motion.div>
+                <div className="lg:max-w-5xl">
+                    <motion.div
+                        initial={{ opacity: 0, y: 100 }}
+                        animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 100 }}
+                        style={{ opacity: 0, y: 100 }}
+                        transition={{ duration: 0.5 }}
+                        className={cn(containerVariants({ variant: content?.settings?.variant }))}>
+                        <TextBlock
+                            variant={content?.settings?.variant}
+                            textblock={content?.textblock}
+                        />
+                    </motion.div>
+                </div>
+
                 {content?.bullets && (
                     <ul className="flex flex-col md:flex-row flex-wrap gap-theme-3xl lg:gap-theme-4xl pt-theme-4xl">
                         {content?.bullets?.map((bullet, index) => {

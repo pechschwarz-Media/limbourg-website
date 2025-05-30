@@ -65,28 +65,23 @@ export default function Content_32(content: Content32Props) {
                         <InView
                             as="div"
                             key={index}
+                            id={index.toString()}
                             threshold={0.6}
+                            className="scroll-mt-24"
                             rootMargin="0% 0% 30% 0%"
                             onChange={(inView) => {
                                 if (inView) {
                                     setActiveIndex(index);
                                 }
-                            }}
-                            id={index.toString()}
-                            className="scroll-mt-24 flex flex-col gap-6">
-                            {item.sections?.map((item, index) => (
-                                <div key={index}>
+                            }}>
+                            {item.sections?.map((item, blogindex) => (
+                                <div key={blogindex}>
                                     {item?.acf_fc_layout === 'text' && (
-                                        <div>
-                                            <div
-                                                id={index.toString()}
-                                                className="scroll-mt-24 flex flex-col gap-6">
-                                                <TextBlock
-                                                    variant="light"
-                                                    textblock={item?.textblock}
-                                                    key={index}
-                                                />
-                                            </div>
+                                        <div className="flex flex-col gap-6">
+                                            <TextBlock
+                                                variant="light"
+                                                textblock={item?.textblock}
+                                            />
                                         </div>
                                     )}
                                     {item?.acf_fc_layout === 'media' && (

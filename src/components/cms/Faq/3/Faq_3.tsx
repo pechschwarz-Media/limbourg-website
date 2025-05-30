@@ -8,8 +8,8 @@ import { AcfTextBlock, Settings } from '@/lib/types';
 import { cn } from '@/lib/utils';
 import { cva } from 'class-variance-authority';
 import { AnimatePresence, motion, useInView } from 'motion/react';
-import { useRef, useState } from 'react';
-import { Button, Tabs, TabsContent, TabsList, TabsTrigger } from '@relume_io/relume-ui';
+import { useState } from 'react';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@relume_io/relume-ui';
 
 const answerVariants = cva('overflow-hidden', {
     variants: {
@@ -56,12 +56,12 @@ export default function Faq_3(content: Faq3Props) {
                 <Tabs
                     defaultValue={content.faq[0].category}
                     className="mt-20">
-                    <TabsList className="mb-12 gap-6 overflow-x-auto whitespace-nowrap md:mb-16">
+                    <TabsList className="mb-12 gap-1 overflow-x-auto whitespace-nowrap md:mb-16">
                         {content?.faq?.map((tab, index) => (
                             <TabsTrigger
                                 key={index}
                                 value={tab.category}
-                                className="cursor-pointer font-base w-full md:w-auto justify-center items-center gap-x-theme-lg disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-2 bg-transparent text-text-primary border-0 border-black h-10 md:h-12 rounded-none px-theme-2xl rounded-md md:rounded-xl transition-all flex lg:inline-flex aria-selected:border">
+                                className="cursor-pointer font-base w-full md:w-auto justify-center items-center gap-x-theme-lg disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-2 bg-transparent text-text-primary border-0 border-black h-10 md:h-12 rounded-none px-theme-2xl rounded-md md:rounded-xl flex lg:inline-flex aria-selected:border">
                                 {tab.category}
                             </TabsTrigger>
                         ))}
