@@ -6,6 +6,9 @@ import { getPageMeta } from '@/lib/queries/pages/getPageMeta';
 import { getPagesUris } from '@/lib/queries/pages/getPagesUris';
 import { notFound } from 'next/navigation';
 
+export const dynamic = 'force-static';
+export const revalidate = 3600;
+
 export async function generateStaticParams() {
     const pages = await getPagesUris();
 

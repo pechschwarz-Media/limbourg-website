@@ -1,26 +1,18 @@
-import { Section } from '@/components/static/Section/Section';
 import { getPost } from '@/lib/queries/posts/getPost';
 import { getPostId } from '@/lib/queries/posts/getPostId';
 import { getPostMeta } from '@/lib/queries/posts/getPostMeta';
 import { getPostSlugs } from '@/lib/queries/posts/getPostSlugs';
 import { notFound } from 'next/navigation';
-import parse from 'html-react-parser';
-import dateFormat from 'dateformat';
-import Image from 'next/image';
-import Link from 'next/link';
 import ComponentRenderer from '@/lib/ComponentRenderer';
 import getOptions from '@/lib/queries/options/getOptions';
 import Blog_Teaser_1 from '@/components/cms/Blog/Teaser/1/Blog_Teaser_1';
-import { Tag } from '@/components/ui/Tag/Tag';
-import { IconArrowLeft } from '@/components/icons/IconArrowLeft';
-import { IconChevronLeft } from '@/components/icons/IconChevronLeft';
-import { Headline } from '@/components/ui/Headline/Headline';
 import getAuthor from '@/lib/queries/author/getAuthor';
-import { Form } from '@/components/ui/Form/GravityForms/Form';
 import { getForm } from '@/lib/queries/form/getForm';
-import ShareButtons from '@/components/ui/ShareButtons/shareButton';
 import BlogContent from '@/components/cms/Blog/BlogContent';
 import BlogHeader from '@/components/cms/Blog/BlogHeader';
+
+export const dynamic = 'force-static';
+export const revalidate = 3600;
 
 export async function generateStaticParams() {
     const posts = await getPostSlugs();
