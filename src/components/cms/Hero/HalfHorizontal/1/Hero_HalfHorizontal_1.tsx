@@ -69,7 +69,7 @@ export default function Hero_HalfHorizontal_1(content: HeroHalfHorizontal1Props)
             settings={content?.settings}>
             <div className="container">
                 <div className="grid lg:grid-cols-12 items-center gap-y-theme-3xl md:gap-y-theme-7xl gap-x-theme-3xl">
-                    <div className="lg:col-span-6 xl:col-span-5 space-y-theme-3xl">
+                    <div className="lg:col-span-6 xl:col-span-6 space-y-theme-3xl">
                         {content?.showrating && (
                             <motion.div
                                 initial={{ opacity: 0, y: 100 }}
@@ -89,7 +89,10 @@ export default function Hero_HalfHorizontal_1(content: HeroHalfHorizontal1Props)
                             style={{ opacity: 0, y: 100 }}
                             transition={{ duration: 0.5, delay: 0.1 }}
                             className="text-h1 font-headline leading-headline">
-                            <Headline headline={content?.headline} />
+                            <Headline
+                                headline={content?.headline}
+                                className="!hyphens-auto"
+                            />
                         </motion.div>
                         <motion.div
                             initial={{ opacity: 0, y: 100 }}
