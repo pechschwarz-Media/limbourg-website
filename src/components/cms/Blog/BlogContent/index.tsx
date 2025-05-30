@@ -103,7 +103,7 @@ export default function BlogContent({
                         </div>
                     )}
 
-                    <hr className="bg-border-secondary mb-12"></hr>
+                    {/* <hr className="bg-border-secondary mb-12"></hr>
                     <div className="flex flex-col gap-4 mb-12">
                         <Headline
                             headline={{
@@ -114,7 +114,7 @@ export default function BlogContent({
                             }}
                         />
                         <Form form={form} />
-                    </div>
+                    </div> */}
                     <hr className="bg-border-secondary mb-12"></hr>
                     <div className="flex flex-col gap-4 mb-12">
                         <Headline
