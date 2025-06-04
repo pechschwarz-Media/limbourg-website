@@ -6,6 +6,7 @@ import Link from 'next/link';
 import './globals.css';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import { GoogleTagManager } from '@next/third-parties/google';
 
 const saans = localFont({
     src: [
@@ -30,6 +31,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <html
             lang="de"
             className="scroll-smooth">
+            <GoogleTagManager gtmId="GTM-W66PF59P" />
             <body
                 className={cn(
                     saans.variable,
