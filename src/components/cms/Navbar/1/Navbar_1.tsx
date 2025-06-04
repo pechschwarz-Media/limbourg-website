@@ -12,6 +12,7 @@ import { AcfLink, AcfMedia, NavbarProps, Options } from '@/lib/types';
 import Image from 'next/image';
 import { IconChevronDown } from '@/components/icons/IconChevronDown';
 import Calender from '@/components/icons/Calender';
+import { IconPhone } from '@/components/icons/IconPhone';
 
 const headerVariants = cva('fixed z-40 top-0 left-0 w-full text-black h-[72px]', {
     variants: {
@@ -252,7 +253,7 @@ export default function Navbar_1({ variant, navbar, navbutton, options, navbox }
                                 </div>
                             </button>
                         </div>
-                        <div className="hidden lg:flex items-center gap-lg">
+                        <div className="hidden lg:flex items-center gap-theme-lg">
                             <Button
                                 as="link"
                                 variant="primary"
@@ -260,6 +261,11 @@ export default function Navbar_1({ variant, navbar, navbutton, options, navbox }
                                 <Calender className="group size-3xl text-inherit" />
                                 {navbutton?.title}
                             </Button>
+                            <Link
+                                href="tel:00495118995424"
+                                className="flex size-10 md:size-12 border hover:bg-brand-black hover:text-text-alternate transition-all border-brand-black rounded-md md:rounded-xl items-center justify-center">
+                                <IconPhone />
+                            </Link>
                         </div>
                     </div>
                 </div>

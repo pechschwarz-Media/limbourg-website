@@ -145,7 +145,9 @@ export default function Footer_2_inner({ variant, footerinfo, logos }: Footer1Pr
                 <div className={cn(footerMainVariants({ variant }))}>
                     <div className="grid lg:grid-cols-3 gap-theme-3xl">
                         <div className="order-2 lg:order-1">
-                            <address className="not-italic leading-body">{parse(footerinfo?.leftside?.adress)}</address>
+                            <address className="not-italic leading-body [&>p]:mb-theme-xl [&>p>a]:underline">
+                                {parse(footerinfo?.leftside?.adress)}
+                            </address>
                         </div>
                         <div className="order-1 lg:order-2">
                             <nav

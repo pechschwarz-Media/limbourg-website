@@ -67,7 +67,7 @@ export default function Content_32(content: Content32Props) {
                             key={index}
                             id={index.toString()}
                             threshold={0.6}
-                            className="scroll-mt-24"
+                            className="scroll-mt-24 space-y-theme-6xl"
                             rootMargin="0% 0% 30% 0%"
                             onChange={(inView) => {
                                 if (inView) {
