@@ -20,7 +20,7 @@ export function Media(content: MediaProps) {
                     alt={content?.media?.media?.alt}
                     width={content?.media?.media?.width}
                     height={content?.media?.media?.height}
-                    className={cn(content?.className, content?.media?.media_mobile && 'hidden sm:block')}
+                    className={cn(content?.className, content?.media?.media_mobile && 'hidden lg:block')}
                     quality={100}
                 />
             )}
@@ -31,7 +31,7 @@ export function Media(content: MediaProps) {
                     loop
                     playsInline
                     controls={content?.controls === false ? false : true}
-                    className={cn(content?.className, content?.media?.media_mobile && 'hidden sm:block')}>
+                    className={cn(content?.className, content?.media?.media_mobile && 'hidden lg:block')}>
                     <source src={content?.media?.media?.url} />
                 </video>
             )}
@@ -41,7 +41,7 @@ export function Media(content: MediaProps) {
                     alt={content?.media?.media_mobile?.alt}
                     width={content?.media?.media_mobile?.width}
                     height={content?.media?.media_mobile?.height}
-                    className={cn(content?.className, 'sm:hidden')}
+                    className={cn(content?.className, 'lg:hidden')}
                 />
             )}
             {content?.media?.media_mobile && content?.media?.media_mobile?.type === 'video' && (
@@ -51,7 +51,7 @@ export function Media(content: MediaProps) {
                     loop
                     playsInline
                     controls={content?.controls === false ? false : true}
-                    className={cn(content?.className, 'sm:hidden')}>
+                    className={cn(content?.className, 'lg:hidden')}>
                     <source src={content?.media?.media_mobile?.url} />
                 </video>
             )}
