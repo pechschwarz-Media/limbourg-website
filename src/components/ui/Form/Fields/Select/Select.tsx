@@ -4,7 +4,6 @@ import { IconChevronDown } from '@/components/icons/IconChevronDown';
 import { cn } from '@/lib/utils';
 import parse from 'html-react-parser';
 import { useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
 
 type InputProps = {
     label: string;
@@ -14,18 +13,6 @@ type InputProps = {
 export function Select({ className, label, options, ...props }: InputProps) {
     const searchParams = useSearchParams();
     const vorauswahl = searchParams.get('auswahl');
-    const [selectedValue, setSelectedValue] = useState('');
-
-    useEffect(() => {
-        if (vorauswahl && options.some((opt) => opt.value === vorauswahl)) {
-            setSelectedValue(vorauswahl);
-        }
-    }, [vorauswahl, options]);
-
-    const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        setSelectedValue(e.target.value);
-        props.onChange?.(e);
-    };
 
     return (
         <label className="relative block text-tiny border border-border-secondary bg-neutral-25 rounded-xs">
@@ -34,9 +21,8 @@ export function Select({ className, label, options, ...props }: InputProps) {
                     'py-5 w-full block px-theme-lg peer rounded-xs text-text-secondary focus-visible:outline focus-visible:outline-border-primary appearance-none',
                     className,
                 )}
-                value={selectedValue}
-                onChange={handleChange}
-                {...props}>
+                {...props}
+                defaultValue={vorauswahl || ''}>
                 <option
                     value=""
                     disabled>
