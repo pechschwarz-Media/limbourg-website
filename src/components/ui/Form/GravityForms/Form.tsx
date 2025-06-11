@@ -51,7 +51,6 @@ export function Form({ form }: FormProps) {
         });
 
         const { status } = (await response.json()) as APIRouteFormResponse;
-        console.log(status);
         if (status) {
             const confirmation = Object.values(form?.confirmations)[0];
 
