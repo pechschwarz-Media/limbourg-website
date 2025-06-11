@@ -13,7 +13,9 @@ export type TeamProps = {
 
 export default async function getAuthor(authorIds: string | undefined) {
     if (authorIds) {
-        const response = await api<TeamProps[]>(`wp/v2/team?include=${authorIds}&acf_format=standard&_embed`);
+        const response = await api<TeamProps[]>(
+            `wp/v2/team?include=${authorIds}&acf_format=standard&_embed&per_page=100`,
+        );
         return response;
     } else {
         return null;

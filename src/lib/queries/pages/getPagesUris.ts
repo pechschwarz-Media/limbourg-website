@@ -7,6 +7,6 @@ type PageUrisProps = {
 };
 
 export async function getPagesUris() {
-    const response = await api<PageUrisProps[]>(`wp/v2/pages?_fields=uri,link,modified`);
+    const response = await api<PageUrisProps[]>(`wp/v2/pages?_fields=uri,link,modified&per_page=100`);
     return response;
 }

@@ -6,6 +6,6 @@ type PostSlugsProps = {
 };
 
 export async function getPostSlugs() {
-    const response = await api<PostSlugsProps[]>(`wp/v2/posts?_fields=slug,modified`);
+    const response = await api<PostSlugsProps[]>(`wp/v2/posts?_fields=slug,modified&per_page=100`);
     return response;
 }

@@ -12,6 +12,6 @@ export type PageMetaProps = {
 };
 
 export async function getPageMeta({ id }: { id: number }) {
-    const response = await api<PageMetaProps>(`wp/v2/pages/${id}?_fields=yoast_head_json`);
+    const response = await api<PageMetaProps>(`wp/v2/pages/${id}?_fields=yoast_head_json&per_page=100`);
     return response.yoast_head_json;
 }

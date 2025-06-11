@@ -16,8 +16,6 @@ export async function POST(req: Request) {
 
         const data = (await response.json()) as GravityFormsResponse;
 
-        console.log(JSON.stringify(data, null, 2));
-
         if (!data.is_valid) {
             return NextResponse.json({ status: false });
         }

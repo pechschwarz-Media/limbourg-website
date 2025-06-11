@@ -4,6 +4,6 @@ import { PageMetaProps } from '../pages/getPageMeta';
 type PostMetaProps = PageMetaProps;
 
 export async function getPostMeta({ id }: { id: number }) {
-    const response = await api<PostMetaProps>(`wp/v2/post/${id}?_fields=yoast_head_json`);
+    const response = await api<PostMetaProps>(`wp/v2/post/${id}?_fields=yoast_head_json&per_page=100`);
     return response.yoast_head_json;
 }
