@@ -14,6 +14,7 @@ type Content = {
 };
 
 export default function Layout_484(content: Content) {
+    console.log(content);
     const headingRef = useRef<HTMLHeadingElement>(null);
 
     const { scrollYProgress } = useScroll({

@@ -71,16 +71,14 @@ export function Contact_Form_1_Inner({
                         <div className="border-t border-border-secondary mt-theme-4xl pt-theme-4xl">
                             <p className="font-medium mb-4">Telefonische Erreichbarkeit</p>
                             <table className="text-text-secondary">
-                                <tbody>
-                                    {content?.callingtimes?.map((callingtime, index) => {
-                                        return (
-                                            <tr key={index}>
-                                                <td className="pr-theme-4xl py-theme-xs">{callingtime?.day}</td>
-                                                <td className="py-theme-xs">{callingtime?.time}</td>
-                                            </tr>
-                                        );
-                                    })}
-                                </tbody>
+                                {content?.callingtimes?.map((callingtime, index) => {
+                                    return (
+                                        <tr key={index}>
+                                            <td className="pr-theme-4xl py-theme-xs">{callingtime?.day}</td>
+                                            <td className="py-theme-xs">{callingtime?.time}</td>
+                                        </tr>
+                                    );
+                                })}
                             </table>
                         </div>
                     </motion.div>
