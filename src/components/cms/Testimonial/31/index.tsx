@@ -66,7 +66,7 @@ export default function Testimonial_31(content: TestimonialLogoQuoteName1Props) 
                                 href={testimonial?.link?.url}
                                 target={testimonial?.link?.target}
                                 className="group">
-                                <div className="w-full mb-4xl rounded-md overflow-hidden">
+                                <div className="w-full mb-4xl aspect-[4/5] rounded-md overflow-hidden">
                                     <Image
                                         src={testimonial?.media?.url}
                                         alt={testimonial?.media?.alt}
