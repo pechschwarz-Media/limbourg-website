@@ -30,21 +30,17 @@ const textVariants = cva('max-w-lg', {
 
 export default function Blog_Overview_1_Inner({
     content,
-    featured,
     categories,
     posts,
     posttype,
-    exclude,
     amount,
     category,
     total,
 }: {
     content: any;
-    featured: PostPreview | undefined | null;
     categories: Category[];
     posts: PostPreview[];
     posttype: string;
-    exclude: number[];
     amount: number;
     category: number[];
     total: string;
@@ -74,9 +70,7 @@ export default function Blog_Overview_1_Inner({
 
     const { data, isLoading } = useSWR<{ posts: PostPreview[]; headers: Headers }>(
         init
-            ? `wp/v2/content?posttype=${posttype}&exclude=${
-                  exclude ? exclude.join(',') : ''
-              }&per_page=${amount}&category=${
+            ? `wp/v2/content?posttype=${posttype}&per_page=${amount}&category=${
                   currentCategory ? currentCategory : category ? category.join(',') : ''
               }&page=${page}`
             : null,
@@ -131,20 +125,6 @@ export default function Blog_Overview_1_Inner({
                             <TextBlock
                                 variant={content?.settings?.variant}
                                 textblock={content?.textblock}
-                            />
-                        </motion.div>
-                    )}
-                    {featured && (
-                        <motion.div
-                            initial={{ opacity: 0, y: 100 }}
-                            animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 100 }}
-                            style={{ opacity: 0, y: 100 }}
-                            transition={{ duration: 0.5, delay: 0.1 }}>
-                            <Blog_Card_Large_1
-                                post={featured}
-                                variant={content?.settings?.variant}
-                                showAuthor={content?.showAuthor}
-                                showButton={content?.showButton}
                             />
                         </motion.div>
                     )}

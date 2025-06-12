@@ -16,17 +16,7 @@ export type BlogOverview1Props = {
 };
 
 export default async function Blog_Overview_1(content: BlogOverview1Props) {
-    const featured = await getPreview({
-        id: content?.featured,
-        posttype: content?.posttype,
-        amount: 1,
-        category: content?.category ? content?.category : [],
-    });
-
-    const featuredId = featured?.data?.at(0)?.id;
-
     const posts = await getPreview({
-        exclude: featuredId ? [featuredId] : [],
         posttype: content?.posttype,
         amount: content?.amount,
         category: content?.category ? content?.category : [],
@@ -37,11 +27,9 @@ export default async function Blog_Overview_1(content: BlogOverview1Props) {
     return (
         <Blog_Overview_1_Inner
             content={content}
-            featured={featured.data?.at(0)}
             posts={posts?.data}
             categories={categories}
             posttype={content?.posttype}
-            exclude={featuredId ? [featuredId] : []}
             amount={content?.amount}
             category={content?.category ? content?.category : []}
             total={posts?.headers.get('x-wp-totalpages') || '0'}
