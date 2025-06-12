@@ -182,40 +182,46 @@ export default function Blog_Overview_1_Inner({
                             </motion.nav>
                         )}
                     </div>
-                    <div className="grid md:grid-cols-3 items-start gap-theme-3xl gap-y-theme-7xl">
-                        {fetchedPosts.length > 0 ? (
-                            fetchedPosts?.map((post, index) => {
-                                return (
-                                    <Blog_Card_1
-                                        key={index}
-                                        variant={content?.settings?.variant}
-                                        post={post}
-                                        showAuthor={content?.showAuthor}
-                                        showButton={content?.showButton}
-                                    />
-                                );
-                            })
-                        ) : (
-                            <p>Keine Beiträge zu diesem Thema gefunden</p>
-                        )}
-                    </div>
-                    {page < totalPages && (
-                        <div
-                            className="flex justify-center"
-                            ref={loader}>
-                            {!isLoading && (
-                                <Button
-                                    as="button"
-                                    variant="secondary"
-                                    onClick={() => {
-                                        loadMore();
-                                    }}>
-                                    Mehr laden
-                                </Button>
+                    <motion.nav
+                        initial={{ opacity: 0, y: 100 }}
+                        animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 100 }}
+                        style={{ opacity: 0, y: 100 }}
+                        transition={{ duration: 0.5, delay: 0.4 }}>
+                        <div className="grid md:grid-cols-3 items-start gap-theme-3xl gap-y-theme-7xl">
+                            {fetchedPosts.length > 0 ? (
+                                fetchedPosts?.map((post, index) => {
+                                    return (
+                                        <Blog_Card_1
+                                            key={index}
+                                            variant={content?.settings?.variant}
+                                            post={post}
+                                            showAuthor={content?.showAuthor}
+                                            showButton={content?.showButton}
+                                        />
+                                    );
+                                })
+                            ) : (
+                                <p>Keine Beiträge zu diesem Thema gefunden</p>
                             )}
-                            {isLoading && <Loader text="Weitere Posts werden geladen..." />}
                         </div>
-                    )}
+                        {page < totalPages && (
+                            <div
+                                className="flex justify-center"
+                                ref={loader}>
+                                {!isLoading && (
+                                    <Button
+                                        as="button"
+                                        variant="secondary"
+                                        onClick={() => {
+                                            loadMore();
+                                        }}>
+                                        Mehr laden
+                                    </Button>
+                                )}
+                                {isLoading && <Loader text="Weitere Posts werden geladen..." />}
+                            </div>
+                        )}
+                    </motion.nav>
                 </div>
             </div>
         </Section>
