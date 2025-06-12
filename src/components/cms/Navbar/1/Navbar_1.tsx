@@ -262,7 +262,7 @@ export default function Navbar_1({ variant, navbar, navbutton, options, navbox }
                                 {navbutton?.title}
                             </Button>
                             <Link
-                                id="phone-link"
+                                id="phone-tag"
                                 href="tel:00495118995424"
                                 className="flex size-10 md:size-12 border hover:bg-brand-black hover:text-text-alternate transition-all border-brand-black rounded-md md:rounded-xl items-center justify-center">
                                 <IconPhone />
