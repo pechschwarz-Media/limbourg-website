@@ -33,10 +33,10 @@ export default function Layout_249(content: Header1Props) {
                             href={box?.link?.url}
                             target={box?.link?.target}
                             className="group overflow-hidden">
-                            <div className="w-full h-auto rounded-md overflow-hidden">
+                            <div className="w-full aspect-[4/5] rounded-md overflow-hidden">
                                 <Media
                                     media={box?.media}
-                                    className="size-full group-hover:scale-105 transition-transform duration-300 ease-in-out"
+                                    className="size-full group-hover:scale-105 transition-transform duration-300 ease-in-out object-cover"
                                 />
                             </div>
 
