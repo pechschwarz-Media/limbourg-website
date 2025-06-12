@@ -131,13 +131,6 @@ export default function Blog_Overview_1_Inner({
                 </div>
                 <div className="space-y-theme-6xl">
                     <div className="space-y-theme-3xl">
-                        <motion.div
-                            initial={{ opacity: 0, y: 100 }}
-                            animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 100 }}
-                            style={{ opacity: 0, y: 100 }}
-                            transition={{ duration: 0.5, delay: 0.2 }}>
-                            <Headline headline={{ headline: 'Latest News', tagline: '', tag: 'h3', style: 'h3' }} />
-                        </motion.div>
                         {category?.length === 0 && (
                             <motion.nav
                                 initial={{ opacity: 0, y: 100 }}
