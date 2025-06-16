@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
         remotePatterns: [
             {
                 protocol: 'https',
-                hostname: 'limbourg-backend.pechschwarz.dev',
+                hostname: 'backend.dr-limbourg.de',
                 port: '',
             },
         ],
