@@ -431,6 +431,11 @@ const nextConfig: NextConfig = {
                 destination: 'https://www.dr-limbourg.de/behandlungen/falten-und-haut/',
                 permanent: true,
             },
+            {
+                source: '/behandlungen/falten/lp-fadenlift/',
+                destination: 'https://dr-limbourg.de/behandlungen/falten-und-haut/fadenlifting/',
+                permanent: true,
+            },
 
             // Ärzteteam
             {
