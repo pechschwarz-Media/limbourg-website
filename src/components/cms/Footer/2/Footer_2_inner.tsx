@@ -176,7 +176,8 @@ export default function Footer_2_inner({ variant, footerinfo, logos }: Footer1Pr
                                     <Button
                                         as="link"
                                         variant="secondary"
-                                        link={footerinfo?.rightside?.button}>
+                                        link={footerinfo?.rightside?.button}
+                                        className="hover:border-border-alternate">
                                         {footerinfo?.rightside?.button?.title}
                                     </Button>
                                 </div>

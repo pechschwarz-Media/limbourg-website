@@ -10,9 +10,9 @@ export const buttonVariants = cva(
         variants: {
             variant: {
                 primary:
-                    'bg-brand-black text-text-alternate border border-brand-black h-10 md:h-12 rounded-none px-theme-2xl rounded-md md:rounded-xl transition-all flex lg:inline-flex',
+                    'bg-brand-black text-text-alternate border border-brand-black h-10 md:h-12 rounded-none px-theme-2xl rounded-md md:rounded-xl transition-all flex lg:inline-flex hover:bg-background-primary hover:text-text-primary',
                 secondary:
-                    'bg-background-primary text-text-primary border border-brand-black h-10 md:h-12 rounded-none px-theme-2xl rounded-md md:rounded-xl transition-all flex lg:inline-flex',
+                    'bg-background-primary text-text-primary border border-brand-black h-10 md:h-12 rounded-none px-theme-2xl rounded-md md:rounded-xl transition-all flex lg:inline-flex hover:bg-brand-black hover:text-text-alternate',
                 text: 'items-center',
             },
         },
