@@ -22,12 +22,16 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ uri: string[] }> }) {
-    const uri = (await params).uri ? `/${(await params).uri.join('/')}/` : '/';
+    const resolvedParams = await params;
+    const uriPath = resolvedParams.uri ? `/${resolvedParams.uri.join('/')}/` : '/';
 
-    const id = await getPageId({ uri });
+    const id = await getPageId({ uri: uriPath });
 
     if (id) {
         const metadata = await getPageMeta({ id });
+
+        const isKontakt = uriPath === '/kontakt/' || uriPath === '/kontakt';
+
         return {
             title: metadata?.title,
             description: metadata?.description || '',
@@ -35,6 +39,11 @@ export async function generateMetadata({ params }: { params: Promise<{ uri: stri
                 index: metadata?.robots?.index,
                 follow: metadata?.robots?.follow,
             },
+            ...(isKontakt && {
+                alternates: {
+                    canonical: 'https://dr-limbourg.de/kontakt/',
+                },
+            }),
         };
     }
 }
