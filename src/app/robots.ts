@@ -1,12 +1,21 @@
 import type { MetadataRoute } from 'next';
 
 export default function robots(): MetadataRoute.Robots {
+    if (process.env.NODE_ENV === 'development') {
+        return {
+            rules: {
+                userAgent: '*',
+                disallow: '/',
+            },
+            sitemap: 'https://dr-limbourg.de/sitemap.xml',
+        };
+    }
+
     return {
         rules: {
             userAgent: '*',
-            allow: process.env.NODE_ENV === 'production' ? '/' : '',
-            disallow: process.env.NODE_ENV === 'production' ? '' : '/',
+            allow: '/',
         },
-        sitemap: 'https://acme.com/sitemap.xml',
+        sitemap: 'https://dr-limbourg.de/sitemap.xml',
     };
 }
