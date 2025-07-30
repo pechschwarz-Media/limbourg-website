@@ -2,7 +2,6 @@
 
 import { Section } from '@/components/static/Section/Section';
 import { Button } from '@/components/ui/Button/Button';
-import { Headline } from '@/components/ui/Headline/Headline';
 import { Loader } from '@/components/ui/Loader/Loader';
 import { TextBlock } from '@/components/ui/TextBlock/TextBlock';
 import { Category, PostPreview } from '@/lib/types';
@@ -13,7 +12,6 @@ import { useEffect, useRef, useState } from 'react';
 import { useInView as useIntersectionObserverInView } from 'react-intersection-observer';
 import useSWR from 'swr';
 import Blog_Card_1 from '../../Card/1/Blog_Card_1';
-import Blog_Card_Large_1 from '../../Card/Large/1/Blog_Card_Large_1';
 import parse from 'html-react-parser';
 
 const textVariants = cva('max-w-lg', {

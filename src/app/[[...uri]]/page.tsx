@@ -4,7 +4,7 @@ import { getPage } from '@/lib/queries/pages/getPage';
 import { getPageId } from '@/lib/queries/pages/getPageId';
 import { getPageMeta } from '@/lib/queries/pages/getPageMeta';
 import { getPagesUris } from '@/lib/queries/pages/getPagesUris';
-import { notFound } from 'next/navigation';
+import NotFound from '../not-found';
 
 export const dynamic = 'force-static';
 export const revalidate = 3600;
@@ -54,7 +54,7 @@ export default async function Page({ params }: { params: Promise<{ uri: string[]
     const id = await getPageId({ uri });
 
     if (!id) {
-        notFound();
+        NotFound();
     }
 
     const page = await getPage({ id });
