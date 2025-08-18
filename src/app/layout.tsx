@@ -32,6 +32,10 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             lang="de"
             className="scroll-smooth">
             <GoogleTagManager gtmId="GTM-W66PF59P" />
+            <meta
+                name="google-site-verification"
+                content="yd8FUlg1CN-dzFjbGNdm7gVd2FbY6Tbs62AoyaKdROg"
+            />
             <body
                 className={cn(
                     saans.variable,
