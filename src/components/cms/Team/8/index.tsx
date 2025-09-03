@@ -31,7 +31,7 @@ export default function Team_8(content: Content) {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {content?.teamboxes?.map((box, index) => (
                         <div key={index}>
-                            <div className="w-full lg:aspect-[4/6] rounded-md overflow-hidden">
+                            <div className="w-full aspect-[3/4] lg:aspect-[4/6] rounded-md overflow-hidden">
                                 <Image
                                     src={box?.teamimage?.url}
                                     alt={box?.teamimage?.alt}
