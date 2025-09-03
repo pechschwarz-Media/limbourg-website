@@ -28,7 +28,7 @@ export default function Team_8(content: Content) {
                         classNameTagline="text-center"
                     />
                 </div>
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
                     {content?.teamboxes?.map((box, index) => (
                         <div key={index}>
                             <div className="w-full lg:aspect-[4/6] rounded-md overflow-hidden">
