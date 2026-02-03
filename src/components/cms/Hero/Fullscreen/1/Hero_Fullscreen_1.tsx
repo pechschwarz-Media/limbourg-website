@@ -68,6 +68,7 @@ export default function Hero_Fullscreen_1(content: HeroFullscreen1Props) {
                         media={content?.media}
                         controls={false}
                         className="size-full object-cover"
+                        loading="eager"
                     />
                 </div>
                 <div className="h-full relative">
