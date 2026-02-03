@@ -7,7 +7,6 @@ import ComponentRenderer from '@/lib/ComponentRenderer';
 import getOptions from '@/lib/queries/options/getOptions';
 import Blog_Teaser_1 from '@/components/cms/Blog/Teaser/1/Blog_Teaser_1';
 import getAuthor from '@/lib/queries/author/getAuthor';
-import { getForm } from '@/lib/queries/form/getForm';
 import BlogContent from '@/components/cms/Blog/BlogContent';
 import BlogHeader from '@/components/cms/Blog/BlogHeader';
 
@@ -53,16 +52,12 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
     const options = await getOptions();
     const authorIds = post?.acf?.authors?.toString();
     const authors = await getAuthor(authorIds);
-    const form = await getForm({ id: 2 });
-    let counter = 1;
 
     return (
         <>
             <BlogHeader post={post} />
             <BlogContent
                 authors={authors}
-                form={form}
-                options={options}
                 post={post}
             />
 
