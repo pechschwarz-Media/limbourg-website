@@ -40,87 +40,6 @@ const titleVariants = cva('text-text-secondary font-medium mb-theme-xl', {
     },
 });
 
-const linkVariants = cva('flex items-center gap-x-xl lg:p-lg rounded-xl group transition-all font-highlight', {
-    variants: {
-        variant: {
-            glass: 'lg:hover:bg-neutral-500/30',
-            light: 'lg:hover:bg-brand-primary-100',
-            dark: 'lg:hover:bg-brand-primary-800',
-        },
-    },
-    defaultVariants: {
-        variant: 'glass',
-    },
-});
-
-const descriptionVariants = cva('text-tiny mt-[2px]', {
-    variants: {
-        variant: {
-            glass: 'lg:text-text-tertiary',
-            light: 'lg:text-text-secondary',
-            dark: 'lg:text-text-tertiary',
-        },
-    },
-    defaultVariants: {
-        variant: 'glass',
-    },
-});
-
-const iconVariants = cva(
-    'bg-neutral-100 lg:group-hover:bg-brand-secondary-300 text-text-primary size-12 rounded-md flex items-center justify-center transition-all',
-    {
-        variants: {
-            variant: {
-                glass: 'lg:bg-neutral-25',
-                light: 'lg:bg-brand-primary-200',
-                dark: 'lg:bg-brand-primary-200',
-            },
-        },
-        defaultVariants: {
-            variant: 'glass',
-        },
-    },
-);
-
-const tileVariants = cva('block rounded-xl lg:-mx-lg lg:p-lg transition-all relative', {
-    variants: {
-        variant: {
-            glass: 'lg:hover:bg-neutral-25/15',
-            light: 'lg:hover:bg-brand-primary-100',
-            dark: 'lg:hover:bg-brand-primary-800',
-        },
-    },
-    defaultVariants: {
-        variant: 'glass',
-    },
-});
-
-const tileTitleVariants = cva('hidden lg:block font-highlight mb-xl', {
-    variants: {
-        variant: {
-            glass: 'lg:text-text-tertiary',
-            light: 'lg:text-text-secondary',
-            dark: 'lg:text-text-tertiary',
-        },
-    },
-    defaultVariants: {
-        variant: 'glass',
-    },
-});
-
-const tileDescriptionVariants = cva('text-small', {
-    variants: {
-        variant: {
-            glass: 'lg:text-text-tertiary',
-            light: 'lg:text-text-secondary',
-            dark: 'lg:text-text-tertiary',
-        },
-    },
-    defaultVariants: {
-        variant: 'glass',
-    },
-});
-
 type Submenu1Props = {
     variant: VariantProps<typeof submenuVariants>['variant'];
     visible: boolean;
@@ -144,10 +63,6 @@ export default function Submenu_1({
     const [faqIndex, setFaqIndex] = useState<null | number>(null);
     const isMobile = useMediaQuery({
         query: '(max-width: 64rem)',
-    });
-    const container = useRef(null);
-    const isInView = useInView(container, {
-        once: true,
     });
     return (
         <AnimatePresence>
@@ -205,6 +120,7 @@ export default function Submenu_1({
                                         className="relative rounded-md overflow-hidden self-start group mt-6">
                                         <Media
                                             media={navbox?.media}
+                                            loading="eager"
                                             className="max-w-[340px] group-hover:scale-105 transition-all"
                                         />
                                         <div className="absolute inset-0 bg-black opacity-30"></div>

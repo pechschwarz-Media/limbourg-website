@@ -1,15 +1,31 @@
+'use client';
+
 import { Facebook } from '@/components/icons/Facebook';
 import { LinkedIn } from '@/components/icons/LinkedIn';
 import { Share } from '@/components/icons/Share';
 import { X } from '@/components/icons/X';
 import { PostProps } from '@/lib/types';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function ShareButtons({ post }: { post?: PostProps | null }) {
+    const [canNativeShare, setCanNativeShare] = useState(false);
+
     const shareData = {
         title: post?.title?.rendered ?? '',
         url: post?.link ?? '',
     };
+
+    useEffect(() => {
+        // Prüfe Web Share API erst nach dem Mounting auf dem Client
+        const data = {
+            title: post?.title?.rendered ?? '',
+            url: post?.link ?? '',
+        };
+        if ('share' in navigator && navigator.canShare?.(data)) {
+            setCanNativeShare(true);
+        }
+    }, [post?.title?.rendered, post?.link]);
+
     const icons = [
         {
             name: '',
@@ -44,25 +60,21 @@ export default function ShareButtons({ post }: { post?: PostProps | null }) {
         <div className="flex gap-2">
             {icons.map((item, i) => {
                 if (item.isShare) {
-                    if (
-                        typeof window !== 'undefined' &&
-                        'share' in window.navigator &&
-                        window.navigator.canShare(shareData)
-                    ) {
-                        return (
-                            <button
-                                key={i}
-                                className={className}
-                                onClick={() => {
-                                    window.navigator.share(shareData);
-                                }}>
-                                {item.icon}
-                                <span className="sr-only">Den Beitrag teilen</span>
-                            </button>
-                        );
-                    } else {
+                    // Rendere den Share-Button nur wenn die Web Share API verfügbar ist
+                    if (!canNativeShare) {
                         return null;
                     }
+                    return (
+                        <button
+                            key={i}
+                            className={className}
+                            onClick={() => {
+                                navigator.share(shareData);
+                            }}>
+                            {item.icon}
+                            <span className="sr-only">Den Beitrag teilen</span>
+                        </button>
+                    );
                 }
                 return (
                     <a

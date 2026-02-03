@@ -45,6 +45,7 @@ export default function BlogHeader({ post }: BlogHeaderProps) {
                             height={postMedia?.media_details?.height}
                             className="size-full object-cover"
                             quality={100}
+                            loading="eager"
                         />
                     </div>
                 </div>

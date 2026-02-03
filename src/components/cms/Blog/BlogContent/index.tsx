@@ -1,45 +1,20 @@
 'use client';
 
-import {
-    AcfHeadline,
-    AcfMedia,
-    AcfTextBlock,
-    FlexibleContent,
-    FlexibleLayout,
-    FormProps,
-    ImageType,
-    Options,
-    PostProps,
-    Settings,
-} from '@/lib/types';
+import { FormProps, Options, PostProps } from '@/lib/types';
 import { Section } from '@/components/static/Section/Section';
 import { Wysiwyg } from '@/components/ui/Wysiwyg/Wysiwyg';
 import { TextBlock } from '@/components/ui/TextBlock/TextBlock';
 import { Media } from '@/components/ui/Media/Media';
 import Image from 'next/image';
 import { Headline } from '@/components/ui/Headline/Headline';
-import Dot from '@/components/icons/dot';
 import Link from 'next/link';
 import React from 'react';
 import { InView } from 'react-intersection-observer';
 import { cn } from '@/lib/utils';
 import { TeamProps } from '@/lib/queries/author/getAuthor';
-import { Form } from '@/components/ui/Form/GravityForms/Form';
 import ShareButtons from '@/components/ui/ShareButtons/shareButton';
-import ComponentRenderer from '@/lib/ComponentRenderer';
-import { inView } from 'framer-motion';
 
-export default function BlogContent({
-    authors,
-    form,
-    options,
-    post,
-}: {
-    authors: TeamProps[] | null;
-    form: FormProps;
-    options: Options;
-    post: PostProps;
-}) {
+export default function BlogContent({ authors, post }: { authors: TeamProps[] | null; post: PostProps }) {
     const [activeIndex, setActiveIndex] = React.useState<number | null>(null);
 
     return (
@@ -102,19 +77,6 @@ export default function BlogContent({
                             ))}
                         </div>
                     )}
-
-                    {/* <hr className="bg-border-secondary mb-12"></hr>
-                    <div className="flex flex-col gap-4 mb-12">
-                        <Headline
-                            headline={{
-                                style: 'h5',
-                                tagline: '',
-                                headline: 'Newsletter abonnieren',
-                                tag: 'h5',
-                            }}
-                        />
-                        <Form form={form} />
-                    </div> */}
                     <hr className="bg-border-secondary mb-12"></hr>
                     <div className="flex flex-col gap-4 mb-12">
                         <Headline

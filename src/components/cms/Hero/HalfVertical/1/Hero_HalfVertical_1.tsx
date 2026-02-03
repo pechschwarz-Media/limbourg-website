@@ -108,6 +108,7 @@ export default function Hero_HalfVertical_1(content: HeroHalfVertical1Props) {
                         <Media
                             media={content?.media}
                             className="aspect-[16/9] size-auto object-cover"
+                            loading="eager"
                         />
                     </motion.div>
                 </div>

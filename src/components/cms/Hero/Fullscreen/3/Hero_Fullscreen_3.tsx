@@ -51,6 +51,7 @@ export default function Hero_Fullscreen_2(content: HeroFullscreen3Props) {
                 <Media
                     media={content?.media}
                     className="size-full object-cover"
+                    loading="eager"
                 />
             </div>
             <div className="h-full relative pt-[72px]">

@@ -149,6 +149,7 @@ export default function Hero_HalfHorizontal_1(content: HeroHalfHorizontal1Props)
                             <Media
                                 media={content?.media}
                                 className="object-cover size-full"
+                                loading="eager"
                             />
                         </motion.div>
                     </div>
