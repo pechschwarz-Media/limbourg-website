@@ -55,6 +55,7 @@ const Components = {
     content_32: dynamic(() => import('@/components/cms/Content/32')),
     team_8: dynamic(() => import('@/components/cms/Team/8')),
     termin_1: dynamic(() => import('@/components/cms/Termin')),
+    Crisalix: dynamic(() => import('@/components/cms/CrisalixPage')),
 };
 
 export default function ComponentRenderer({ content, options }: { content: FlexibleContent; options: Options }) {
