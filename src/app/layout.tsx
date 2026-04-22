@@ -32,6 +32,23 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             lang="de"
             className="scroll-smooth">
             <Script
+                id="google-consent-mode"
+                strategy="beforeInteractive"
+                dangerouslySetInnerHTML={{
+                    __html: `
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('consent', 'default', {
+                            'ad_storage': 'denied',
+                            'analytics_storage': 'denied',
+                            'ad_user_data': 'denied',
+                            'ad_personalization': 'denied',
+                            'wait_for_update': 500
+                        });
+                    `,
+                }}
+            />
+            <Script
                 src="https://cloud.ccm19.de/app.js?apiKey=1fa07ed09355d056614058f87d142228edbba2d785876b9f&domain=69e8b2a109ec0a0c5d089232"
                 strategy="beforeInteractive"
                 referrerPolicy="origin"
