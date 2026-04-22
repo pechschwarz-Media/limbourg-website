@@ -254,12 +254,13 @@ export default function Navbar_1({ variant, navbar, navbutton, options, navbox }
                             </button>
                         </div>
                         <div className="hidden lg:flex items-center gap-theme-lg">
-                            <button
-                                id="openOtvWidgetBtn"
-                                className="bg-brand-black text-text-alternate border border-brand-black h-10 md:h-12 px-theme-2xl rounded-md md:rounded-xl transition-all hover:bg-background-primary hover:text-text-primary cursor-pointer inline-flex items-center gap-x-theme-lg text-regular font-medium">
+                            <Button
+                                as="link"
+                                variant="primary"
+                                link={navbutton}>
                                 <Calender className="group size-3xl text-inherit" />
-                                Online Termin buchen
-                            </button>
+                                {navbutton?.title}
+                            </Button>
                             <Link
                                 id="phone-tag"
                                 href="tel:00495118995424"

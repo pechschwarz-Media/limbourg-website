@@ -48,6 +48,18 @@ export type ButtonBaseProps = VariantProps<typeof buttonVariants> & ButtonOrLink
 export function Button({ className, ...props }: ButtonBaseProps) {
     if (props.as === 'link') {
         const { as, link, variant, ...rest } = props;
+
+        if (link?.url === '#onlinedate') {
+            return (
+                <button
+                    className={cn('openOtvWidgetBtn', buttonVariants({ variant, className }))}
+                    {...(rest as React.ButtonHTMLAttributes<HTMLButtonElement>)}
+                    role="button">
+                    {props.children}
+                </button>
+            );
+        }
+
         const target = link?.target ? link.target : '_self';
 
         return (
