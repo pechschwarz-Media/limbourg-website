@@ -6,7 +6,7 @@ import Link from 'next/link';
 import './globals.css';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-import { GoogleTagManager } from '@next/third-parties/google';
+import Script from 'next/script';
 
 const saans = localFont({
     src: [
@@ -31,7 +31,11 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <html
             lang="de"
             className="scroll-smooth">
-            <GoogleTagManager gtmId="GTM-W66PF59P" />
+            <Script
+                src="https://cloud.ccm19.de/app.js?apiKey=1fa07ed09355d056614058f87d142228edbba2d785876b9f&domain=69e8b2a109ec0a0c5d089232"
+                strategy="beforeInteractive"
+                referrerPolicy="origin"
+            />
             <meta
                 name="google-site-verification"
                 content="yd8FUlg1CN-dzFjbGNdm7gVd2FbY6Tbs62AoyaKdROg"
