@@ -55,6 +55,16 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                         </Link>
                     </div>
                 )}
+                {/* eslint-disable-next-line @next/next/no-sync-scripts */}
+                <script
+                    type="module"
+                    src="https://otv.aweos.de/otv-modul-widget.js?api-widget-key=cw_55f4e802427c3728e8879898af5259b5a6396f3dff09b169279dc6e37beb3ebf&clinic-id=praxis-dr-limbourg"
+                    data-clinic-id="praxis-dr-limbourg"
+                    data-api-url="https://otv.aweos.de"
+                    data-api-widget-key="cw_55f4e802427c3728e8879898af5259b5a6396f3dff09b169279dc6e37beb3ebf"
+                    data-auto-init="true"
+                    data-widget-target-selector="#openOtvWidgetBtn"
+                />
             </body>
         </html>
     );
