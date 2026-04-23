@@ -233,6 +233,23 @@ export default function Navbar_1({ variant, navbar, navbutton, options, navbox }
                                 </ul>
                             </nav>
                         </div>
+                        <div className="flex items-center gap-theme-lg">
+                            <Button
+                                as="link"
+                                variant="primary"
+                                link={navbutton}
+                                className="max-md:px-theme-md">
+                                <Calender className="hidden lg:block group size-3xl text-inherit" />
+                                {navbutton?.title}
+                            </Button>
+                            <Link
+                                id="phone-tag"
+                                href="tel:00495118995424"
+                                target="_blank"
+                                className="hidden lg:flex size-10 md:size-12 border hover:bg-brand-black hover:text-text-alternate transition-all border-brand-black rounded-md md:rounded-xl items-center justify-center">
+                                <IconPhone />
+                            </Link>
+                        </div>
                         <div className="flex gap-theme-md items-center lg:hidden">
                             <button
                                 className={cn(burgerVariants({ variant }))}
@@ -252,22 +269,6 @@ export default function Navbar_1({ variant, navbar, navbutton, options, navbox }
                                         )}></span>
                                 </div>
                             </button>
-                        </div>
-                        <div className="hidden lg:flex items-center gap-theme-lg">
-                            <Button
-                                as="link"
-                                variant="primary"
-                                link={navbutton}>
-                                <Calender className="group size-3xl text-inherit" />
-                                {navbutton?.title}
-                            </Button>
-                            <Link
-                                id="phone-tag"
-                                href="tel:00495118995424"
-                                target="_blank"
-                                className="flex size-10 md:size-12 border hover:bg-brand-black hover:text-text-alternate transition-all border-brand-black rounded-md md:rounded-xl items-center justify-center">
-                                <IconPhone />
-                            </Link>
                         </div>
                     </div>
                 </div>
